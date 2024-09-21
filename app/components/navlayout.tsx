@@ -4,7 +4,6 @@ import linkedin_logo from "../assets/linkedin_logo.png";
 import github_logo from "../assets/github_logo.png";
 import twitter_logo from "../assets/twitter_logo.png";
 import React from 'react';
-import Footer from "./footer";
 
 type NavLayoutProps = {
     children: React.ReactNode
@@ -19,7 +18,7 @@ const NavLayout: React.FC<NavLayoutProps> = ({ children }) => {
           </Link>
           <nav className="flex gap-4 justify-end z-10">
             <Link href="/" className="text-sm sm:text-base">Home</Link>
-            <Link href="/projects" className="text-sm sm:text-base">Projects</Link>
+            <Link href="/projects/" className="text-sm sm:text-base">Projects</Link>
             <Link href="#" className="text-sm sm:text-base">Resume</Link>
             <Link href="#" className="text-sm sm:text-base">Blog</Link>
             <Link href="#" className="text-sm sm:text-base">Contact</Link>
@@ -37,7 +36,6 @@ const NavLayout: React.FC<NavLayoutProps> = ({ children }) => {
           </div>
         </header>
         <main>{children}</main>
-        <Footer />
       </div>
     );
   };

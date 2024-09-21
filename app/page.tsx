@@ -1,10 +1,17 @@
-import Home from "./components/home";
+import Home from "../pages/home";
+import NavLayout from "../app/components/navlayout";
+import Footer from '../app/components/footer';
 
 const Page = () => {
   return(
+    <main>
     <div>
-      <Home />
+      <NavLayout>
+        <Home />
+      </NavLayout>
     </div>
+    <Footer />
+    </main>
   )
 }
 
