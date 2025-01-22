@@ -1,0 +1,281 @@
+{
+    "personalInfo": {
+      "name": "Sandesh Bharadwaj",
+      "phone": "857-313-0286",
+      "email": "sandesh.bharadwaj97@gmail.com",
+      "github": "github.com/tensorsofthewall",
+      "linkedin": "linkedin.com/in/sandeshbharadwaj97"
+    },
+    "skills": {
+      "languagesAndDatastores": [
+        "Python",
+        "C/C++",
+        "Java",
+        "Bash",
+        "MySQL",
+        "Logstash",
+        "ChromaDB",
+        "ElasticSearch"
+      ],
+      "devOpsAndSimulators": [
+        "AWS",
+        "GCP",
+        "Docker",
+        "Git",
+        "Perforce",
+        "CARLA",
+        "OpenAI Gym"
+      ],
+      "frameworks": [
+        "PyTorch",
+        "LangChain",
+        "TensorFlow",
+        "FastAPI",
+        "Firebase",
+        "Intel OpenVINO",
+        "Apache Spark",
+        "Apache AirFlow"
+      ],
+      "libraries": [
+        "OpenCV",
+        "Huggingface Transformers",
+        "Lightning",
+        "Scikit-Learn",
+        "Pandas",
+        "Selenium",
+        "Soundfile"
+      ]
+    },
+    "publications": [
+      {
+        "title": "Unified Local-Cloud Decision-Making via Residual Reinforcement Learning",
+        "link": "https://unilcd.github.io/",
+        "conference": "ECCV 2024",
+        "authors": [
+          "K. Sengupta",
+          "Z. Shangguan",
+          "S. Bharadwaj",
+          "S. Arora",
+          "E. Ohn-Bar",
+          "R. Mancuso"
+        ]
+      },
+      {
+        "title": "Person Re-Identification by Analyzing Dynamic Variations in Gait Sequences",
+        "link": "https://link.springer.com/chapter/10.1007/978-981-15-7804-5_30",
+        "conference": "ETCCS 2020",
+        "authors": [
+          "S. Bharadwaj",
+          "K. Chanda"
+        ]
+      }
+    ],
+    "researchExperience": [
+      {
+        "institution": "Human-to-Everything (H2X) Lab, Boston University",
+        "location": "Boston, MA",
+        "duration": "March 2023 - Present",
+        "position": "Visiting Researcher / Graduate Research Assistant",
+        "supervisor": "Prof. Eshed Ohn-Bar",
+        "type": "Full-Time",
+        "achievements": [
+          "Enhanced vision-language model performance for autonomous driving by 80% through creation of novel dataset and application of fine-tuning, RAG, and RAFT techniques",
+          "Collaborated with Red Hat to optimize cloud-edge collaboration algorithms, developing a conditional routing module for dynamic offloading that reduced energy consumption",
+          "Achieved state-of-the-art performance in CARLA-based navigation metrics, outperforming existing solutions by 35% while enhancing energy efficiency",
+          "Designed a novel crowd navigation environment and introduced the Ecological Navigation Score metric to prioritize energy-efficient navigation in reinforcement learning tasks",
+          "Developed visual servoing for multi-robot simulations using RGB and depth sensors, integrated human feedback, and evaluated reinforcement learning algorithms for person-following, significantly improving performance"
+        ]
+      },
+      {
+        "institution": "Boston University",
+        "position": "Teaching Assistant",
+        "course": "ENG EC 444 - Smart and Connected Systems",
+        "duration": "Jan 2024 - May 2024",
+        "type": "Part-Time",
+        "responsibilities": [
+          "Assisted with an introductory course on cyber-physical and IoT systems",
+          "Supported course logistics, conducted classes, graded assignments, managed lab sessions independently and contributed to developing new assignments"
+        ]
+      },
+      {
+        "company": "Robert Bosch GmbH",
+        "location": "Bangalore, India",
+        "duration": "Jan 2020 - June 2020",
+        "position": "Research Intern",
+        "department": "Corporate Research",
+        "type": "Full-Time Co-Op",
+        "achievements": [
+          "Adapted open-set classification to identify rare objects in vehicular datasets by merging classification models with meta-learning and few-shot algorithms, achieving 56% accuracy on the Open Images subset",
+          "Developed novel algorithm to predict automobile part degradation and recommend preemptive actions"
+        ],
+        "note": "Received a full-time offer, which was deferred due to a hiring freeze during the COVID-19 pandemic"
+      },
+      {
+        "institution": "Center for Development of Advanced Computing",
+        "location": "Kolkata, India",
+        "duration": "May 2019 - Oct 2019",
+        "position": "Research Intern",
+        "type": "Full-Time",
+        "achievements": [
+          "Led and implemented modified approach to person re-identification based on dynamic gait",
+          "Achieved best accuracy of 91.13% on CASIA-B Gait Dataset (Python, Pandas, Numpy, Scikit-learn)",
+          "Presented research paper at ETCCS 2020, indexed in Springer LNEE Series"
+        ]
+      }
+    ],
+    "workExperience": [
+      {
+        "company": "Ignitarium Technology Solutions",
+        "location": "Bangalore, India",
+        "duration": "Jan 2022 - July 2022",
+        "position": "AI Engineer",
+        "type": "Full-Time",
+        "achievements": [
+          "Improved inference performance on Untether AI's accelerator chips by developing high-performance low-level INT8 kernels in C++",
+          "Implemented generalized padding for transformation kernels, replacing the non-generalized version, and optimized quantization, performance metrics, and execution cycles, achieving 30% performance gain",
+          "Led team to streamline workflows, create detailed documentation, and reduce codebase size by 40%"
+        ]
+      },
+      {
+        "company": "Synopsys India",
+        "location": "Bangalore, India",
+        "duration": "Jan 2021 - Jan 2022",
+        "position": "Data Engineer",
+        "type": "Full-Time",
+        "achievements": [
+          "Optimized existing data extraction and processing pipelines with Apache Spark, improving processing time by 25%",
+          "Developed BERT-based anomaly detection tool to identify, track, and alert users to critical events requiring intervention, achieving average accuracy of 92% in runtime issue detection",
+          "Redesigned several existing applications for log analysis into a single unified system in production, improving performance by 30% while enhancing user experience, reliability, and accessibility"
+        ],
+        "note": "Chose to pursue graduate studies after successfully completing a 1-year fixed-term role at Synopsys, where a full-time offer was extended"
+      },
+      {
+        "company": "Thermo Fisher Scientific India Pvt. Ltd.",
+        "location": "Hyderabad, India",
+        "duration": "May 2018 - July 2018",
+        "position": "Summer Intern",
+        "type": "Full-Time",
+        "achievements": [
+          "Developed proof-of-concept for upgrading existing product on ARM hardware using embedded C++, delivering nearly 2x processing power while reducing manufacturing and development costs by 70%",
+          "Designed user interface with Qt5 and implemented on Linux Yocto, enabling custom Linux-based systems independent of hardware architecture for seamless user interaction"
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "BetterSearch",
+        "duration": "July 2024 - Present",
+        "github": "github.com/tensorsofthewall/BetterSearch",
+        "description": [
+          "Developed desktop application integrating LLMs, advanced RAG techniques, and native OS functionality for efficient file search and content indexing, with customizable configurations for optimized CPU and GPU performance",
+          "Integrated osquery to enable text-to-SQL functionality, providing device management capabilities for users",
+          "Leverages custom fine-tuned LLM for text-to-SQL generation in local deployments, with support for cloud providers such as OpenAI and Google Gemini for scalability"
+        ]
+      },
+      {
+        "name": "VidTune",
+        "duration": "May 2024 - Aug 2024",
+        "github": "github.com/tensorsofthewall/VidTune",
+        "description": [
+          "Created generative AI web-app that generates tailored music for videos",
+          "Designed an intuitive interface and advanced customization tools for genre-specific music integration, tempo adjustment, keyword alignment, and dynamic mixing"
+        ]
+      },
+      {
+        "name": "Person Following Robot",
+        "duration": "April 2023 - June 2023",
+        "description": [
+          "Developed and trained imitation learning and reinforcement learning algorithms in simulation for effective person tracking and following",
+          "Created multi-robot Gazebo simulation with leader, follower, and obstacles, achieving 72% accuracy in precise person detection, tracking, and following (Python, PyTorch, OpenCV, ROS, Gazebo)"
+        ]
+      },
+      {
+        "name": "Evaluating complex ML streaming pipelines",
+        "duration": "Feb 2023 - April 2023",
+        "description": [
+          "Designed benchmarks for complex ML pipelines to evaluate external and embedded serving frameworks",
+          "External serving models (TorchServe, TF-Serving, OpenVINO Model Server) outperform embedding serving pipelines (TFSaved and ONNX) by 200%",
+          "Designed a modular self-driving pipeline in CARLA consisting of Homography Transformation, Lane Detection, Waypoint Prediction, Lateral and Longitudinal Control modules, improving driving score to 53%",
+          "Designed and trained a custom CNN through imitation learning in CARLA, achieving a driving score of 32.5% and 54% route completion"
+        ]
+      },
+      {
+        "name": "Dynamic Gesture Recognition",
+        "duration": "Oct 2022 - March 2023",
+        "description": [
+          "Developed application for dynamic gesture detection using cameras; one of top 25 teams in OpenCV AI Competition 2022 - Spatial AI Track",
+          "Trained and evaluated vision models (ResNeXT-101, MViT, 3D-MobileNetV2) on Qualcomm Jester dataset, achieving 17% performance improvement with custom Bi-LSTM architecture"
+        ]
+      },
+      {
+        "name": "Autonomous Underwater Vehicle",
+        "duration": "Sep 2018 - April 2020",
+        "url": "https://auviiitdm.github.io/",
+        "description": [
+          "Led a team to the Singapore AUV Challenge finals in 2019 and 2020",
+          "Contributed to navigation, vision software, and electronics, guiding the team across all aspects of vehicle development",
+          "Enhanced object detection and tracking by integrating modified Sea-Thru water-removal algorithm into AUV inference pipeline"
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "Boston University",
+        "degree": "Master of Science in Computer Science",
+        "graduation": "05/24",
+        "gpa": 3.26,
+        "coursework": [
+          "Image & Video Computing",
+          "Streaming and Event-driven Systems",
+          "Robot Learning & Vision for Navigation",
+          "Deep Learning",
+          "Designing Computing Systems for Robotics"
+        ]
+      },
+      {
+        "institution": "Indian Institute of Information Technology Design and Manufacturing, Kancheepuram, Chennai, India",
+        "degrees": [
+          {
+            "type": "Bachelor of Technology",
+            "field": "Electronics and Communication"
+          },
+          {
+            "type": "Master of Technology",
+            "field": "Signal Processing and Communication Systems Design"
+          }
+        ],
+        "coursework": [
+          "Machine Learning",
+          "Digital Signal Processing",
+          "Computer Vision",
+          "Data Structures and Algorithms"
+        ],
+        "positions": [
+          "Music Club Secretary",
+          "Autonomous Underwater Vehicle Team Lead"
+        ]
+      }
+    ],
+    "references": [
+      {
+        "name": "Eshed Ohn-Bar",
+        "institution": "Boston University",
+        "position": "Assistant Professor",
+        "department": "Department of Electrical and Computer Engineering",
+        "email": "eohnbar@bu.edu"
+      },
+      {
+        "name": "Sahana Prabhu",
+        "company": "Robert Bosch Engineering and Business Solutions Private Limited",
+        "position": "Research Scientist and Technical Architect",
+        "email": "Sahana.MuraleedharaPrabhu@in.bosch.com"
+      },
+      {
+        "name": "Kunal Chanda",
+        "institution": "Center for Development of Advanced Computing, Kolkata",
+        "position": "Scientist-E",
+        "email": "kunalchanda@cdac.in"
+      }
+    ]
+  }
+  
