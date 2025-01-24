@@ -26,7 +26,7 @@ const Node: React.FC<NodeProps & { isActive: boolean, isLastLayer: boolean }> = 
     useEffect(() => {
         if (isActive || isLastLayer) {
             controls.start({
-                opacity: [0.5, 1, 0.5],
+                opacity: [0.5, 1.0, 0.5],
                 scale: [1, 1.2, 1],
                 fill: ['var(--nn-inactive)','var(--nn-active)','var(--nn-inactive)'],
             });
@@ -73,7 +73,7 @@ const CurvedConnection: React.FC<ConnectionProps & { delay: number }> = ({ start
         <motion.path
             d={d}
             fill="none"
-            strokeWidth={1.5}
+            strokeWidth={2.0}
             initial={{ opacity: 0.1, stroke: 'var(--nn-inactive)' }}
             animate={controls}
             transition={{ 

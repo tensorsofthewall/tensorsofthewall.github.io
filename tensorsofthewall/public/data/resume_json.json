@@ -92,7 +92,7 @@
         "course": "ENG EC 444 - Smart and Connected Systems",
         "duration": "Jan 2024 - May 2024",
         "type": "Part-Time",
-        "responsibilities": [
+        "achievements": [
           "Assisted with an introductory course on cyber-physical and IoT systems",
           "Supported course logistics, conducted classes, graded assignments, managed lab sessions independently and contributed to developing new assignments"
         ]
@@ -165,7 +165,7 @@
       {
         "name": "BetterSearch",
         "duration": "July 2024 - Present",
-        "github": "github.com/tensorsofthewall/BetterSearch",
+        "url": "github.com/tensorsofthewall/BetterSearch",
         "description": [
           "Developed desktop application integrating LLMs, advanced RAG techniques, and native OS functionality for efficient file search and content indexing, with customizable configurations for optimized CPU and GPU performance",
           "Integrated osquery to enable text-to-SQL functionality, providing device management capabilities for users",
@@ -175,7 +175,7 @@
       {
         "name": "VidTune",
         "duration": "May 2024 - Aug 2024",
-        "github": "github.com/tensorsofthewall/VidTune",
+        "url": "github.com/tensorsofthewall/VidTune",
         "description": [
           "Created generative AI web-app that generates tailored music for videos",
           "Designed an intuitive interface and advanced customization tools for genre-specific music integration, tempo adjustment, keyword alignment, and dynamic mixing"
@@ -221,29 +221,28 @@
     "education": [
       {
         "institution": "Boston University",
-        "degree": "Master of Science in Computer Science",
-        "graduation": "05/24",
-        "gpa": 3.26,
+        "logo": "/images/bu_logo.png",
+        "degree": "M.S. in Computer Science",
+        "graduation": "May 2024",
+        "startDate": "Sep 2022",
         "coursework": [
           "Image & Video Computing",
           "Streaming and Event-driven Systems",
           "Robot Learning & Vision for Navigation",
           "Deep Learning",
           "Designing Computing Systems for Robotics"
+        ],
+        "positions": [
+          "Teaching Assistant for ENG EC 444: Smart and Connected Systems",
+          "Graduate Research Assistant at Human-To-Everything (H2X) Lab"
         ]
       },
       {
-        "institution": "Indian Institute of Information Technology Design and Manufacturing, Kancheepuram, Chennai, India",
-        "degrees": [
-          {
-            "type": "Bachelor of Technology",
-            "field": "Electronics and Communication"
-          },
-          {
-            "type": "Master of Technology",
-            "field": "Signal Processing and Communication Systems Design"
-          }
-        ],
+        "institution": "IIITDM Kancheepuram",
+        "logo": "/images/iiitdm_logo.png",
+        "degree": "B.Tech. + M.Tech. in Electronics and Communication Engineering",
+        "graduation": "June 2020",
+        "startDate":"July 2015",
         "coursework": [
           "Machine Learning",
           "Digital Signal Processing",
@@ -259,20 +258,20 @@
     "references": [
       {
         "name": "Eshed Ohn-Bar",
-        "institution": "Boston University",
+        "organization": "Boston University",
         "position": "Assistant Professor",
         "department": "Department of Electrical and Computer Engineering",
         "email": "eohnbar@bu.edu"
       },
       {
         "name": "Sahana Prabhu",
-        "company": "Robert Bosch Engineering and Business Solutions Private Limited",
+        "organization": "Robert Bosch Engineering and Business Solutions Private Limited",
         "position": "Research Scientist and Technical Architect",
         "email": "Sahana.MuraleedharaPrabhu@in.bosch.com"
       },
       {
         "name": "Kunal Chanda",
-        "institution": "Center for Development of Advanced Computing, Kolkata",
+        "organization": "Center for Development of Advanced Computing, Kolkata",
         "position": "Scientist-E",
         "email": "kunalchanda@cdac.in"
       }
