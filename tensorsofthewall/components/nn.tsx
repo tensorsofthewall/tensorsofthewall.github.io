@@ -114,7 +114,6 @@ const NeuralNetwork: React.FC<NeuralNetworkProps> = ({ layerSizes }) => {
                 newNodes.push({ x, y, layer: layerIndex });
 
                 if (layerIndex > 0) {
-                    const prevLayerSize = layerSizes[layerIndex - 1];
                     const prevLayerNodes = newNodes.filter(n => n.layer === layerIndex - 1);
 
                     prevLayerNodes.forEach((startNode, prevNodeIndex) => {
@@ -160,7 +159,7 @@ const NeuralNetwork: React.FC<NeuralNetworkProps> = ({ layerSizes }) => {
                 newActiveConnections.add(randomConn.id);
     
                 // Activate additional random connections if needed
-                const totalDesiredActive = Math.floor(connections.length * 0.15);
+                const totalDesiredActive = Math.floor(connections.length * 0.1);
                 while (newActiveConnections.size < totalDesiredActive * ((layerIndex + 1) / Object.keys(layerConnections).length)) {
                     const randomConn = connections[Math.floor(Math.random() * connections.length)];
                     newActiveConnections.add(randomConn.id);

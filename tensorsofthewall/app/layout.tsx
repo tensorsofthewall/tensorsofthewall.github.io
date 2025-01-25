@@ -30,7 +30,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`} style={{minHeight: '100vh', display: 'flex', flexDirection: 'column'}}
       >
         <Header />
-        <main style={{paddingTop: '600px', paddingBottom: '[footer-height]px', flex:1}}>
+        <main style={{paddingBottom: '[footer-height]px', flex:1}}>
         {children}
         </main>
         <Footer />

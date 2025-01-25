@@ -3,7 +3,7 @@
 import Link from "next/link";
 
 /* Asset Imports */
-import ProfileImg from "../public/images/tensorsofthewall.webp" 
+// import ProfileImg from "../public/images/tensorsofthewall.webp" 
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
@@ -13,28 +13,22 @@ import { FaBriefcase } from "react-icons/fa";
 import { FaGraduationCap } from "react-icons/fa";
 import { GiOnTarget } from "react-icons/gi";
 
-import { useRef } from "react";
-
 import dynamic from "next/dynamic";
 
 // To prevent hydration issues
-const NeuralNetwork = dynamic(() => import("./nn"), { ssr: false });
 const MotionDiv = dynamic(() => import("motion/react").then((mod) => mod.motion.div), { ssr: false })
 
 import { AnimatedLightBulb } from "./animatedComponents";
 
 const Header = () => {
-    const inputRef = useRef(null);
     return (
-        <header id="header" className="sticky top-0 z-50 mx-auto flex max-w-7xl flex-col items-center justify-center bg-zinc-925 p-2 pt-4" style={{position: 'fixed', top:0, left: 0, right:0, zIndex:1000, width: '100%', height: '600px'}}>
+        <header id="header" className="sticky top-0 z-50 mx-auto flex max-w-7xl flex-col items-center justify-center bg-zinc-925 p-2 pt-4 relative" style={{position: 'sticky', top:0, left: 0, right:0, zIndex:1000, width: '100%', height: '25px', paddingTop: '80px'}}>
             <div id="wrapper" className="flex flex-col items-center w-full">
-                <h1 className="text-4xl font-bold text-white-500 tracking-tight mb-2 font-['Orbitron'] drop-shadow-sm">
+                <div className="absolute inset-0 backdrop-blur-md"></div>
+                <h1 className="text-5xl font-bold text-white-400 tracking-tighter mb-2 font-['Orbitron'] drop-shadow-md pb-6">
                     TensorsOfTheWall
                 </h1>
-                <div style={{ height: '36vh' }} className="flex justify-center items-center pt-1">
-                    <NeuralNetwork layerSizes={[4,8,12,10,3]} />
-                </div>
-                <div className="flex justify-between w-full">
+                <div className="flex justify-between w-full relative z-10">
                     {/* Left Icon Links */}
                     <MotionDiv 
                         initial={{ opacity: 0, x: -500, y: -75}} 
