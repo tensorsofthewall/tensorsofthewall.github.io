@@ -42,8 +42,8 @@ const EducationCard = ({ educationData }: {educationData: Education}) => {
                 <p><strong style={{fontSize:"17px"}}><u>Research Thesis</u></strong></p>
                 <p>Efficient Vision and Language Models for Autonomous Systems</p>
                 <p>
-                [<a href='/data/Efficient Vision and Language Models for Autonomous Systems - MS Thesis Defense - Sandesh Bharadwaj.pptx' target='_blank' style={{color: ' #4580d4', marginRight: '1px'}}>slides</a>,
-                <a href='/data/Efficient Vision and Language Models for Autonomous Systems - MS Thesis - Sandesh Bharadwaj.pdf' target='_blank' style={{color: '#4580d4', marginLeft: '1px'}}>pdf</a>]
+                [<a href='/data/Efficient Vision and Language Models for Autonomous Systems - MS Thesis Defense - Sandesh Bharadwaj.pptx' target='_blank' style={{color: '#3344dd', marginRight: '1px'}}> slides</a> | 
+                <a href='/data/Efficient Vision and Language Models for Autonomous Systems - MS Thesis - Sandesh Bharadwaj.pdf' target='_blank' style={{color: '#3344dd', marginLeft: '1px'}}> pdf</a> ]
                 </p>
                 <hr style={{ borderColor: 'white', margin: '1rem 0' }} />
             </div>

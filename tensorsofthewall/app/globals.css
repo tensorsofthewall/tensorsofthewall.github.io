@@ -11,11 +11,30 @@
 }
 
 body {
+  min-width: 960px;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   padding-top: 10px;
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
   
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+}
+
+#page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+footer {
+  padding: 5px;
 }
 
 main {
@@ -69,4 +88,30 @@ header {
 
 .custom-card .ant-card-body {
   color: #ffffff;
+}
+
+.ant-tabs-tab {
+  color: #ffffff !important;
+}
+
+.ant-tabs-tab-active {
+  color: #ffffff !important;
+}
+
+.ant-tabs-tab:hover {
+  color: #ffffff !important;
+}
+
+.ferris-wheel-animation{
+  justify-items: center;
+  justify-content: center;
+  /* top: 25%; */
+  height: 60%;
+  width: 10%;
+  position: fixed;
+  overflow: visible;
+}
+
+.image-parent {
+  /* padding: 50% 0; */
 }
