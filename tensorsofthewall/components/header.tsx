@@ -1,14 +1,15 @@
 "use client";
 /* General Package Imports */
 import Link from "next/link";
+import Image from "next/image";
 
 /* Asset Imports */
-// import ProfileImg from "../public/images/tensorsofthewall.webp" 
+import ProfileImg from "../public/images/tensorsofthewall.webp" 
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaHome } from "react-icons/fa";
 import { FaEnvelope } from "react-icons/fa";
-import { GiNotebook } from "react-icons/gi";
+import { GiBookshelf, GiNotebook } from "react-icons/gi";
 import { FaBriefcase } from "react-icons/fa";
 import { FaGraduationCap } from "react-icons/fa";
 import { GiOnTarget } from "react-icons/gi";
@@ -22,12 +23,14 @@ import { AnimatedLightBulb } from "./animatedComponents";
 
 const Header = () => {
     return (
-        <header id="header" className="sticky top-0 z-50 mx-auto flex max-w-7xl flex-col items-center justify-center bg-zinc-925 p-2 pt-4 relative" style={{position: 'sticky', top:0, left: 0, right:0, zIndex:1000, width: '100%', height: '25px', paddingTop: '80px'}}>
+        <header id="header" className="sticky top-0 z-50 mx-auto flex max-w-8xl flex-col items-center justify-center bg-zinc-925 p-2 pt-4 relative" style={{position: 'sticky', top:0, left: 0, right:0, zIndex:1000, width: '100%', height: '25px', paddingTop: '80px'}}>
             <div id="wrapper" className="flex flex-col items-center w-full">
-                <div className="absolute inset-0 backdrop-blur-md"></div>
-                <h1 className="text-5xl font-bold text-white-400 tracking-tighter mb-2 font-['Orbitron'] drop-shadow-md pb-6">
-                    TensorsOfTheWall
-                </h1>
+                <div className="absolute inset-0 backdrop-blur-md"></div> 
+                <Link href="/" className="no-underline">
+                    <h1 className="text-5xl font-bold text-white-400 tracking-tighter mb-2 font-['Orbitron'] drop-shadow-md pb-6 flex items-center gap-3">
+                    <Image src={ProfileImg} alt="" width={33} height={33}/>TensorsOfTheWall
+                    </h1>
+                </Link>
                 <div className="flex justify-between w-full relative z-10">
                     {/* Left Icon Links */}
                     <MotionDiv 
@@ -48,6 +51,9 @@ const Header = () => {
                         </Link>
                         <Link href="/education">
                             <FaGraduationCap className="h-12 w-12 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="Education" />
+                        </Link>
+                        <Link href="/projects_publications">
+                            <GiBookshelf className="h-12 w-12 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="Publications and Projects" />
                         </Link>
                         
                     </MotionDiv>

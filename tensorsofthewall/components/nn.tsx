@@ -159,7 +159,7 @@ const NeuralNetwork: React.FC<NeuralNetworkProps> = ({ layerSizes }) => {
                 newActiveConnections.add(randomConn.id);
     
                 // Activate additional random connections if needed
-                const totalDesiredActive = Math.floor(connections.length * 0.1);
+                const totalDesiredActive = Math.floor(connections.length * 0.2);
                 while (newActiveConnections.size < totalDesiredActive * ((layerIndex + 1) / Object.keys(layerConnections).length)) {
                     const randomConn = connections[Math.floor(Math.random() * connections.length)];
                     newActiveConnections.add(randomConn.id);

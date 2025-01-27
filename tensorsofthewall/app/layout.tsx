@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { AntdRegistry } from "@ant-design/nextjs-registry";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -15,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "tensorsofthewall",
+  title: "TensorsOfTheWall | Sandesh Bharadwaj",
   description: "Sandesh Bharadwaj's personal website",
 };
 
@@ -32,7 +33,7 @@ export default function RootLayout({
         <Header />
         <div id="page-container">
         <main style={{paddingBottom: '[footer-height]px', flex:1}}>
-        {children}
+        <AntdRegistry>{children}</AntdRegistry>
         </main>
         <Footer />
         </div>

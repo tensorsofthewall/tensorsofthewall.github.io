@@ -4,7 +4,9 @@ import { motion } from "motion/react";
 import Image from "next/image";
 import data from "../../public/data/resume_json.json" assert { type: "json" };
 import badges from "./badges";
+import React from "react";
 
+const pageStartText = ["Skills? Let’s just say if it involves code, I can make it work... eventually.","I mean, you're on this website."]
 const Skills = () => {
     const skills = data.skills;
 
@@ -20,7 +22,7 @@ const Skills = () => {
                     src={badges[skill]}
                     alt={skill}
                     fill
-                    sizes="300px"
+                    sizes="250px"
                     style={{
                         objectFit: 'contain',
                     }}
@@ -49,8 +51,9 @@ const Skills = () => {
                                 duration: totalDuration,
                                 delay: idx * staggerDelay,
                                 repeat: Infinity,
-                                ease: "linear"
-                            }
+                                ease: "linear",
+                                repeatDelay: totalDuration
+                            },
                         }}
                     >
                         <motion.div
@@ -60,8 +63,10 @@ const Skills = () => {
                                 duration: totalDuration,
                                 delay: idx * staggerDelay,
                                 repeat: Infinity,
-                                ease: "linear"
+                                ease: "linear",
+                                repeatDelay: totalDuration,
                             }}
+                            
                         >
                             {img}
                         </motion.div>
@@ -84,15 +89,28 @@ const Skills = () => {
     }));
 
     return (
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingTop: '20px'}} className="font-['arial']">
+        <strong style={{ width: '450px'}}>
+            {pageStartText.map((text, index) => (
+                <React.Fragment key={index}>
+                    <span style={{ fontSize: `${24-index*6}px`}}>
+                    {text}<br/>{index ===0 && <br/>}
+                    </span>
+                </React.Fragment>
+            ))}
+        </strong>
         <Tabs 
             defaultActiveKey="0" 
             centered 
+            animated
             className="text-white-600 justify-center items-center text-center" 
             items={items}
             style={{ color: '#ffffff', paddingTop: '75px', width: '100%' }}
             tabBarGutter={64}
-            tabBarStyle={{ marginBottom: '40px' }}
+            tabBarStyle={{ paddingTop: '10px', marginBottom: '40px', display: 'flex', justifyContent: 'center' }}
+            size="small"
         />
+        </div>
     );
 }
 

@@ -7,15 +7,22 @@
       "linkedin": "linkedin.com/in/sandeshbharadwaj97"
     },
     "skills": {
-      "languagesAndDatastores": [
+      "languages": [
         "Python",
         "C/C++",
         "Java",
+        "TypeScript",
         "Bash",
+        "Markdown",
+        "TailwindCSS",
+        "Dart"
+      ],
+      "Databases": [
         "MySQL",
         "Logstash",
+        "ElasticSearch",
         "ChromaDB",
-        "ElasticSearch"
+        "SQLite"
       ],
       "devOpsAndSimulators": [
         "AWS",
@@ -24,17 +31,22 @@
         "Git",
         "Perforce",
         "CARLA",
-        "OpenAI Gym"
+        "OpenAI Gym",
+        "GazeboSim",
+        "Jira"
       ],
       "frameworks": [
         "PyTorch",
-        "LangChain",
         "TensorFlow",
+        "LangChain",
         "FastAPI",
         "Firebase",
         "Intel OpenVINO",
         "Apache Spark",
-        "Apache AirFlow"
+        "Apache AirFlow",
+        "Flutter", 
+        "Streamlit",
+        "nginx"
       ],
       "libraries": [
         "OpenCV",
@@ -43,14 +55,19 @@
         "Scikit-Learn",
         "Pandas",
         "Selenium",
-        "Soundfile"
+        "Soundfile",
+        "NumPy",
+        "Matplotlib"
       ]
     },
     "publications": [
       {
         "title": "Unified Local-Cloud Decision-Making via Residual Reinforcement Learning",
+        "abstract": "Embodied vision-based real-world systems, such as mobile robots, require a careful balance between energy consumption, compute latency, and safety constraints to optimize operation across dynamic tasks and contexts. As local computation tends to be restricted, offloading the computation, ie, to a remote server, can save local resources while providing access to high-quality predictions from powerful and large models. However, the resulting communication and latency overhead has led to limited usability of cloud models in dynamic, safety-critical, real-time settings. To effectively address this trade-off, we introduce UniLCD, a novel hybrid inference framework for enabling flexible local-cloud collaboration. By efficiently optimizing a flexible routing module via reinforcement learning and a suitable multi-task objective, UniLCD is specifically designed to support the multiple constraints of safety-critical end-to-end mobile systems. We validate the proposed approach using a challenging, crowded navigation task requiring frequent and timely switching between local and cloud operations. UniLCD demonstrates improved overall performance and efficiency, by over 35% compared to state-of-the-art baselines based on various split computing and early exit strategies.",
         "link": "https://unilcd.github.io/",
+        "figure": "/images/Fig1CR-1.png",
         "conference": "ECCV 2024",
+        "conference_url": "https://www.ecva.net/papers.php",
         "authors": [
           "K. Sengupta",
           "Z. Shangguan",
@@ -62,7 +79,9 @@
       },
       {
         "title": "Person Re-Identification by Analyzing Dynamic Variations in Gait Sequences",
+        "abstract": "Gait recognition is a biometric technology that identifies individuals in a video sequence by analysing their style of walking or limb movement. However, this identification is generally sensitive to appearance changes and conventional feature descriptors such as Gait Energy Image (GEI) lose some of the dynamic information in the gait sequence. Active Energy Image (AEI) focuses more on dynamic motion changes than GEI and is more suited to deal with appearance changes. We proposed a new approach, which allows recognizing people by analysing the dynamic motion variations and identifying people without using a database of predicted changes. In the proposed method, the active energy image is calculated by averaging the difference frames of the silhouette sequence and divided into multiple segments. Affine moment invariants are computed as gait features for each section. Next, matching weights are calculated based on the similarity between extracted features and those in the database. Finally, the subject is identified by the weighted combination of similarities in all segments. The CASIA-B Gait Database is used as the principal dataset for the experimental analysis.",
         "link": "https://link.springer.com/chapter/10.1007/978-981-15-7804-5_30",
+        "figure": "/images/GaitSequence.png",
         "conference": "ETCCS 2020",
         "authors": [
           "S. Bharadwaj",
@@ -72,33 +91,23 @@
     ],
     "researchExperience": [
       {
-        "institution": "Human-to-Everything (H2X) Lab, Boston University",
-        "location": "Boston, MA",
-        "duration": "March 2023 - Present",
-        "position": "Visiting Researcher / Graduate Research Assistant",
-        "supervisor": "Prof. Eshed Ohn-Bar",
+        "organization": "Center for Development of Advanced Computing",
+        "logo": "/images/org_logos/cdac_logo.png",
+        "url": "https://cdac.in/",
+        "location": "Kolkata, India",
+        "duration": "May 2019 - Oct 2019",
+        "position": "Research Intern",
         "type": "Full-Time",
         "achievements": [
-          "Enhanced vision-language model performance for autonomous driving by 80% through creation of novel dataset and application of fine-tuning, RAG, and RAFT techniques",
-          "Collaborated with Red Hat to optimize cloud-edge collaboration algorithms, developing a conditional routing module for dynamic offloading that reduced energy consumption",
-          "Achieved state-of-the-art performance in CARLA-based navigation metrics, outperforming existing solutions by 35% while enhancing energy efficiency",
-          "Designed a novel crowd navigation environment and introduced the Ecological Navigation Score metric to prioritize energy-efficient navigation in reinforcement learning tasks",
-          "Developed visual servoing for multi-robot simulations using RGB and depth sensors, integrated human feedback, and evaluated reinforcement learning algorithms for person-following, significantly improving performance"
+          "Led and implemented modified approach to person re-identification based on dynamic gait",
+          "Achieved best accuracy of 91.13% on CASIA-B Gait Dataset (Python, Pandas, Numpy, Scikit-learn)",
+          "Presented research paper at ETCCS 2020, indexed in Springer LNEE Series"
         ]
       },
       {
-        "institution": "Boston University",
-        "position": "Teaching Assistant",
-        "course": "ENG EC 444 - Smart and Connected Systems",
-        "duration": "Jan 2024 - May 2024",
-        "type": "Part-Time",
-        "achievements": [
-          "Assisted with an introductory course on cyber-physical and IoT systems",
-          "Supported course logistics, conducted classes, graded assignments, managed lab sessions independently and contributed to developing new assignments"
-        ]
-      },
-      {
-        "company": "Robert Bosch GmbH",
+        "organization": "Robert Bosch GmbH",
+        "logo": "/images/org_logos/bosch_logo.png",
+        "url": "https://www.bosch.com/research/",
         "location": "Bangalore, India",
         "duration": "Jan 2020 - June 2020",
         "position": "Research Intern",
@@ -111,33 +120,55 @@
         "note": "Received a full-time offer, which was deferred due to a hiring freeze during the COVID-19 pandemic"
       },
       {
-        "institution": "Center for Development of Advanced Computing",
-        "location": "Kolkata, India",
-        "duration": "May 2019 - Oct 2019",
-        "position": "Research Intern",
+        "organization": "Boston University",
+        "logo": "/images/org_logos/bu_logo.png",
+        "url": "https://bu.edu",
+        "location": "Boston, MA",
+        "position": "Teaching Assistant",
+        "course": "ENG EC 444 - Smart and Connected Systems",
+        "duration": "Jan 2024 - May 2024",
+        "type": "Part-Time",
+        "achievements": [
+          "Assisted with an introductory course on cyber-physical and IoT systems",
+          "Supported course logistics, conducted classes, graded assignments, managed lab sessions independently and contributed to developing new assignments"
+        ]
+      },
+      {
+        "organization": "Human-to-Everything (H2X) Lab, Boston University",
+        "logo": "/images/org_logos/H2Xlogo.svg",
+        "url": "https://eshed1.github.io/",
+        "location": "Boston, MA",
+        "duration": "March 2023 - Present",
+        "position": "Visiting Researcher / Graduate Research Assistant",
+        "supervisor": "Prof. Eshed Ohn-Bar",
         "type": "Full-Time",
         "achievements": [
-          "Led and implemented modified approach to person re-identification based on dynamic gait",
-          "Achieved best accuracy of 91.13% on CASIA-B Gait Dataset (Python, Pandas, Numpy, Scikit-learn)",
-          "Presented research paper at ETCCS 2020, indexed in Springer LNEE Series"
+          "Enhanced vision-language model performance for autonomous driving by 80% through creation of novel dataset and application of fine-tuning, RAG, and RAFT techniques",
+          "Collaborated with Red Hat to optimize cloud-edge collaboration algorithms, developing a conditional routing module for dynamic offloading that reduced energy consumption",
+          "Achieved state-of-the-art performance in CARLA-based navigation metrics, outperforming existing solutions by 35% while enhancing energy efficiency",
+          "Designed a novel crowd navigation environment and introduced the Ecological Navigation Score metric to prioritize energy-efficient navigation in reinforcement learning tasks",
+          "Developed visual servoing for multi-robot simulations using RGB and depth sensors, integrated human feedback, and evaluated reinforcement learning algorithms for person-following, significantly improving performance"
         ]
       }
     ],
-    "workExperience": [
+    "industryExperience": [
       {
-        "company": "Ignitarium Technology Solutions",
-        "location": "Bangalore, India",
-        "duration": "Jan 2022 - July 2022",
-        "position": "AI Engineer",
+        "company": "Thermo Fisher Scientific India Pvt. Ltd.",
+        "logo": "/images/org_logos/thermofisher_logo.svg",
+        "url": "https://thermofisher.com",
+        "location": "Hyderabad, India",
+        "duration": "May 2018 - July 2018",
+        "position": "Summer Intern",
         "type": "Full-Time",
         "achievements": [
-          "Improved inference performance on Untether AI's accelerator chips by developing high-performance low-level INT8 kernels in C++",
-          "Implemented generalized padding for transformation kernels, replacing the non-generalized version, and optimized quantization, performance metrics, and execution cycles, achieving 30% performance gain",
-          "Led team to streamline workflows, create detailed documentation, and reduce codebase size by 40%"
+          "Developed proof-of-concept for upgrading existing product on ARM hardware using embedded C++, delivering nearly 2x processing power while reducing manufacturing and development costs by 70%",
+          "Designed user interface with Qt5 and implemented on Linux Yocto, enabling custom Linux-based systems independent of hardware architecture for seamless user interaction"
         ]
       },
       {
         "company": "Synopsys India",
+        "logo": "/images/org_logos/synopsys_logo.svg",
+        "url": "https://www.synopsys.com/",
         "location": "Bangalore, India",
         "duration": "Jan 2021 - Jan 2022",
         "position": "Data Engineer",
@@ -150,14 +181,30 @@
         "note": "Chose to pursue graduate studies after successfully completing a 1-year fixed-term role at Synopsys, where a full-time offer was extended"
       },
       {
-        "company": "Thermo Fisher Scientific India Pvt. Ltd.",
-        "location": "Hyderabad, India",
-        "duration": "May 2018 - July 2018",
-        "position": "Summer Intern",
+        "company": "Ignitarium Technology Solutions",
+        "logo": "/images/org_logos/ignitarium_logo.png",
+        "url": "https://ignitarium.com/",
+        "location": "Bangalore, India",
+        "duration": "Jan 2022 - July 2022",
+        "position": "AI Engineer",
+        "type": "Full-Time [Contract]",
+        "achievements": [
+          "Improved inference performance on Untether AI's accelerator chips by developing high-performance low-level INT8 kernels in C++",
+          "Implemented generalized padding for transformation kernels, replacing the non-generalized version, and optimized quantization, performance metrics, and execution cycles, achieving 30% performance gain",
+          "Led team to streamline workflows, create detailed documentation, and reduce codebase size by 40%"
+        ]
+      },
+      {
+        "company": "Ottometric Inc.",
+        "logo": "/images/org_logos/ottometric_logo.png",
+        "url": "https://ottometric.com/",
+        "location": "Waltham, MA",
+        "duration": "June 2023 – Aug 2023",
+        "position": "Software Engineering Intern",
         "type": "Full-Time",
         "achievements": [
-          "Developed proof-of-concept for upgrading existing product on ARM hardware using embedded C++, delivering nearly 2x processing power while reducing manufacturing and development costs by 70%",
-          "Designed user interface with Qt5 and implemented on Linux Yocto, enabling custom Linux-based systems independent of hardware architecture for seamless user interaction"
+          "Developed data summarization algorithms for the Ottoviz platform by creating a custom fork of the submodlib library and applying submodular optimization techniques.",
+          "Enabled efficient training of deep learning models by developing custom features for selecting important 1% subset of images, achieving significant dataset reduction."
         ]
       }
     ],
@@ -221,7 +268,7 @@
     "education": [
       {
         "institution": "Boston University",
-        "logo": "/images/bu_logo.png",
+        "logo": "/images/org_logos/bu_logo.png",
         "degree": "M.S. in Computer Science",
         "graduation": "May 2024",
         "startDate": "Sep 2022",
@@ -239,7 +286,7 @@
       },
       {
         "institution": "IIITDM Kancheepuram",
-        "logo": "/images/iiitdm_logo.png",
+        "logo": "/images/org_logos/iiitdm_logo.png",
         "degree": "B.Tech. + M.Tech. in Electronics and Communication Engineering",
         "graduation": "June 2020",
         "startDate":"July 2015",

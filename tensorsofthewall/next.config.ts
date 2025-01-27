@@ -14,6 +14,12 @@ module.exports = {
         hostname: 'img.shields.io',
         port:'',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'imgs.xkcd.com',
+        port: '',
+        pathname: '/**',
       }
     ]
   }
