@@ -1,8 +1,10 @@
+"use client"
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
 import { HiLightBulb } from "react-icons/hi";
 import { Url } from "next/dist/shared/lib/router/router";
+import { fairyDustCursor, snowflakeCursor } from "cursor-effects";
 
 const MotionDiv = dynamic(() => import("motion/react").then((mod) => mod.motion.div), { ssr: false })
 
@@ -56,3 +58,18 @@ export const AnimatedText = ({ texts = [""], typingSpeed = 100, deletingSpeed = 
   
     return <span className="animated-text">{displayText}</span>;
   };
+
+  export function AnimatedCursor() {
+    useEffect(() => {
+      const date = new Date();
+      if (date.getMonth() === 11 || date.getMonth() === 0) {
+        snowflakeCursor();
+      } else {
+        fairyDustCursor({
+          colors: ["#1E90FF", "#00CED1", "#7FFF00","#FFD700","#FF5E00"],
+        });
+      }
+    }, []);
+  
+    return null;
+  }

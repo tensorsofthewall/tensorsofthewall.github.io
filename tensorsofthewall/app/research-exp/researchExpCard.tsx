@@ -17,7 +17,7 @@ interface ResearchExpProps {
 }
 
 const ResearchExpCard = (( data: ResearchExpProps) => {
-    const { organization, logo, url, location, position, type, achievements, note, supervisor } = data;
+    const { organization, logo, url, location, position, type, achievements, note } = data;
     
     const [isExpanded, setIsExpanded] = useState(false);
     return (

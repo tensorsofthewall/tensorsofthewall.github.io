@@ -1,6 +1,5 @@
 "use client";
-import PaperCard, { PaperCardProps } from './paperCard';
-import { Carousel, Tabs } from 'antd';
+import { Tabs } from 'antd';
 import data from '../../public/data/resume_json.json';
 import ResearchCarousel from './paperCarousel';
 import ProjectCarousel from './projectCarousel';

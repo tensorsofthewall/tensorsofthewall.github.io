@@ -3,6 +3,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { AnimatedCursor } from "@/components/animatedComponents";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
 
 const geistSans = Geist({
@@ -30,6 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`} style={{minHeight: '100vh', display: 'flex', flexDirection: 'column'}}
       >
+        <AnimatedCursor />
         <Header />
         <div id="page-container">
         <main style={{paddingBottom: '[footer-height]px', flex:1}}>

@@ -3,7 +3,6 @@ import React, { useState } from "react";
 import data from "../../public/data/resume_json.json";
 import ResearchExpCard, { ResearchExpProps } from "./researchExpCard";
 import {motion} from "motion/react";
-import PaperCard from "../projects_publications/paperCard";
 
 const pageStartText = "Research: Where \‘what if\’ turns into months of debugging and a publication that makes it all worth it."
 

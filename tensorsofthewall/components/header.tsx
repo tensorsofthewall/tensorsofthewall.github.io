@@ -63,7 +63,7 @@ const Header = () => {
                         className="flex items-center"
                     >
                         <Link href="/not-found">
-                            <TbError404 className="h-12 w-12 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="Go home"/>
+                            <TbError404 className="h-12 w-12 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="Random comic"/>
                         </Link>
                         <Link href="/data/CV - Sandesh Bharadwaj.pdf" target="_blank">
                             <FaFileDownload className="h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="Download CV" />

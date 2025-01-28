@@ -46,7 +46,6 @@ const Hero = () => {
         const initialDelay = setTimeout(() => {
             const cycleText = () => {
                 const newPosition = generateRandomPosition();
-                console.log(newPosition);
                 setPosition(newPosition);
                 setShowRandomText(true);
                 
@@ -73,7 +72,7 @@ const Hero = () => {
     return (
         <div className="flex flex-col items-center justify-center text-center w-full text-2xl text-white-500">
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '440px', fontSize: '24px', paddingTop: '10px'}}>
-                <strong style={{ width: '550px' }}>{pageStartText}<br/><br/>I'm interested in: <AnimatedText texts={animatedTextOptions} typingSpeed={25} deletingSpeed={25} delayBeforeDelete={4000} /></strong>
+                <strong style={{ width: '550px' }}>{pageStartText}<br/><br/>I work in: <AnimatedText texts={animatedTextOptions} typingSpeed={25} deletingSpeed={25} delayBeforeDelete={4000} /></strong>
             </div>
             <div style={{ height: '60vh', transform: 'translateY(-35px)' }} className="flex justify-center items-center">
                 <NeuralNetwork layerSizes={layerSizes} />
