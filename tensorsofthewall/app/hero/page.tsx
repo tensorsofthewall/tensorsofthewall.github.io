@@ -10,6 +10,7 @@ const captionText = "Who needs all their neurons anyway? This network’s motto:
 const captionSubText = "And yeah, I know this isn't quite dropout regularization, but it looks cool.\n [Don't bother suing, it'd be like asking Zaphod Beeblebrox for directions.]";
 
 const animatedTextOptions = [
+    "Software Engineering 🛠️",
     "Autonomous Systems 🧠",
     "Computer Vision 👁️",
     "Generative AI 🤖",

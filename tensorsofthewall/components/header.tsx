@@ -5,14 +5,11 @@ import Image from "next/image";
 
 /* Asset Imports */
 import ProfileImg from "../public/images/tensorsofthewall.webp" 
+import { TbError404 } from "react-icons/tb";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaHome } from "react-icons/fa";
-import { FaEnvelope } from "react-icons/fa";
-import { GiBookshelf, GiNotebook } from "react-icons/gi";
-import { FaBriefcase } from "react-icons/fa";
-import { FaGraduationCap } from "react-icons/fa";
-import { GiOnTarget } from "react-icons/gi";
+import { FaHome, FaGraduationCap, FaEnvelope, FaBriefcase, FaFileDownload } from "react-icons/fa";
+import { GiBookshelf, GiNotebook, GiOnTarget } from "react-icons/gi";
 
 import dynamic from "next/dynamic";
 
@@ -55,7 +52,7 @@ const Header = () => {
                         <Link href="/projects_publications">
                             <GiBookshelf className="h-12 w-12 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="Publications and Projects" />
                         </Link>
-                        
+                         
                     </MotionDiv>
 
                     {/* Right Icon Links */}
@@ -65,18 +62,24 @@ const Header = () => {
                         transition={{ type:"spring", bounce: 0.45, duration: 1.0 }} 
                         className="flex items-center"
                     >
-                        <Link href="/#blog">
+                        <Link href="/not-found">
+                            <TbError404 className="h-12 w-12 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="Go home"/>
+                        </Link>
+                        <Link href="/data/CV - Sandesh Bharadwaj.pdf" target="_blank">
+                            <FaFileDownload className="h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="Download CV" />
+                        </Link>
+                        <Link href="/blog">
                             <GiNotebook className="h-11 w-11 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="Blog" />
                         </Link>
-                        <a href="https://linkedin.com/in/sandeshbharadwaj97" target="_blank">
+                        <Link href="https://linkedin.com/in/sandeshbharadwaj97" target="_blank">
                             <SiLinkedin className="h-11 w-11 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="LinkedIn" />
-                        </a>
-                        <a href="https://github.com/tensorsofthewall" target="_blank">
+                        </Link>
+                        <Link href="https://github.com/tensorsofthewall" target="_blank">
                             <SiGithub className="h-11 w-11 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="Github" />
-                        </a>
-                        <a href="https://x.com/tensorofthewall" target="_blank">
+                        </Link>
+                        <Link href="https://x.com/tensorofthewall" target="_blank">
                             <FaXTwitter className="h-11 w-11 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="X/Twitter" />
-                        </a>
+                        </Link>
                         <Link href="/#contact" className="group flex cursor-pointer items-center">
                             <FaEnvelope className="h-11 w-11 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="Contact Me"/>
                         </Link>

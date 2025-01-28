@@ -63,9 +63,9 @@
     "publications": [
       {
         "title": "Unified Local-Cloud Decision-Making via Residual Reinforcement Learning",
-        "abstract": "Embodied vision-based real-world systems, such as mobile robots, require a careful balance between energy consumption, compute latency, and safety constraints to optimize operation across dynamic tasks and contexts. As local computation tends to be restricted, offloading the computation, ie, to a remote server, can save local resources while providing access to high-quality predictions from powerful and large models. However, the resulting communication and latency overhead has led to limited usability of cloud models in dynamic, safety-critical, real-time settings. To effectively address this trade-off, we introduce UniLCD, a novel hybrid inference framework for enabling flexible local-cloud collaboration. By efficiently optimizing a flexible routing module via reinforcement learning and a suitable multi-task objective, UniLCD is specifically designed to support the multiple constraints of safety-critical end-to-end mobile systems. We validate the proposed approach using a challenging, crowded navigation task requiring frequent and timely switching between local and cloud operations. UniLCD demonstrates improved overall performance and efficiency, by over 35% compared to state-of-the-art baselines based on various split computing and early exit strategies.",
+        "abstract": ["Embodied vision-based real-world systems, such as mobile robots, require a careful balance between energy consumption, compute latency, and safety constraints to optimize operation across dynamic tasks and contexts. As local computation tends to be restricted, offloading the computation, ie, to a remote server, can save local resources while providing access to high-quality predictions from powerful and large models. However, the resulting communication and latency overhead has led to limited usability of cloud models in dynamic, safety-critical, real-time settings.","To effectively address this trade-off, we introduce UniLCD, a novel hybrid inference framework for enabling flexible local-cloud collaboration. By efficiently optimizing a flexible routing module via reinforcement learning and a suitable multi-task objective, UniLCD is specifically designed to support the multiple constraints of safety-critical end-to-end mobile systems. We validate the proposed approach using a challenging, crowded navigation task requiring frequent and timely switching between local and cloud operations. UniLCD demonstrates improved overall performance and efficiency, by over 35% compared to state-of-the-art baselines based on various split computing and early exit strategies."],
         "link": "https://unilcd.github.io/",
-        "figure": "/images/Fig1CR-1.png",
+        "figure": "/images/papers/unilcd.png",
         "conference": "ECCV 2024",
         "conference_url": "https://www.ecva.net/papers.php",
         "authors": [
@@ -79,9 +79,9 @@
       },
       {
         "title": "Person Re-Identification by Analyzing Dynamic Variations in Gait Sequences",
-        "abstract": "Gait recognition is a biometric technology that identifies individuals in a video sequence by analysing their style of walking or limb movement. However, this identification is generally sensitive to appearance changes and conventional feature descriptors such as Gait Energy Image (GEI) lose some of the dynamic information in the gait sequence. Active Energy Image (AEI) focuses more on dynamic motion changes than GEI and is more suited to deal with appearance changes. We proposed a new approach, which allows recognizing people by analysing the dynamic motion variations and identifying people without using a database of predicted changes. In the proposed method, the active energy image is calculated by averaging the difference frames of the silhouette sequence and divided into multiple segments. Affine moment invariants are computed as gait features for each section. Next, matching weights are calculated based on the similarity between extracted features and those in the database. Finally, the subject is identified by the weighted combination of similarities in all segments. The CASIA-B Gait Database is used as the principal dataset for the experimental analysis.",
+        "abstract": ["Gait recognition is a biometric technology that identifies individuals in video sequences by analyzing their walking style or limb movement. However, this identification is generally sensitive to appearance changes, and conventional feature descriptors such as Gait Energy Image (GEI) lose some of the dynamic information in the gait sequence. Active Energy Image (AEI) focuses more on dynamic motion changes than GEI and is better suited to deal with appearance changes.","We propose a new approach for recognizing people by analyzing dynamic motion variations in gait sequences without using a database of predicted changes. In our method, the active energy image is calculated by averaging the difference frames of the silhouette sequence and divided into multiple segments. Affine moment invariants are computed as gait features for each section. Next, matching weights are calculated based on the similarity between extracted features and those in the database. Finally, the subject is identified by the weighted combination of similarities in all segments. The CASIA-B Gait Database is used as the principal dataset for experimental analysis.","Our approach achieves a highest accuracy of 91.13% with 23 segments and 5 affine moment invariants, demonstrating competitive performance compared to existing gait recognition methods. This method offers a promising direction for gait-based person re-identification, particularly in scenarios with appearance changes or low-resolution video data."],
         "link": "https://link.springer.com/chapter/10.1007/978-981-15-7804-5_30",
-        "figure": "/images/GaitSequence.png",
+        "figure": "/images/papers/GaitSequence.jpg",
         "conference": "ETCCS 2020",
         "authors": [
           "S. Bharadwaj",
@@ -212,56 +212,42 @@
       {
         "name": "BetterSearch",
         "duration": "July 2024 - Present",
-        "url": "github.com/tensorsofthewall/BetterSearch",
+        "url": "https://github.com/tensorsofthewall/BetterSearch",
+        "image": "/images/projects/bettersearch.jpg",
         "description": [
           "Developed desktop application integrating LLMs, advanced RAG techniques, and native OS functionality for efficient file search and content indexing, with customizable configurations for optimized CPU and GPU performance",
           "Integrated osquery to enable text-to-SQL functionality, providing device management capabilities for users",
           "Leverages custom fine-tuned LLM for text-to-SQL generation in local deployments, with support for cloud providers such as OpenAI and Google Gemini for scalability"
+        ],
+        "web_description": [
+          "BetterSearch is a desktop application (currently in alpha) that revolutionizes file search using Large Language Models and advanced RAG techniques. It enables natural language queries for local files, offers on-the-fly indexing, and supports both file property and content-based searches.", "With customizable performance settings, text-to-SQL functionality via osquery, and options for local or cloud-based LLM processing, BetterSearch aims to provide a powerful, efficient, and secure search experience without sending data to the cloud."
         ]
       },
       {
         "name": "VidTune",
         "duration": "May 2024 - Aug 2024",
-        "url": "github.com/tensorsofthewall/VidTune",
+        "url": "https://github.com/tensorsofthewall/VidTune",
+        "image": "/images/projects/vidtune.png",
         "description": [
           "Created generative AI web-app that generates tailored music for videos",
           "Designed an intuitive interface and advanced customization tools for genre-specific music integration, tempo adjustment, keyword alignment, and dynamic mixing"
-        ]
-      },
-      {
-        "name": "Person Following Robot",
-        "duration": "April 2023 - June 2023",
-        "description": [
-          "Developed and trained imitation learning and reinforcement learning algorithms in simulation for effective person tracking and following",
-          "Created multi-robot Gazebo simulation with leader, follower, and obstacles, achieving 72% accuracy in precise person detection, tracking, and following (Python, PyTorch, OpenCV, ROS, Gazebo)"
-        ]
-      },
-      {
-        "name": "Evaluating complex ML streaming pipelines",
-        "duration": "Feb 2023 - April 2023",
-        "description": [
-          "Designed benchmarks for complex ML pipelines to evaluate external and embedded serving frameworks",
-          "External serving models (TorchServe, TF-Serving, OpenVINO Model Server) outperform embedding serving pipelines (TFSaved and ONNX) by 200%",
-          "Designed a modular self-driving pipeline in CARLA consisting of Homography Transformation, Lane Detection, Waypoint Prediction, Lateral and Longitudinal Control modules, improving driving score to 53%",
-          "Designed and trained a custom CNN through imitation learning in CARLA, achieving a driving score of 32.5% and 54% route completion"
-        ]
-      },
-      {
-        "name": "Dynamic Gesture Recognition",
-        "duration": "Oct 2022 - March 2023",
-        "description": [
-          "Developed application for dynamic gesture detection using cameras; one of top 25 teams in OpenCV AI Competition 2022 - Spatial AI Track",
-          "Trained and evaluated vision models (ResNeXT-101, MViT, 3D-MobileNetV2) on Qualcomm Jester dataset, achieving 17% performance improvement with custom Bi-LSTM architecture"
+        ],
+        "web_description": [
+          "VidTune is a generative AI web application that creates tailored music for videos. It features an intuitive interface with advanced tools for genre-specific music creation, tempo adjustment, keyword alignment, and dynamic mixing.","By leveraging Google Gemini and Meta MusicGen to generate music for videos, VidTune can empower content creators to enhance their videos with perfectly matched, AI-generated soundtracks, elevating the quality and impact of their productions."
         ]
       },
       {
         "name": "Autonomous Underwater Vehicle",
         "duration": "Sep 2018 - April 2020",
         "url": "https://auviiitdm.github.io/",
+        "image":"/images/projects/auvsociety.ico",
         "description": [
           "Led a team to the Singapore AUV Challenge finals in 2019 and 2020",
           "Contributed to navigation, vision software, and electronics, guiding the team across all aspects of vehicle development",
           "Enhanced object detection and tracking by integrating modified Sea-Thru water-removal algorithm into AUV inference pipeline"
+        ],
+        "web_description": [
+          "The Autonomous Underwater Vehicle (AUV) team at IIITDM Kancheepuram aims to develop an autonomous underwater vehicle capable of competing in the Singapore AUV Challenge. Founded in 2018, the team has participated in nearly every edition of the competition since. I led the team for 2 years and was responsible for the vehicle's navigation, vision software, and electronics.","The AUV Society continues their work today, empowering budding undergrads to explore the depths of underwater robotics and AI, and fostering a culture of innovation and collaboration."
         ]
       }
     ],
