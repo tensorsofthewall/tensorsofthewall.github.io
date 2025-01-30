@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 /* Asset Imports */
-import ProfileImg from "../public/images/tensorsofthewall.webp" 
+import ProfileImg from "@/public/images/tensorsofthewall.webp" 
 import { TbError404 } from "react-icons/tb";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";

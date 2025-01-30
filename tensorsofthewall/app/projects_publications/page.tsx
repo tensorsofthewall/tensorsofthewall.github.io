@@ -1,6 +1,6 @@
 "use client";
 import { Tabs } from 'antd';
-import data from '../../public/data/resume_json.json';
+import data from '@/public/data/resume_json.json';
 import ResearchCarousel from './paperCarousel';
 import ProjectCarousel from './projectCarousel';
 

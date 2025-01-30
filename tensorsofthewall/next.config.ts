@@ -4,6 +4,10 @@ import { hostname } from "os";
 const nextConfig: NextConfig = {
   /* config options here */
   output: 'export',
+  basePath: '/tensorsofthewall/tensorsofthewall',
+  images: {
+    unoptimized: true,
+  }
 };
 
 module.exports = {

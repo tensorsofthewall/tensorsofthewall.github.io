@@ -2,7 +2,7 @@
 import { Tabs } from "antd";
 import { motion } from "motion/react";
 import Image from "next/image";
-import data from "../../public/data/resume_json.json" assert { type: "json" };
+import data from "@/public/data/resume_json.json" assert { type: "json" };
 import badges from "./badges";
 import React from "react";
 

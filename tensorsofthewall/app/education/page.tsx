@@ -1,7 +1,7 @@
 "use client";
 import EducationTimeline from './educationCard';
 import { useEffect } from 'react';
-import data from '../../public/data/resume_json.json' assert { type: 'json' };
+import data from '@/public/data/resume_json.json' assert { type: 'json' };
 
 const pageStartText = "University: Where I learned to turn coffee into thesis papers and prototypes that mostly worked on the first try."
 

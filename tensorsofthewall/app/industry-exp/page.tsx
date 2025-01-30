@@ -1,6 +1,6 @@
 "use client";
 import React, {useState} from "react";
-import data from "../../public/data/resume_json.json";
+import data from "@/public/data/resume_json.json";
 import IndustryExpCard, { IndustryExpProps } from "./industryExpCard";
 import { motion } from "motion/react";
 

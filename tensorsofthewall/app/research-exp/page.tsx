@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import data from "../../public/data/resume_json.json";
+import data from "@/public/data/resume_json.json";
 import ResearchExpCard, { ResearchExpProps } from "./researchExpCard";
 import {motion} from "motion/react";
 
