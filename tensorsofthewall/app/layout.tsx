@@ -31,7 +31,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`} style={{minHeight: '100vh', display: 'flex', flexDirection: 'column'}}
       >
-        <AnimatedCursor />
+        {/* <AnimatedCursor /> */}
         <Header />
         <div id="page-container">
         <main style={{paddingBottom: '[footer-height]px', flex:1}}>

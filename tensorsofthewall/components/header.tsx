@@ -68,9 +68,9 @@ const Header = () => {
                         <Link href="/data/CV - Sandesh Bharadwaj.pdf" target="_blank">
                             <FaFileDownload className="h-10 w-10 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="Download CV" />
                         </Link>
-                        <Link href="/blog">
+                        {/* <Link href="/blog">
                             <GiNotebook className="h-11 w-11 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="Blog" />
-                        </Link>
+                        </Link> */}
                         <Link href="https://linkedin.com/in/sandeshbharadwaj97" target="_blank">
                             <SiLinkedin className="h-11 w-11 cursor-pointer fill-gray-400 p-2 text-2xl transition-colors hover:fill-gray-300" title="LinkedIn" />
                         </Link>
