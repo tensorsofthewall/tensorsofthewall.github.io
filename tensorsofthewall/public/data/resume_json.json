@@ -1,0 +1,313 @@
+{
+    "personalInfo": {
+      "name": "Sandesh Bharadwaj",
+      "phone": "857-313-0286",
+      "email": "sandesh.bharadwaj97@gmail.com",
+      "github": "github.com/tensorsofthewall",
+      "linkedin": "linkedin.com/in/sandeshbharadwaj97"
+    },
+    "skills": {
+      "languages": [
+        "Python",
+        "C/C++",
+        "Java",
+        "TypeScript",
+        "Bash",
+        "Markdown",
+        "TailwindCSS",
+        "Dart"
+      ],
+      "Databases": [
+        "MySQL",
+        "Logstash",
+        "ElasticSearch",
+        "ChromaDB",
+        "SQLite"
+      ],
+      "devOpsAndSimulators": [
+        "AWS",
+        "GCP",
+        "Docker",
+        "Git",
+        "Perforce",
+        "CARLA",
+        "OpenAI Gym",
+        "GazeboSim",
+        "Jira"
+      ],
+      "frameworks": [
+        "PyTorch",
+        "TensorFlow",
+        "LangChain",
+        "FastAPI",
+        "Firebase",
+        "Intel OpenVINO",
+        "Apache Spark",
+        "Apache AirFlow",
+        "Flutter", 
+        "Streamlit",
+        "nginx"
+      ],
+      "libraries": [
+        "OpenCV",
+        "Huggingface Transformers",
+        "Lightning",
+        "Scikit-Learn",
+        "Pandas",
+        "Selenium",
+        "Soundfile",
+        "NumPy",
+        "Matplotlib"
+      ]
+    },
+    "publications": [
+      {
+        "title": "Unified Local-Cloud Decision-Making via Residual Reinforcement Learning",
+        "abstract": ["Embodied vision-based real-world systems, such as mobile robots, require a careful balance between energy consumption, compute latency, and safety constraints to optimize operation across dynamic tasks and contexts. As local computation tends to be restricted, offloading the computation, ie, to a remote server, can save local resources while providing access to high-quality predictions from powerful and large models. However, the resulting communication and latency overhead has led to limited usability of cloud models in dynamic, safety-critical, real-time settings.","To effectively address this trade-off, we introduce UniLCD, a novel hybrid inference framework for enabling flexible local-cloud collaboration. By efficiently optimizing a flexible routing module via reinforcement learning and a suitable multi-task objective, UniLCD is specifically designed to support the multiple constraints of safety-critical end-to-end mobile systems. We validate the proposed approach using a challenging, crowded navigation task requiring frequent and timely switching between local and cloud operations. UniLCD demonstrates improved overall performance and efficiency, by over 35% compared to state-of-the-art baselines based on various split computing and early exit strategies."],
+        "link": "https://unilcd.github.io/",
+        "figure": "/images/papers/unilcd.png",
+        "conference": "ECCV 2024",
+        "conference_url": "https://www.ecva.net/papers.php",
+        "authors": [
+          "K. Sengupta",
+          "Z. Shangguan",
+          "S. Bharadwaj",
+          "S. Arora",
+          "E. Ohn-Bar",
+          "R. Mancuso"
+        ]
+      },
+      {
+        "title": "Person Re-Identification by Analyzing Dynamic Variations in Gait Sequences",
+        "abstract": ["Gait recognition is a biometric technology that identifies individuals in video sequences by analyzing their walking style or limb movement. However, this identification is generally sensitive to appearance changes, and conventional feature descriptors such as Gait Energy Image (GEI) lose some of the dynamic information in the gait sequence. Active Energy Image (AEI) focuses more on dynamic motion changes than GEI and is better suited to deal with appearance changes.","We propose a new approach for recognizing people by analyzing dynamic motion variations in gait sequences without using a database of predicted changes. In our method, the active energy image is calculated by averaging the difference frames of the silhouette sequence and divided into multiple segments. Affine moment invariants are computed as gait features for each section. Next, matching weights are calculated based on the similarity between extracted features and those in the database. Finally, the subject is identified by the weighted combination of similarities in all segments. The CASIA-B Gait Database is used as the principal dataset for experimental analysis.","Our approach achieves a highest accuracy of 91.13% with 23 segments and 5 affine moment invariants, demonstrating competitive performance compared to existing gait recognition methods. This method offers a promising direction for gait-based person re-identification, particularly in scenarios with appearance changes or low-resolution video data."],
+        "link": "https://link.springer.com/chapter/10.1007/978-981-15-7804-5_30",
+        "figure": "/images/papers/GaitSequence.jpg",
+        "conference": "ETCCS 2020",
+        "authors": [
+          "S. Bharadwaj",
+          "K. Chanda"
+        ]
+      }
+    ],
+    "researchExperience": [
+      {
+        "organization": "Center for Development of Advanced Computing",
+        "logo": "/images/org_logos/cdac_logo.png",
+        "url": "https://cdac.in/",
+        "location": "Kolkata, India",
+        "duration": "May 2019 - Oct 2019",
+        "position": "Research Intern",
+        "type": "Full-Time",
+        "achievements": [
+          "Led and implemented modified approach to person re-identification based on dynamic gait",
+          "Achieved best accuracy of 91.13% on CASIA-B Gait Dataset (Python, Pandas, Numpy, Scikit-learn)",
+          "Presented research paper at ETCCS 2020, indexed in Springer LNEE Series"
+        ]
+      },
+      {
+        "organization": "Robert Bosch GmbH",
+        "logo": "/images/org_logos/bosch_logo.png",
+        "url": "https://www.bosch.com/research/",
+        "location": "Bangalore, India",
+        "duration": "Jan 2020 - June 2020",
+        "position": "Research Intern",
+        "department": "Corporate Research",
+        "type": "Full-Time Co-Op",
+        "achievements": [
+          "Adapted open-set classification to identify rare objects in vehicular datasets by merging classification models with meta-learning and few-shot algorithms, achieving 56% accuracy on the Open Images subset",
+          "Developed novel algorithm to predict automobile part degradation and recommend preemptive actions"
+        ],
+        "note": "Received a full-time offer, which was deferred due to a hiring freeze during the COVID-19 pandemic"
+      },
+      {
+        "organization": "Boston University",
+        "logo": "/images/org_logos/bu_logo.png",
+        "url": "https://bu.edu",
+        "location": "Boston, MA",
+        "position": "Teaching Assistant",
+        "course": "ENG EC 444 - Smart and Connected Systems",
+        "duration": "Jan 2024 - May 2024",
+        "type": "Part-Time",
+        "achievements": [
+          "Assisted with an introductory course on cyber-physical and IoT systems",
+          "Supported course logistics, conducted classes, graded assignments, managed lab sessions independently and contributed to developing new assignments"
+        ]
+      },
+      {
+        "organization": "Human-to-Everything (H2X) Lab, Boston University",
+        "logo": "/images/org_logos/H2Xlogo.svg",
+        "url": "https://eshed1.github.io/",
+        "location": "Boston, MA",
+        "duration": "March 2023 - Present",
+        "position": "Visiting Researcher / Graduate Research Assistant",
+        "supervisor": "Prof. Eshed Ohn-Bar",
+        "type": "Full-Time",
+        "achievements": [
+          "Enhanced vision-language model performance for autonomous driving by 80% through creation of novel dataset and application of fine-tuning, RAG, and RAFT techniques",
+          "Collaborated with Red Hat to optimize cloud-edge collaboration algorithms, developing a conditional routing module for dynamic offloading that reduced energy consumption",
+          "Achieved state-of-the-art performance in CARLA-based navigation metrics, outperforming existing solutions by 35% while enhancing energy efficiency",
+          "Designed a novel crowd navigation environment and introduced the Ecological Navigation Score metric to prioritize energy-efficient navigation in reinforcement learning tasks",
+          "Developed visual servoing for multi-robot simulations using RGB and depth sensors, integrated human feedback, and evaluated reinforcement learning algorithms for person-following, significantly improving performance"
+        ]
+      }
+    ],
+    "industryExperience": [
+      {
+        "company": "Thermo Fisher Scientific India Pvt. Ltd.",
+        "logo": "/images/org_logos/thermofisher_logo.svg",
+        "url": "https://thermofisher.com",
+        "location": "Hyderabad, India",
+        "duration": "May 2018 - July 2018",
+        "position": "Summer Intern",
+        "type": "Full-Time",
+        "achievements": [
+          "Developed proof-of-concept for upgrading existing product on ARM hardware using embedded C++, delivering nearly 2x processing power while reducing manufacturing and development costs by 70%",
+          "Designed user interface with Qt5 and implemented on Linux Yocto, enabling custom Linux-based systems independent of hardware architecture for seamless user interaction"
+        ]
+      },
+      {
+        "company": "Synopsys India",
+        "logo": "/images/org_logos/synopsys_logo.svg",
+        "url": "https://www.synopsys.com/",
+        "location": "Bangalore, India",
+        "duration": "Jan 2021 - Jan 2022",
+        "position": "Data Engineer",
+        "type": "Full-Time",
+        "achievements": [
+          "Optimized existing data extraction and processing pipelines with Apache Spark, improving processing time by 25%",
+          "Developed BERT-based anomaly detection tool to identify, track, and alert users to critical events requiring intervention, achieving average accuracy of 92% in runtime issue detection",
+          "Redesigned several existing applications for log analysis into a single unified system in production, improving performance by 30% while enhancing user experience, reliability, and accessibility"
+        ],
+        "note": "Chose to pursue graduate studies after successfully completing a 1-year fixed-term role at Synopsys, where a full-time offer was extended"
+      },
+      {
+        "company": "Ignitarium Technology Solutions",
+        "logo": "/images/org_logos/ignitarium_logo.png",
+        "url": "https://ignitarium.com/",
+        "location": "Bangalore, India",
+        "duration": "Jan 2022 - July 2022",
+        "position": "AI Engineer",
+        "type": "Full-Time [Contract]",
+        "achievements": [
+          "Improved inference performance on Untether AI's accelerator chips by developing high-performance low-level INT8 kernels in C++",
+          "Implemented generalized padding for transformation kernels, replacing the non-generalized version, and optimized quantization, performance metrics, and execution cycles, achieving 30% performance gain",
+          "Led team to streamline workflows, create detailed documentation, and reduce codebase size by 40%"
+        ]
+      },
+      {
+        "company": "Ottometric Inc.",
+        "logo": "/images/org_logos/ottometric_logo.png",
+        "url": "https://ottometric.com/",
+        "location": "Waltham, MA",
+        "duration": "June 2023 – Aug 2023",
+        "position": "Software Engineering Intern",
+        "type": "Full-Time",
+        "achievements": [
+          "Developed data summarization algorithms for the Ottoviz platform by creating a custom fork of the submodlib library and applying submodular optimization techniques.",
+          "Enabled efficient training of deep learning models by developing custom features for selecting important 1% subset of images, achieving significant dataset reduction."
+        ]
+      }
+    ],
+    "projects": [
+      {
+        "name": "BetterSearch",
+        "duration": "July 2024 - Present",
+        "url": "https://github.com/tensorsofthewall/BetterSearch",
+        "image": "/images/projects/bettersearch.jpg",
+        "description": [
+          "Developed desktop application integrating LLMs, advanced RAG techniques, and native OS functionality for efficient file search and content indexing, with customizable configurations for optimized CPU and GPU performance",
+          "Integrated osquery to enable text-to-SQL functionality, providing device management capabilities for users",
+          "Leverages custom fine-tuned LLM for text-to-SQL generation in local deployments, with support for cloud providers such as OpenAI and Google Gemini for scalability"
+        ],
+        "web_description": [
+          "BetterSearch is a desktop application (currently in alpha) that revolutionizes file search using Large Language Models and advanced RAG techniques. It enables natural language queries for local files, offers on-the-fly indexing, and supports both file property and content-based searches.", "With customizable performance settings, text-to-SQL functionality via osquery, and options for local or cloud-based LLM processing, BetterSearch aims to provide a powerful, efficient, and secure search experience without sending data to the cloud."
+        ]
+      },
+      {
+        "name": "VidTune",
+        "duration": "May 2024 - Aug 2024",
+        "url": "https://github.com/tensorsofthewall/VidTune",
+        "image": "/images/projects/vidtune.png",
+        "description": [
+          "Created generative AI web-app that generates tailored music for videos",
+          "Designed an intuitive interface and advanced customization tools for genre-specific music integration, tempo adjustment, keyword alignment, and dynamic mixing"
+        ],
+        "web_description": [
+          "VidTune is a generative AI web application that creates tailored music for videos. It features an intuitive interface with advanced tools for genre-specific music creation, tempo adjustment, keyword alignment, and dynamic mixing.","By leveraging Google Gemini and Meta MusicGen to generate music for videos, VidTune can empower content creators to enhance their videos with perfectly matched, AI-generated soundtracks, elevating the quality and impact of their productions."
+        ]
+      },
+      {
+        "name": "Autonomous Underwater Vehicle",
+        "duration": "Sep 2018 - April 2020",
+        "url": "https://auviiitdm.github.io/",
+        "image":"/images/projects/auvsociety.ico",
+        "description": [
+          "Led a team to the Singapore AUV Challenge finals in 2019 and 2020",
+          "Contributed to navigation, vision software, and electronics, guiding the team across all aspects of vehicle development",
+          "Enhanced object detection and tracking by integrating modified Sea-Thru water-removal algorithm into AUV inference pipeline"
+        ],
+        "web_description": [
+          "The Autonomous Underwater Vehicle (AUV) team at IIITDM Kancheepuram aims to develop an autonomous underwater vehicle capable of competing in the Singapore AUV Challenge. Founded in 2018, the team has participated in nearly every edition of the competition since. I led the team for 2 years and was responsible for the vehicle's navigation, vision software, and electronics.","The AUV Society continues their work today, empowering budding undergrads to explore the depths of underwater robotics and AI, and fostering a culture of innovation and collaboration."
+        ]
+      }
+    ],
+    "education": [
+      {
+        "institution": "Boston University",
+        "logo": "/images/org_logos/bu_logo.png",
+        "degree": "M.S. in Computer Science",
+        "graduation": "May 2024",
+        "startDate": "Sep 2022",
+        "coursework": [
+          "Image & Video Computing",
+          "Streaming and Event-driven Systems",
+          "Robot Learning & Vision for Navigation",
+          "Deep Learning",
+          "Designing Computing Systems for Robotics"
+        ],
+        "positions": [
+          "Teaching Assistant - ENG EC 444: Smart and Connected Systems",
+          "Graduate Research Assistant - Human-To-Everything (H2X) Lab"
+        ]
+      },
+      {
+        "institution": "IIITDM Kancheepuram",
+        "logo": "/images/org_logos/iiitdm_logo.png",
+        "degree": "B.Tech. + M.Tech. in Electronics and Communication Engineering",
+        "graduation": "June 2020",
+        "startDate":"July 2015",
+        "coursework": [
+          "Machine Learning",
+          "Digital Signal Processing",
+          "Computer Vision",
+          "Data Structures and Algorithms"
+        ],
+        "positions": [
+          "Music Club Secretary",
+          "Autonomous Underwater Vehicle Team Lead"
+        ]
+      }
+    ],
+    "references": [
+      {
+        "name": "Eshed Ohn-Bar",
+        "organization": "Boston University",
+        "position": "Assistant Professor",
+        "department": "Department of Electrical and Computer Engineering",
+        "email": "eohnbar@bu.edu"
+      },
+      {
+        "name": "Sahana Prabhu",
+        "organization": "Robert Bosch Engineering and Business Solutions Private Limited",
+        "position": "Research Scientist and Technical Architect",
+        "email": "Sahana.MuraleedharaPrabhu@in.bosch.com"
+      },
+      {
+        "name": "Kunal Chanda",
+        "organization": "Center for Development of Advanced Computing, Kolkata",
+        "position": "Scientist-E",
+        "email": "kunalchanda@cdac.in"
+      }
+    ]
+  }
+  

@@ -1,0 +1,34 @@
+import type { NextConfig } from "next";
+import { hostname } from "os";
+
+const nextConfig: NextConfig = {
+  /* config options here */
+  output: 'export',
+  basePath: '/tensorsofthewall/tensorsofthewall',
+  images: {
+    unoptimized: true,
+  }
+};
+
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'img.shields.io',
+        port:'',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'imgs.xkcd.com',
+        port: '',
+        pathname: '/**',
+      }
+    ]
+  }
+}
+
+
+
+export default nextConfig;

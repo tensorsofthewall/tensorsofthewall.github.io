@@ -1,0 +1,26 @@
+{
+    "name": "Person Following Robot",
+    "duration": "April 2023 - June 2023",
+    "description": [
+      "Developed and trained imitation learning and reinforcement learning algorithms in simulation for effective person tracking and following",
+      "Created multi-robot Gazebo simulation with leader, follower, and obstacles, achieving 72% accuracy in precise person detection, tracking, and following (Python, PyTorch, OpenCV, ROS, Gazebo)"
+    ]
+  },
+  {
+    "name": "Evaluating complex ML streaming pipelines",
+    "duration": "Feb 2023 - April 2023",
+    "description": [
+      "Designed benchmarks for complex ML pipelines to evaluate external and embedded serving frameworks",
+      "External serving models (TorchServe, TF-Serving, OpenVINO Model Server) outperform embedding serving pipelines (TFSaved and ONNX) by 200%",
+      "Designed a modular self-driving pipeline in CARLA consisting of Homography Transformation, Lane Detection, Waypoint Prediction, Lateral and Longitudinal Control modules, improving driving score to 53%",
+      "Designed and trained a custom CNN through imitation learning in CARLA, achieving a driving score of 32.5% and 54% route completion"
+    ]
+  },
+  {
+    "name": "Dynamic Gesture Recognition",
+    "duration": "Oct 2022 - March 2023",
+    "description": [
+      "Developed application for dynamic gesture detection using cameras; one of top 25 teams in OpenCV AI Competition 2022 - Spatial AI Track",
+      "Trained and evaluated vision models (ResNeXT-101, MViT, 3D-MobileNetV2) on Qualcomm Jester dataset, achieving 17% performance improvement with custom Bi-LSTM architecture"
+    ]
+  },
