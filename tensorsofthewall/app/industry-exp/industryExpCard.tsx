@@ -29,8 +29,8 @@ const IndustryExpCard = (( data: IndustryExpProps) => {
                         <Image 
                             src={logo} 
                             alt={company} 
-                            width={144} 
-                            height={144} 
+                            width={128} 
+                            height={128} 
                             style={{
                                 objectFit: "scale-down", 
                                 backgroundColor: "#fffffff"
@@ -44,11 +44,11 @@ const IndustryExpCard = (( data: IndustryExpProps) => {
                 width: isExpanded ? '140%' : '100%', // Expands width by 40%
                 transition: 'all 0.3s ease-in-out',
                 cursor: 'pointer',
-                transform: isExpanded ? 'translateY(-65%) translateX(-13%)' : 'translateY(-30%) translateX(0)', // Added translateX to center the expanded card
+                transform: isExpanded ? 'translateY(-65%) translateX(13%)' : 'translateY(-30%) translateX(0)', // Added translateX to center the expanded card
                 zIndex: isExpanded ? 10 : 1
             }}   
         >
-            <div className="flex flex-row justify-center items-center gap-2 text-black-800 mb-4">
+            <div className="flex flex-row justify-space-between items-center gap-2 text-black-800 mb-4">
                 <span className="font-semibold">{position}</span>
                 <span>|</span>
                 <span className="font-semibold">{type}</span>
@@ -56,7 +56,7 @@ const IndustryExpCard = (( data: IndustryExpProps) => {
                 <span className="font-semibold">{location}</span>
             </div>
             <div style={{
-                maxHeight: isExpanded ? '250px': '0',
+                maxHeight: isExpanded ? '200px': '0',
                 opacity: isExpanded ? 1 : 0,
                 transition: 'all 0.3s ease-in-out',
                 overflow: 'auto',

@@ -16,7 +16,6 @@ const animatedTextOptions = [
     "Generative AI 🤖",
 ]
 
-
 const Hero = () => {
     const [layerSizes, setLayerSizes] = useState([4,8,12,10,3]);
     const [showRandomText, setShowRandomText] = useState(false);
@@ -24,11 +23,11 @@ const Hero = () => {
     const [position, setPosition] = useState({ x: 0, y: 0 });
 
     const generateRandomPosition = () => {
-        const maxWidth = window.innerWidth - 4*250;
-        const maxHeight = window.innerHeight - 4*100;
+        const maxWidth = window.innerWidth/4;
+        const maxHeight = window.innerHeight/4;
         return {
-            x: Math.floor(Math.random() * maxWidth),
-            y: Math.floor(Math.random() * maxHeight)
+            x: Math.floor(window.innerWidth/3+ Math.random() * maxWidth),
+            y: Math.floor(window.innerHeight/3+ Math.random() * maxHeight)
         };
     };
 
@@ -70,15 +69,15 @@ const Hero = () => {
     }, []);
 
     return (
-        <div className="flex flex-col items-center justify-center text-center w-full text-2xl text-white-500">
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '440px', fontSize: '24px', paddingTop: '10px'}}>
-                <strong style={{ width: '550px' }}>{pageStartText}<br/><br/>I work in: <AnimatedText texts={animatedTextOptions} typingSpeed={25} deletingSpeed={25} delayBeforeDelete={4000} /></strong>
+        <div className="flex flex-col items-center justify-center text-center w-full text-medium sm:text-large md:text-xl lg:text-2xl text-white-500">
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', width: '440px', paddingTop: '10px'}} >
+                <strong className="w-[400px] sm:w-[400px] md:w-[450px] lg:w-[500px]">{pageStartText}<br/><br/>I work in: <AnimatedText texts={animatedTextOptions} typingSpeed={25} deletingSpeed={25} delayBeforeDelete={4000} /></strong>
             </div>
-            <div style={{ height: '60vh', transform: 'translateY(-35px)' }} className="flex justify-center items-center">
+            <div style={{ transform: 'translateY(-35px)' }} className="flex justify-center items-center h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px]">
                 <NeuralNetwork layerSizes={layerSizes} />
             </div>
 
-            <h1 style={{ fontSize: '20px', width: '450px', transform: 'translateY(-65px)'}}> {captionText}</h1>
+            <h1 style={{ fontSize: '18px', transform: 'translateY(-65px)'}} className="w-[400px] sm:w-[400px] md:w-[450px] lg:w-[500px]"> {captionText}</h1>
             
             <div className="blur-sm hover:blur-none transition-all duration-300" 
                 style={{ transform: 'translateY(-55px)', textAlign: 'center', alignItems: 'center'}}>
@@ -95,7 +94,7 @@ const Hero = () => {
                         duration: 1.5,
                         ease: "easeInOut"
                     }}
-                    className="text-white text-lg pointer-events-none"
+                    className="text-white text-small sm:text-small md:text-medium lg:text-lg pointer-events-none"
                 >
                     Oh... you&apos;re still here?<br/> Maybe you&apos;ll see something cool if you refresh the page?
                 </motion.div>

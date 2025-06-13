@@ -13,16 +13,16 @@ const Skills = () => {
     const generateSkillImages = (skillList: string[]) => {
         return skillList.map((skill, idx) => (
             <div key={idx} style={{
-                display: 'inline-block',
-                height: '40px',
-                width: '300px',
+                display: 'flex',
+                height: '4.5vh',
+                width: '30vh',
                 position: 'relative',
             }}>
                 <Image
                     src={badges[skill]}
                     alt={skill}
                     fill
-                    sizes="250px"
+                    sizes="35vh"
                     style={{
                         objectFit: 'contain',
                     }}
@@ -34,7 +34,7 @@ const Skills = () => {
 
     const renderSkillList = (skillList: string[]) => {
         const skillImages = generateSkillImages(skillList);
-        const totalDuration = 13; // Total duration for one complete rotation
+        const totalDuration = 6.5; // Total duration for one complete rotation
         const staggerDelay = totalDuration / skillImages.length;
     
         return (
@@ -66,7 +66,6 @@ const Skills = () => {
                                 ease: "linear",
                                 repeatDelay: totalDuration,
                             }}
-                            
                         >
                             {img}
                         </motion.div>
@@ -84,13 +83,13 @@ const Skills = () => {
 
     const items = Object.entries(skills).map(([key, value], index) => ({
         key: index.toString(),
-        label: <span style={{ fontSize: '24px' }}>{formatTabTitle(key)}</span>,
+        label: <span className="text-[11.5px] sm:text-lg md:text-xl lg:text-2xl">{formatTabTitle(key)}</span>,
         children: renderSkillList(value),
     }));
 
     return (
-        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingTop: '20px'}} className="font-['arial']">
-        <strong style={{ width: '450px'}}>
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingTop: '20px'}} className="font-['arial'] ">
+        <strong className="w-[400px] sm:w-[400px] md:w-[450px] lg:w-[500px]">
             {pageStartText.map((text, index) => (
                 <React.Fragment key={index}>
                     <span style={{ fontSize: `${24-index*6}px`}}>
@@ -105,10 +104,10 @@ const Skills = () => {
             animated
             className="text-white-600 justify-center items-center text-center" 
             items={items}
-            style={{ color: '#ffffff', paddingTop: '75px', width: '100%' }}
-            tabBarGutter={64}
-            tabBarStyle={{ paddingTop: '10px', marginBottom: '40px', display: 'flex', justifyContent: 'center' }}
-            size="small"
+            style={{ color: '#ffffff', paddingTop: '35px', width: '100%' }}
+            tabBarGutter={12}
+            tabBarStyle={{ marginBottom: '2vh', display: 'flex', justifyContent: 'center' }}
+            size="middle"
         />
         </div>
     );

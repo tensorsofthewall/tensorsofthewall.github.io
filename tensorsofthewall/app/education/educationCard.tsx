@@ -28,8 +28,8 @@ const EducationCard = ({ educationData, idx }: {educationData: Education, idx: n
                     <Image 
                         src={logo} 
                         alt={institution} 
-                        width={200} 
-                        height={200} 
+                        width={160} 
+                        height={160} 
                         style={{
                             objectFit: "scale-down", 
                             backgroundColor: "#0a0a0a",
@@ -45,7 +45,7 @@ const EducationCard = ({ educationData, idx }: {educationData: Education, idx: n
                 transition: 'all 0.3s ease-in-out',
                 cursor: 'pointer',
                 backgroundColor: '#0a0a0a',
-                transform: (idx % 2 === 0) ? ( isExpanded ? 'translateX(-10%)' : 'translateX(-1%)') : (isExpanded ?'translateX(-25.5%)' : 'translateX(0%)'),
+                transform: isExpanded ? 'translateX(-10%)' : 'translateX(-1%)',
             }}
             styles={{header: { display: "flex", justifyContent: 'center',
                 alignItems: 'center',
@@ -135,24 +135,23 @@ const EducationTimeline = ({ educationData }: {educationData: Education[]}) => {
         key: index,
         label: (
             <div style={{
-                flexDirection: index % 2 === 0 ? 'column' : 'column-reverse',
+                flexDirection: 'column-reverse',
                 alignItems: 'center', // Center align all labels
-                paddingLeft: index % 2 === 0 ? '0' : '5px',
-                paddingRight: index % 2 === 0 ? '5px' : '0',
+                paddingLeft: '15px',
+                paddingRight: '15px',
             }}>
-                <span><strong className='tracking-tighte'>{edu.startDate} - {edu.graduation}</strong></span>
+                <span><strong className='tracking-tighter'>{edu.startDate} - {edu.graduation}</strong></span>
             </div>
         ),
         children: (
-            <div className="flex w-full" style={{
+            <div className="flex w-full translate-x-[3vh] sm:-translate-x-[5.5vh] md:-translate-x-[12vh] lg:-translate-x-[18.5vh]" style={{
                 justifyContent: 'center', // Center all cards
-                maxWidth: '300px', // Limit the maximum width
+                maxWidth: '250px', // Limit the maximum width
                 margin: '0 auto', // Center the container
-                paddingLeft: index % 2 === 0 ? '0' : '15px',
-                paddingRight: index % 2 === 0 ? '15px' : '0',
-                transform: `translateX(${index % 2 === 0 ? '-125px' :'125px'})`,
+                paddingLeft: '15px',
+                paddingRight: '15px',
             }}>
-                <div style={{ width: '250px' }}>
+                <div className='w-[200px] sm:w-[200px] md:w-[250px] lg:w-[300px]'>
                     <EducationCard educationData={edu} idx={index}/>
                 </div>
             </div>
@@ -161,14 +160,14 @@ const EducationTimeline = ({ educationData }: {educationData: Education[]}) => {
             color: "#f5f5f5", 
             fontSize: '24px',
             margin: '10px 0 10px 0',
-            transform: `translateY(${index % 2 === 0 ? '-5px' :'5px'})`,
+            transform: `translateY('5px')`,
         }} />,
         style: { color: "#f5f5f5", fontSize: '20px' },
     }));
 
     return (
         <div className="max-w-[1200px] mx-auto">
-            <Timeline mode="alternate" items={items} />
+            <Timeline mode="left" items={items} />
         </div>
     );
 }

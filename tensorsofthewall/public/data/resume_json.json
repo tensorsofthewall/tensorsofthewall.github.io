@@ -8,56 +8,57 @@
     },
     "skills": {
       "languages": [
-        "Python",
-        "C/C++",
+        "Dart",
+        "Scala",
         "Java",
-        "TypeScript",
         "Bash",
+        "C/C++",
+        "Python",
         "Markdown",
-        "TailwindCSS",
-        "Dart"
+        "TypeScript",
+        "TailwindCSS"
       ],
       "Databases": [
         "MySQL",
+        "SQLite",
         "Logstash",
-        "ElasticSearch",
         "ChromaDB",
-        "SQLite"
+        "ElasticSearch"        
       ],
       "devOpsAndSimulators": [
         "AWS",
-        "GCP",
-        "Docker",
         "Git",
         "Perforce",
-        "CARLA",
-        "OpenAI Gym",
+        "Docker",
+        "Jira",
         "GazeboSim",
-        "Jira"
+        "GCP",
+        "OpenAI Gym",
+        "CARLA"
       ],
       "frameworks": [
-        "PyTorch",
-        "TensorFlow",
-        "LangChain",
-        "FastAPI",
-        "Firebase",
-        "Intel OpenVINO",
-        "Apache Spark",
-        "Apache AirFlow",
+        "nginx",
         "Flutter", 
         "Streamlit",
-        "nginx"
+        "PyTorch",
+        "TensorFlow",
+        "FastAPI",
+        "Firebase",
+        "LangChain",
+        "Intel OpenVINO",
+        "Apache Spark",
+        "Apache AirFlow"
       ],
       "libraries": [
         "OpenCV",
-        "Huggingface Transformers",
-        "Lightning",
         "Scikit-Learn",
         "Pandas",
         "Selenium",
         "Soundfile",
         "NumPy",
-        "Matplotlib"
+        "Matplotlib",
+        "Huggingface Transformers",
+        "Lightning"
       ]
     },
     "publications": [
@@ -138,7 +139,7 @@
         "logo": "/images/org_logos/H2Xlogo.svg",
         "url": "https://eshed1.github.io/",
         "location": "Boston, MA",
-        "duration": "March 2023 - Present",
+        "duration": "Mar 2023 - Mar 2025",
         "position": "Visiting Researcher / Graduate Research Assistant",
         "supervisor": "Prof. Eshed Ohn-Bar",
         "type": "Full-Time",
@@ -148,6 +149,18 @@
           "Achieved state-of-the-art performance in CARLA-based navigation metrics, outperforming existing solutions by 35% while enhancing energy efficiency",
           "Designed a novel crowd navigation environment and introduced the Ecological Navigation Score metric to prioritize energy-efficient navigation in reinforcement learning tasks",
           "Developed visual servoing for multi-robot simulations using RGB and depth sensors, integrated human feedback, and evaluated reinforcement learning algorithms for person-following, significantly improving performance"
+        ]
+      },
+      {
+        "organization": "LossFunk",
+        "logo": "/images/org_logos/lossfunk-logo.jpg",
+        "url": "https://lossfunk.com/initialize/",
+        "location": "Bangalore, India",
+        "duration": "June 2025 - Present",
+        "position": "Independent Researcher",
+        "type": "Part-Time",
+        "achievements": [
+          "Pursuing an original research idea in the intersection of AI and music, focusing on source separation. Compute generously sponsored by LossFunk Initialize."
         ]
       }
     ],
@@ -171,7 +184,7 @@
         "url": "https://www.synopsys.com/",
         "location": "Bangalore, India",
         "duration": "Jan 2021 - Jan 2022",
-        "position": "Data Engineer",
+        "position": "Software Engineer",
         "type": "Full-Time",
         "achievements": [
           "Optimized existing data extraction and processing pipelines with Apache Spark, improving processing time by 25%",
@@ -186,7 +199,7 @@
         "url": "https://ignitarium.com/",
         "location": "Bangalore, India",
         "duration": "Jan 2022 - July 2022",
-        "position": "AI Engineer",
+        "position": "Software Engineer (AI & Machine Learning)",
         "type": "Full-Time [Contract]",
         "achievements": [
           "Improved inference performance on Untether AI's accelerator chips by developing high-performance low-level INT8 kernels in C++",

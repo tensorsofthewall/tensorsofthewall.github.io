@@ -13,10 +13,10 @@ const ResearchExp = () => {
     return (
         <div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center'}} className="font-['arial']">
-                <strong style={{ fontSize: '24px', marginTop: '2rem', width: '450px' }}>{pageStartText}</strong>
+                <strong style={{ marginTop: '2rem'}} className="w-[400px] sm:w-[400px] md:w-[450px] lg:w-[500px] text-medium sm:text-large md:text-xl lg:text-2xl">{pageStartText}</strong>
             </div>
             <div className="flex flex-col w-full items-center justify-center min-h-screen -translate-y-[5%]" >
-                <div className="w-full max-w-6xl">
+                <div className="w-full sm:md:lg:xl:max-w-7xl">
                     <div className="relative flex flex-row min-w-max p-1">
                         {/* Timeline base line */}
                         <div className="absolute h-1 w-full bg-white opacity-90 top-1/2 transform -translate-y-1/2">
@@ -42,20 +42,20 @@ const ResearchExp = () => {
                                             <img
                                                 src={exp.logo}
                                                 alt={exp.organization}
-                                                className="w-24 h-24 rounded-full object-contain bg-white"
+                                                className="w-8 h-8 sm:w-12 sm:h-12 md:w-18 md:h-18 lg:w-24 lg:h-24 rounded-full object-contain bg-white"
                                             />
                                             </picture>
                                         </div>
                                         
                                         {/* Circle aligned with logo */}
                                         <div className="relative 
-                                        top-1/8 bottom- left-1/2 transform -translate-x-1/2 -translate-y-1/8 w-4 h-4 bg-white rounded-full">
-                                            <div className="absolute w-10 h-10 bg-white bg-opacity-10 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
+                                        top-1/8 bottom-1/8 left-1/2 transform -translate-x-1/2 translate-y-[9px] sm:translate-y-[6px] md:translate-y-[6px] lg:translate-y-[14px] xl:translate-y-[14px]  w-4 h-4 max-sm:w-3 max-sm:h-3 bg-white rounded-full">
+                                            <div className="absolute w-10 h-10 max-sm:w-8 max-sm:h-8 bg-white bg-opacity-10 rounded-full top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"></div>
                                         </div>
                                     </div>
                                     
                                     {/* Duration label */}
-                                    <span className="text-xl text-white-700 opacity-100 mt-2 font-medium drop-shadow-lg">
+                                    <span className="text-xs sm:text-medium md:text-large lg:text-xl text-white-700 opacity-100 mt-2 font-medium drop-shadow-lg" style={{width: '150px'}}>
                                         {exp.duration}
                                     </span>
                                     

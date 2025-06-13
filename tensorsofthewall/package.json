@@ -15,9 +15,13 @@
     "cursor-effects": "^1.0.17",
     "motion": "^12.0.6",
     "next": "15.1.6",
+    "notion-client": "^7.4.2",
+    "notion-types": "^7.4.2",
+    "notion-utils": "^7.4.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-icons": "^5.4.0",
+    "react-notion-x": "^7.4.2",
     "react-responsive": "^10.0.0"
   },
   "devDependencies": {

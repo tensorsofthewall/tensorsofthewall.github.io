@@ -11,15 +11,13 @@
 }
 
 body {
-  min-width: 1200px;
   display: flex;
   flex-direction: column;
-  min-height: 100vh;
   padding-top: 10px;
   color: var(--foreground);
   background: var(--background);
   font-family: Arial, Helvetica, sans-serif;
-  
+  margin: 0 auto;
 }
 
 html, body {
@@ -116,10 +114,11 @@ header {
   justify-items: center;
   justify-content: center;
   /* top: 25%; */
-  height: 60%;
+  height: 50%;
   /* width: 10%; */
   position: fixed;
   overflow: visible;
+  bottom: 7.0vh;
 }
 
 .image-parent {

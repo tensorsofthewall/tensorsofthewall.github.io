@@ -47,7 +47,7 @@ const ProjectCard = ((projectProps: ProjectCardProps) => {
                 height: isExpanded ? '600px' : '360px',
                 transition: 'all 0.3s ease-in-out',
                 cursor: 'pointer',
-                transform: isExpanded ? 'translateY(-5%) translateX(0%)' : 'translateY(20%) translateX(0)',
+                transform: isExpanded ? 'translateY(-5%) translateX(-5%)' : 'translateY(20%) translateX(0)',
                 zIndex: isExpanded ? 10 : 1,
                 backgroundColor: '#0a0a0a',
                 marginTop: '2rem',
