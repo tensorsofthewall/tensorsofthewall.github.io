@@ -93,9 +93,9 @@ const Header = () => {
                         <Link href="https://x.com/tensorofthewall" target="_blank">
                             <FaXTwitter className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="X/Twitter" />
                         </Link>
-                        <Link href="/#contact" className="group flex cursor-pointer items-center">
+                        {/* <Link href="/#contact" className="group flex cursor-pointer items-center">
                             <FaEnvelope className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Contact Me"/>
-                        </Link>
+                        </Link> */}
                     </MotionDiv>
                 </div>
             </div>
