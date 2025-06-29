@@ -23,10 +23,10 @@ export async function generateStaticParams() {
 export default async function Page({ params }: {
     params: {pageId: string}
 }) {
-    // Required to ensure that params are generated correctly
-    const awaitedParams = await params;
+    // // Required to ensure that params are generated correctly
+    // const awaitedParams = await params;
 
-    const page = await getPageFromSlug( awaitedParams.pageId)
+    const page = await getPageFromSlug(params.pageId)
     if (!page) {
         return (
             <div/>
