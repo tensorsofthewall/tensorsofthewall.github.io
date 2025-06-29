@@ -7,7 +7,7 @@ import { renderBlock } from "@/components/notion/renderer";
 import CommentSection from "@/components/commentSection";
 
 export const dynamic = 'auto'
-export const revalidate = 60;
+export const revalidate = 600;
 
 type Params = Promise<{pageId: string}>;
 
