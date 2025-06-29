@@ -9,6 +9,8 @@ import CommentSection from "@/components/commentSection";
 export const dynamic = 'auto'
 export const revalidate = 60;
 
+type Params = Promise<{pageId: string}>;
+
 export async function generateStaticParams() {
     const posts = await getPublishedPosts();
     
@@ -21,12 +23,12 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: {
-    params: {pageId: string}
+    params: Params
 }) {
     // // Required to ensure that params are generated correctly
-    // const awaitedParams = await params;
+    const awaitedParams = await params;
 
-    const page = await getPageFromSlug(params.pageId)
+    const page = await getPageFromSlug(awaitedParams.pageId)
     if (!page) {
         return (
             <div/>
