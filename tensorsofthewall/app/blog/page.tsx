@@ -5,6 +5,8 @@ import { format } from "date-fns";
 
 const pageStartText = "Blog: I write things down here instead of explaining them at 2 a.m. to someone trying to sleep"
 
+export const revalidate = 60;
+
 async function getPostInfo() {
     const posts = await getPublishedPosts();
     const postCards = posts.map((post) => {
