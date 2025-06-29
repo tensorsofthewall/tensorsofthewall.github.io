@@ -13,6 +13,12 @@ module.exports = {
     remotePatterns: [
       {
         protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
         hostname: 'img.shields.io',
         port:'',
         pathname: '/**',
@@ -22,7 +28,19 @@ module.exports = {
         hostname: 'imgs.xkcd.com',
         port: '',
         pathname: '/**',
-      }
+      },
+      {
+        protocol: 'https',
+        hostname: '**.s3.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: '**.s3.*.amazonaws.com',
+        port: '',
+        pathname: '/**',
+      },
     ]
   },
 }

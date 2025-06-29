@@ -15,7 +15,7 @@ interface Education {
     positions: string[];
   }
 
-const EducationCard = ({ educationData, idx }: {educationData: Education, idx: number}) => {
+const EducationCard = ({ educationData }: {educationData: Education}) => {
     const [isExpanded, setIsExpanded] = useState(false);
     const { institution, logo, degree, coursework, positions } = educationData;
 
@@ -140,11 +140,11 @@ const EducationTimeline = ({ educationData }: {educationData: Education[]}) => {
                 paddingLeft: '15px',
                 paddingRight: '15px',
             }}>
-                <span><strong className='tracking-tighter'>{edu.startDate} - {edu.graduation}</strong></span>
+                <span><strong className='tracking-tighter text-sm sm:text-md md:text-lg lg:text-xl'>{edu.startDate} - {edu.graduation}</strong></span>
             </div>
         ),
         children: (
-            <div className="flex w-full translate-x-[3vh] sm:-translate-x-[5.5vh] md:-translate-x-[12vh] lg:-translate-x-[18.5vh]" style={{
+            <div className="flex w-full translate-x-[3vh] sm:-translate-x-[5.5vh] md:-translate-x-[12vh] lg:-translate-x-[17.5vh]" style={{
                 justifyContent: 'center', // Center all cards
                 maxWidth: '250px', // Limit the maximum width
                 margin: '0 auto', // Center the container
@@ -152,7 +152,7 @@ const EducationTimeline = ({ educationData }: {educationData: Education[]}) => {
                 paddingRight: '15px',
             }}>
                 <div className='w-[200px] sm:w-[200px] md:w-[250px] lg:w-[300px]'>
-                    <EducationCard educationData={edu} idx={index}/>
+                    <EducationCard educationData={edu} />
                 </div>
             </div>
         ),

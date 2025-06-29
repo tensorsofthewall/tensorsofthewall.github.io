@@ -20,7 +20,11 @@ import { AnimatedLightBulb } from "./animatedComponents";
 
 const Header = () => {
     return (
-        <header id="header" className="sticky top-0 z-50 mx-auto flex max-w-8xl flex-col items-center justify-center bg-zinc-925 p-2 pt-4 relative" style={{position: 'sticky', top:0, left: 0, right:0, zIndex:1000, width: '100%', height: '2.5vh', paddingTop: '8vh'}}>
+        // <header id="header" className="sticky top-0 z-50 mx-auto flex max-w-8xl flex-col items-center justify-center bg-zinc-925 p-2 pt-4 relative" style={{position: 'sticky', top:0, left: 0, right:0, zIndex:1000, width: '100%', height: '2.5vh', paddingTop: '8vh'}}>
+        <header
+        id="header"
+        className="sticky top-0 z-50 mx-auto flex max-w-8xl flex-col items-center justify-center bg-zinc-925 pt-4 relative w-full"
+        >
             <div id="wrapper" className="flex flex-col items-center w-full">
                 <div className="absolute inset-0 backdrop-blur-md "></div> 
                 <Link href="/" className="no-underline z-20 max-sm:translate-x-[13.5vh]">

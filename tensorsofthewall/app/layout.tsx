@@ -3,8 +3,9 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { AnimatedCursor } from "@/components/animatedComponents";
+// import { AnimatedCursor } from "@/components/animatedComponents";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
+import 'katex/dist/katex.min.css';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

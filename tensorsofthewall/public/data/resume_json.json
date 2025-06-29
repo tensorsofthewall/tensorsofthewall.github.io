@@ -18,7 +18,7 @@
         "TypeScript",
         "TailwindCSS"
       ],
-      "Databases": [
+      "databases": [
         "MySQL",
         "SQLite",
         "Logstash",
