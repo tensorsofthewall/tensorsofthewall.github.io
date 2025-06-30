@@ -144,11 +144,11 @@ const EducationTimeline = ({ educationData }: {educationData: Education[]}) => {
             </div>
         ),
         children: (
-            <div className="flex w-full translate-x-[3vh] sm:-translate-x-[5.5vh] md:-translate-x-[12vh] lg:-translate-x-[17.5vh]" style={{
+            <div className="flex w-full -translate-x-[1vh] sm:-translate-x-[5.5vh] md:-translate-x-[7.5vh] lg:-translate-x-[12.5vh]" style={{
                 justifyContent: 'center', // Center all cards
                 maxWidth: '250px', // Limit the maximum width
                 margin: '0 auto', // Center the container
-                paddingLeft: '15px',
+                paddingLeft: '50px',
                 paddingRight: '15px',
             }}>
                 <div className='w-[200px] sm:w-[200px] md:w-[250px] lg:w-[300px]'>

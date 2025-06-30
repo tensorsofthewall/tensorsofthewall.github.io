@@ -8,15 +8,21 @@ import ProfileImg from "@/public/images/tensorsofthewall.webp"
 import { TbError404 } from "react-icons/tb";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
-import { FaHome, FaGraduationCap, FaEnvelope, FaBriefcase, FaFileDownload } from "react-icons/fa";
+import { FaHome, FaGraduationCap, FaBriefcase, FaFileDownload } from "react-icons/fa";
+// import {FaEnvelope} from "react-icons/fa6";
 import { GiBookshelf, GiNotebook, GiOnTarget } from "react-icons/gi";
+import { HiLightBulb } from "react-icons/hi";
 
 import dynamic from "next/dynamic";
 
 // To prevent hydration issues
 const MotionDiv = dynamic(() => import("motion/react").then((mod) => mod.motion.div), { ssr: false })
 
-import { AnimatedLightBulb } from "./animatedComponents";
+
+const SHOW_NEW_UNTIL = new Date("2025-08-15T23:59:59Z");
+const showNew = new Date() < SHOW_NEW_UNTIL;
+
+import { AnimatedComponent } from "./animatedComponents";
 
 const Header = () => {
     return (
@@ -53,9 +59,9 @@ const Header = () => {
                             <FaHome className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Go home" />
                         </Link>
                         <Link href="/skills">
-                            <GiOnTarget className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Projects" />
+                            <GiOnTarget className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Skills" />
                         </Link>
-                        <AnimatedLightBulb href="/research-exp" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Research Experience" />
+                        <AnimatedComponent component={HiLightBulb} href="/research-exp" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Research Experience" />
                         <Link href="/industry-exp">
                             <FaBriefcase className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Industry Experience" />
                         </Link>
@@ -78,9 +84,10 @@ const Header = () => {
                         <Link href="/not-found">
                             <TbError404 className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Random comic"/>
                         </Link>
-                        <Link href="/blog">
+                        {/* <Link href="/blog">
                             <GiNotebook className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Blog"/>
-                        </Link>
+                        </Link> */}
+                        <AnimatedComponent component={GiNotebook} href="/blog" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Blog" showNew={showNew} />
                         <Link href="/data/CV - Sandesh Bharadwaj.pdf" target="_blank">
                             <FaFileDownload className="h-7 w-7 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Download CV" />
                         </Link>

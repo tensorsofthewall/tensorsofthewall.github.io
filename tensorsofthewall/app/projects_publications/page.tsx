@@ -13,7 +13,7 @@ const TabCarousel = () => {
     const TabItems = [
         {
             key: '1',
-            label: <span className='text-large sm:text-xl md:text-2xl lg:text-3xl'>Publications</span>,
+            label: <span className='text-medium sm:text-large md:text-xl lg:text-2xl'>Publications</span>,
             children: (
                 <div className='pt-10'>
                 <ResearchCarousel papers={data.publications} />
@@ -22,7 +22,7 @@ const TabCarousel = () => {
         },
         {
             key: '2',
-            label: <span className='text-large sm:text-xl md:text-2xl lg:text-3xl'>Projects</span>,
+            label: <span className='text-medium sm:text-large md:text-xl lg:text-2xl'>Projects</span>,
             children: (
                 <div className='pt-10'>
                 <ProjectCarousel projects={data.projects} />
@@ -43,7 +43,7 @@ const TabCarousel = () => {
                 animated
                 className="text-white-600 justify-center text-center"
                 tabBarGutter={48}
-                tabBarStyle={{ paddingTop: '10px', marginBottom: '40px', display: 'flex', justifyContent: 'center' }}
+                tabBarStyle={{ paddingTop: '5px', marginBottom: '-10px', display: 'flex', justifyContent: 'center' }}
                 size="small"
                 items={TabItems}
             />

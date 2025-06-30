@@ -6,6 +6,8 @@ import {motion} from "motion/react";
 
 const pageStartText = "Research: Where \‘what if\’ turns into months of debugging and a publication that makes it all worth it."
 
+const pageSubText = "Click on each card to view more details.";
+
 const ResearchExp = () => {
     const researchExperience = data.researchExperience;
     const [expandedCard, setExpandedCard] = useState<number | null>(null);
@@ -13,9 +15,12 @@ const ResearchExp = () => {
     return (
         <div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center'}} className="font-['arial']">
-                <strong style={{ marginTop: '2rem'}} className="w-[400px] sm:w-[400px] md:w-[450px] lg:w-[500px] text-medium sm:text-large md:text-xl lg:text-2xl">{pageStartText}</strong>
+                <strong style={{ marginTop: '2rem'}} className="w-[400px] sm:w-[400px] md:w-[450px] lg:w-[500px] text-medium sm:text-large md:text-xl lg:text-2xl">{pageStartText}<div className="blur-sm hover:blur-none transition-all duration-300" 
+                style={{ alignItems: 'center', justifyContent: 'center', textAlign: 'center'}}>
+                <h1 style={{ fontSize: '18px', whiteSpace: 'pre-line'}}>{pageSubText}</h1>
+            </div></strong>
             </div>
-            <div className="flex flex-col w-full items-center justify-center min-h-screen -translate-y-[5%]" >
+            <div className="flex flex-col w-full items-center justify-center min-h-screen -translate-y-[0.7%]" >
                 <div className="w-full sm:md:lg:xl:max-w-7xl">
                     <div className="relative flex flex-row min-w-max p-1">
                         {/* Timeline base line */}
@@ -25,6 +30,7 @@ const ResearchExp = () => {
                         {/* Timeline items */}
                         <div className="flex flex-row justify-between w-full relative z-10">
                             {researchExperience.map((exp: ResearchExpProps, i: number) => (
+                                <React.Fragment key={i}>
                                 <div key={i} className="flex flex-col items-center text-center">
                                     {/* Logo/Timeline point */}
                                     <div className="relative -translate-y-1/4 mb-4">
@@ -73,6 +79,18 @@ const ResearchExp = () => {
                                         <ResearchExpCard {...exp} />
                                     </motion.div>
                                 </div>
+                                {/* Arrow between items, except after the last item */}
+                                {i < researchExperience.length - 1 && (
+                                    <svg
+                                    className="mx-2 my-auto w-7 h-7"
+                                    viewBox="0 0 24 24"
+                                    fill="#fff"
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    >
+                                        <polygon points="12,12 8,5 20,12 8,19" />
+                                    </svg>
+                                )}
+                                </React.Fragment>
                             ))}
                         </div>
                     </div>

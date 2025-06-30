@@ -2,22 +2,30 @@
 import { useState, useEffect } from "react";
 import dynamic from "next/dynamic";
 import Link from "next/link";
-import { HiLightBulb } from "react-icons/hi";
 import { Url } from "next/dist/shared/lib/router/router";
 import { fairyDustCursor, snowflakeCursor } from "cursor-effects";
 
+import { IconType } from "react-icons/lib";
+
 const MotionDiv = dynamic(() => import("motion/react").then((mod) => mod.motion.div), { ssr: false })
 
-export const AnimatedLightBulb = ({href, className, title}: {href: Url, className: string, title: string}) => {
+export const AnimatedComponent = ({component: Component, href, className, title, showNew=false}: {component: IconType, href: Url, className: string, title: string, showNew?: boolean}) => {
     return (
+      <div className="relative inline-flex flex-col items-center">
         <Link href = {href} >
         <MotionDiv
             animate={{opacity: [1, 0]}}
             transition={{duration: 1., repeat: Infinity, repeatType: "reverse", ease: "easeInOut"}}
         >
-            <HiLightBulb className={className} title={title}/>
+            <Component className={className} title={title}/>
+            {showNew && (
+              <span className="absolute -top-2 -right-2 bg-red-500 text-white text-[8px] font-bold px-1 py-0.5 rounded-full shadow z-10">
+                New!
+              </span>
+            )}
         </MotionDiv>
         </Link>
+        </div>
     )
 }
 
