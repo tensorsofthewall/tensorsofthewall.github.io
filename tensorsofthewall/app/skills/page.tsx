@@ -34,7 +34,7 @@ const Skills = () => {
 
     const renderSkillList = (skillList: string[]) => {
         const skillImages = generateSkillImages(skillList);
-        const totalDuration = 6.5; // Total duration for one complete rotation
+        const totalDuration = 6.2; // Total duration for one complete rotation
         const staggerDelay = totalDuration / skillImages.length;
     
         return (
@@ -54,6 +54,14 @@ const Skills = () => {
                                 ease: "linear",
                                 repeatDelay: totalDuration
                             },
+                        }}
+                        style={{
+                            position: 'absolute',
+                            width: '45vh',
+                            height:'45vh',
+                            margin: "0 auto",
+                            left: '-13vh',
+                            top: '0vh'
                         }}
                     >
                         <motion.div
@@ -83,7 +91,7 @@ const Skills = () => {
 
     const items = Object.entries(skills).map(([key, value], index) => ({
         key: index.toString(),
-        label: <span className="text-[11.5px] sm:text-lg md:text-xl lg:text-2xl">{formatTabTitle(key)}</span>,
+        label: <span className="text-[11.8px] sm:text-lg md:text-xl lg:text-2xl">{formatTabTitle(key)}</span>,
         children: renderSkillList(value),
     }));
 
