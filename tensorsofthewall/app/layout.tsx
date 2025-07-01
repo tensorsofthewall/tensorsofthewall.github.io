@@ -22,12 +22,12 @@ export const metadata: Metadata = {
     title: "Sandesh Bharadwaj | TensorsOfTheWall",
     description: "AI Researcher and Engineer with 4+ years of experience in autonomous systems, computer vision and software engineering.",
     alternates: {
-        canonical: "https://www.tensorsofthewall.com/hero",
+        canonical: "https://www.tensorsofthewall.com",
     },
     openGraph: {
         title: "Sandesh Bharadwaj | TensorsOfTheWall",
         description: "AI Researcher and Engineer with 4+ years of experience in autonomous systems, computer vision and software engineering.",
-        url: "https://www.tensorsofthewall.com/hero",
+        url: "https://www.tensorsofthewall.com",
         images: [
           {
             url: "https://www.tensorsofthewall.com/images/banners/hero_banner.png",
