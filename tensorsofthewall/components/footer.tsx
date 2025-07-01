@@ -1,12 +1,8 @@
-"use client";
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const Footer = () => {
-    const [year, setYear] = useState("");
-
-    useEffect(() => {
-        setYear(new Date().getFullYear().toString());
-    }, []);
+    // Get the year once at render time, no need for state/effect
+    const year = new Date().getFullYear();
 
     return (
         <footer className="bg-black-800 py-8 text-white mt-auto">

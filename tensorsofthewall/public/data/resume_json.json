@@ -38,7 +38,8 @@
       ],
       "frameworks": [
         "nginx",
-        "Flutter", 
+        "Flutter",
+        "NextJS",
         "Streamlit",
         "PyTorch",
         "TensorFlow",
@@ -64,7 +65,7 @@
     "publications": [
       {
         "title": "Unified Local-Cloud Decision-Making via Residual Reinforcement Learning",
-        "abstract": ["Embodied vision-based real-world systems, such as mobile robots, require a careful balance between energy consumption, compute latency, and safety constraints to optimize operation across dynamic tasks and contexts. As local computation tends to be restricted, offloading the computation, ie, to a remote server, can save local resources while providing access to high-quality predictions from powerful and large models. However, the resulting communication and latency overhead has led to limited usability of cloud models in dynamic, safety-critical, real-time settings.","To effectively address this trade-off, we introduce UniLCD, a novel hybrid inference framework for enabling flexible local-cloud collaboration. By efficiently optimizing a flexible routing module via reinforcement learning and a suitable multi-task objective, UniLCD is specifically designed to support the multiple constraints of safety-critical end-to-end mobile systems. We validate the proposed approach using a challenging, crowded navigation task requiring frequent and timely switching between local and cloud operations. UniLCD demonstrates improved overall performance and efficiency, by over 35% compared to state-of-the-art baselines based on various split computing and early exit strategies."],
+        "abstract": ["Embodied vision systems like mobile robots must balance energy, latency, and safety. While offloading to the cloud allows access to powerful models, it introduces communication delays that hinder real-time, safety-critical use.", "We propose UniLCD, a hybrid inference framework enabling dynamic local-cloud collaboration via a reinforcement learning–optimized routing module and multi-task objective. Tested on a challenging navigation task, UniLCD outperforms state-of-the-art split computing and early exit baselines by over 35%, offering a robust solution for efficient and safe decision-making in dynamic environments."],
         "link": "https://unilcd.github.io/",
         "figure": "/images/papers/unilcd.png",
         "conference": "ECCV 2024",
@@ -80,7 +81,7 @@
       },
       {
         "title": "Person Re-Identification by Analyzing Dynamic Variations in Gait Sequences",
-        "abstract": ["Gait recognition is a biometric technology that identifies individuals in video sequences by analyzing their walking style or limb movement. However, this identification is generally sensitive to appearance changes, and conventional feature descriptors such as Gait Energy Image (GEI) lose some of the dynamic information in the gait sequence. Active Energy Image (AEI) focuses more on dynamic motion changes than GEI and is better suited to deal with appearance changes.","We propose a new approach for recognizing people by analyzing dynamic motion variations in gait sequences without using a database of predicted changes. In our method, the active energy image is calculated by averaging the difference frames of the silhouette sequence and divided into multiple segments. Affine moment invariants are computed as gait features for each section. Next, matching weights are calculated based on the similarity between extracted features and those in the database. Finally, the subject is identified by the weighted combination of similarities in all segments. The CASIA-B Gait Database is used as the principal dataset for experimental analysis.","Our approach achieves a highest accuracy of 91.13% with 23 segments and 5 affine moment invariants, demonstrating competitive performance compared to existing gait recognition methods. This method offers a promising direction for gait-based person re-identification, particularly in scenarios with appearance changes or low-resolution video data."],
+        "abstract": ["Gait recognition identifies individuals by analyzing their walking patterns but often struggles with appearance changes. Traditional methods like Gait Energy Image (GEI) lose dynamic motion details.", "We propose a novel approach using Active Energy Image (AEI), which better captures motion variations. AEIs are divided into segments, and affine moment invariants are extracted as features. Matching is performed using a weighted similarity scheme across all segments.", "Evaluated on the CASIA-B dataset, our method achieves 91.13% accuracy with 23 segments and 5 moment invariants, showing strong performance in appearance-variant or low-resolution settings."],
         "link": "https://link.springer.com/chapter/10.1007/978-981-15-7804-5_30",
         "figure": "/images/papers/GaitSequence.jpg",
         "conference": "ETCCS 2020",

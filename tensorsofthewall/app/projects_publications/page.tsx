@@ -1,16 +1,65 @@
-"use client";
 import { Tabs } from 'antd';
 import data from '@/public/data/resume_json.json';
 import ResearchCarousel from './paperCarousel';
 import ProjectCarousel from './projectCarousel';
+import { useMemo } from 'react';
 
+export const revalidate = 3600; // Revalidate every hour
 
 const pageStartText = 'Here lies some evidence of my ‘productive’ rabbit holes.';
 
 const pageSubText = "Click on the title in each card to view the\n full details (link opens in new tab).";
 
+export const metadata = {
+    metadataBase: new URL("https://www.tensorsofthewall.com"),
+    title: "Projects & Publications | TensorsOfTheWall",
+    description: "Published papers and projects over the years.",
+    alternates: {
+        canonical: "https://www.tensorsofthewall.com/projects_publications",
+    },
+    openGraph: {
+        title: "Projects & Publications | TensorsOfTheWall",
+        description: "Published papers and projects over the years.",
+        url: "https://www.tensorsofthewall.com/projects_publications",
+        type: "website",
+        images: [
+            {
+                url: "https://www.tensorsofthewall.com/images/banners/projects_banner.png",
+                width: 960,
+                height: 640,
+                alt: "Projects and Publications at TensorsOfTheWall",
+            },
+        ],
+    },
+    keywords: [
+        "projects",
+        "publications",
+        "research",
+        "Sandesh Bharadwaj",
+        "TensorsOfTheWall",
+        "portfolio",
+        "AI",
+        "computer vision",
+        "deep learning",
+        "autonomous systems",
+        "European Conference for Computer Vision",
+        // Add publication titles and project names for SEO
+        ...data.publications.map((pub) => pub.title),
+        ...data.projects.map((proj) => proj.name),
+        // Add publication conferences for extra SEO
+        ...data.publications.map((pub) => pub.conference || "").filter(Boolean),
+    ],
+    twitter: {
+        card: "summary_large_image",
+        title: "Projects & Publications | TensorsOfTheWall",
+        description: "Published papers and projects over the years.",
+        images: ["https://www.tensorsofthewall.com/images/banners/projects_banner.png"],
+        site: "@tensorofthewall",
+    },
+};
+
 const TabCarousel = () => {
-    const TabItems = [
+    const TabItems = useMemo(() =>[
         {
             key: '1',
             label: <span className='text-medium sm:text-large md:text-xl lg:text-2xl'>Publications</span>,
@@ -29,7 +78,7 @@ const TabCarousel = () => {
                 </div>
             )
         }
-    ]
+    ], []);
 
     return (
         <div style={{ alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingTop: '75px'}} className="font-['arial']">

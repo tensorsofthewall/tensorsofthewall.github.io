@@ -18,9 +18,50 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "TensorsOfTheWall | Sandesh Bharadwaj",
-  description: "Sandesh Bharadwaj's personal website",
+    metadataBase: new URL("https://www.tensorsofthewall.com"),
+    title: "Sandesh Bharadwaj | TensorsOfTheWall",
+    description: "AI Researcher and Engineer with 4+ years of experience in autonomous systems, computer vision and software engineering.",
+    alternates: {
+        canonical: "https://www.tensorsofthewall.com/hero",
+    },
+    openGraph: {
+        title: "Sandesh Bharadwaj | TensorsOfTheWall",
+        description: "AI Researcher and Engineer with 4+ years of experience in autonomous systems, computer vision and software engineering.",
+        url: "https://www.tensorsofthewall.com/hero",
+        images: [
+          {
+            url: "https://www.tensorsofthewall.com/images/banners/hero_banner.png",
+            width: 960,
+            height: 640,
+            alt: "TensorsOfTheWall Hero Banner",
+          }
+        ],
+        type: "website",
+    },
+    keywords: [
+        "AI",
+        "software engineering",
+        "autonomous systems",
+        "computer vision",
+        "generative AI",
+        "TensorsOfTheWall",
+        "Sandesh Bharadwaj",
+        "hero section",
+        "neural network",
+        "portfolio",
+        "deep learning",
+        "machine learning",
+        "AI research",
+    ],
+    twitter: {
+        card: "summary_large_image",
+        title: "Sandesh Bharadwaj | TensorsOfTheWall",
+        description: "AI Researcher and Engineer with 4+ years of experience in autonomous systems, computer vision and software engineering.",
+        site: "@tensorofthewall",
+        images: ["https://www.tensorsofthewall.com/images/banners/hero_banner.png"],
+    },
 };
+
 
 export default function RootLayout({
   children,

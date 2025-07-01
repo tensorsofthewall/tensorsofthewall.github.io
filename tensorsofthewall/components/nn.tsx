@@ -40,6 +40,7 @@ const Node: React.FC<NodeProps & { isActive: boolean, isLastLayer: boolean }> = 
             cx={x}
             cy={y}
             r={10}
+            style={{ willChange: 'transform, opacity, fill' }}
             initial={{ opacity: 0.3, scale: 1, fill: 'var(--nn-inactive)' }}
             animate={controls}
             transition={{duration: 3, repeat: Infinity, repeatDelay: 2, repeatType: "reverse", ease: "easeInOut"}}
@@ -87,9 +88,6 @@ const CurvedConnection: React.FC<ConnectionProps & { delay: number }> = ({ start
         />
     );
 };
-
-
-
 
 const NeuralNetwork: React.FC<NeuralNetworkProps> = ({ layerSizes }) => {
     const [connections, setConnections] = useState<ConnectionProps[]>([]);
@@ -139,43 +137,43 @@ const NeuralNetwork: React.FC<NeuralNetworkProps> = ({ layerSizes }) => {
         const updateActiveConnections = () => {
             const newActiveConnections = new Set<string>();
             const layerConnections: { [key: string]: ConnectionProps[] } = {};
-    
+
             connections.forEach((conn) => {
                 const key = `${conn.fromLayer}-${conn.toLayer}`;
                 if (!layerConnections[key]) layerConnections[key] = [];
                 layerConnections[key].push(conn);
             });
-    
+
             const activateLayerConnections = (layerIndex: number) => {
                 if (layerIndex >= Object.keys(layerConnections).length) {
                     // All layers have been activated
                     setActiveConnections(newActiveConnections);
                     return;
                 }
-    
+
                 const key = Object.keys(layerConnections)[layerIndex];
                 const layerConns = layerConnections[key];
                 const randomConn = layerConns[Math.floor(Math.random() * layerConns.length)];
                 newActiveConnections.add(randomConn.id);
-    
+
                 // Activate additional random connections if needed
                 const totalDesiredActive = Math.floor(connections.length * 0.2);
                 while (newActiveConnections.size < totalDesiredActive * ((layerIndex + 1) / Object.keys(layerConnections).length)) {
                     const randomConn = connections[Math.floor(Math.random() * connections.length)];
                     newActiveConnections.add(randomConn.id);
                 }
-    
+
                 // Update active connections for the current layer
                 setActiveConnections(new Set(newActiveConnections));
-    
+
                 // Schedule activation of the next layer
-                setTimeout(() => activateLayerConnections(layerIndex + 1), 45); // 500ms delay between layers
+                setTimeout(() => activateLayerConnections(layerIndex + 1), 45); // 45ms delay between layers
             };
-    
+
             // Start the activation process
             activateLayerConnections(0);
         };
-    
+
         updateActiveConnections();
         const interval = setInterval(updateActiveConnections, 15000); // Increased interval to allow for layer delays
         return () => clearInterval(interval);

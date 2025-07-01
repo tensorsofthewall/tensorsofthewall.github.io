@@ -3,7 +3,53 @@ import { Space } from "antd";
 import BlogPostCard from "./blogPostCard";
 import { format } from "date-fns";
 
-const pageStartText = "Blog: I write things down here instead of explaining them at 2 a.m. to someone trying to sleep"
+const pageStartText = "Overfitted Opinions: I write things down here instead of explaining them at 2 a.m. to someone trying to sleep"
+
+export const metadata = {
+    metadataBase: new URL("https://www.tensorsofthewall.com"),
+    title: "Overfitted Opinions | Blog by TensorsOfTheWall",
+    description: pageStartText,
+    alternates: {
+        canonical: "https://www.tensorsofthewall.com/blog",
+    },
+    openGraph: {
+        title: "Overfitted Opinions | Blog by TensorsOfTheWall",
+        description: pageStartText,
+        url: "https://www.tensorsofthewall.com/blog",
+        type: "website",
+        images: [
+            {
+                url: "https://www.tensorsofthewall.com/images/blog/blogPostPlaceholder.png",
+                width: 1200,
+                height: 630,
+                alt: "Overfitted Opinions Blog Banner",
+            },
+        ],
+    },
+    keywords: [
+        "AI blog",
+        "machine learning",
+        "deep learning",
+        "artificial intelligence",
+        "software engineering",
+        "autonomous systems",
+        "computer vision",
+        "generative AI",
+        "TensorsOfTheWall",
+        "Overfitted Opinions",
+        "Sandesh Bharadwaj",
+        "blog",
+        "articles",
+        "opinions"
+    ],
+    twitter: {
+        card: "summary_large_image",
+        title: "Overfitted Opinions | Blog by TensorsOfTheWall",
+        description: pageStartText,
+        images: ["https://www.tensorsofthewall.com/images/blog/blogPostPlaceholder.png"],
+        site: "@tensorofthewall",
+    },
+};
 
 export const revalidate = 3600;
 
@@ -16,6 +62,7 @@ async function getPostInfo() {
         const publishDateProp = post.properties.PublishDate;
         const descriptionProp = post.properties.Description;
         const imageURLProp = post.properties.PresentativeMedia;
+        const numWordsProp = post.properties.numWords
 
         return {
             title:
@@ -45,6 +92,7 @@ async function getPostInfo() {
                     ? format(new Date(publishDateProp.date.start), "MMM dd, yyyy")
                     : "",
             lastEditDate: format(new Date(post.last_edited_time), "MMM dd, yyyy"),
+            readTime: numWordsProp.type === "number" && numWordsProp.number ? Math.ceil(numWordsProp.number / 200).toString() : "0", // Assuming average reading speed of 200 wpm
         };
     })
     return postCards;

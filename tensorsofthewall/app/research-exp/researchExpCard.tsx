@@ -85,6 +85,5 @@ const ResearchExpCard = (( data: ResearchExpProps) => {
     )
 });
 
-
 export default ResearchExpCard;
 export type {ResearchExpProps};

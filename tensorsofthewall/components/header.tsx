@@ -2,6 +2,7 @@
 /* General Package Imports */
 import Link from "next/link";
 import Image from "next/image";
+import React from "react";
 
 /* Asset Imports */
 import ProfileImg from "@/public/images/tensorsofthewall.webp" 
@@ -16,8 +17,7 @@ import { HiLightBulb } from "react-icons/hi";
 import dynamic from "next/dynamic";
 
 // To prevent hydration issues
-const MotionDiv = dynamic(() => import("motion/react").then((mod) => mod.motion.div), { ssr: false })
-
+const MotionDiv = dynamic(() => import("motion/react-client").then((mod) => mod.div), { ssr: false })
 
 const SHOW_NEW_UNTIL = new Date("2025-08-15T23:59:59Z");
 const showNew = new Date() < SHOW_NEW_UNTIL;
@@ -34,17 +34,17 @@ const Header = () => {
             <div id="wrapper" className="flex flex-col items-center w-full">
                 <div className="absolute inset-0 backdrop-blur-md "></div> 
                 <Link href="/" className="no-underline z-20 max-sm:translate-x-[13.5vh]">
-                    <h1 className="text-small sm:text-medium md:text-xl lg:text-3xl font-bold text-white-400 tracking-tighter mb-2 font-['Orbitron'] drop-shadow-md pb-10 sm:pb-9 md:pb-8 lg:pb-5 flex items-center gap-2 sm:gap-1 "> 
+                    <div className="text-small sm:text-medium md:text-xl lg:text-3xl font-bold text-white-400 tracking-tighter mb-2 font-['Orbitron'] drop-shadow-md pb-10 sm:pb-9 md:pb-8 lg:pb-5 flex items-center gap-2 sm:gap-1 "> 
                         <Image
                             src={ProfileImg}
-                            alt=""
+                            alt="Logo"
                             width={28}
                             height={28}
                             className="w-4 h-4 sm:w-5 sm:h-5 md:w-7 md:h-7 lg:w-9 lg:h-9"
                             priority
                         />
                         TensorsOfTheWall
-                    </h1>
+                    </div>
                 </Link>
                 <div className="flex flex-col sm:flex-row justify-between w-full relative z-10 gap-1 sm:gap-0">
                     {/* Left Icon Links */}
@@ -110,4 +110,4 @@ const Header = () => {
     );
 }
 
-export default Header;
+export default React.memo(Header);

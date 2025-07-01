@@ -80,7 +80,7 @@ const ProjectCard = ((projectProps: ProjectCardProps) => {
 
                 {/* Description */}
                 <div className="px-4">
-                    <h4 className="font-semibold mb-2 text-center" style={{color: '#f5f5f5', fontSize:'16px'}}>Description<br/><br/></h4>
+                    <h4 className="font-semibold mb-2 text-center" style={{color: '#f5f5f5', fontSize:'16px'}}>Overview<br/><br/></h4>
                     <p className="text-left text-sm" style={{color: '#f5f5f5'}}>
                         {web_description.map((desc,index) => (
                         <React.Fragment key={index}>

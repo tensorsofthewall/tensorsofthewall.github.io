@@ -3,8 +3,9 @@ import React from "react";
 import { Card } from "antd";
 import Link from "next/link";
 import { FaCalendarDay } from "react-icons/fa6";
-import { RxUpdate } from "react-icons/rx";
-import { differenceInDays } from "date-fns";
+import { RxTimer } from "react-icons/rx";
+// import { RxUpdate } from "react-icons/rx";
+// import { differenceInDays } from "date-fns";
 
 interface BlogPostCardProps {
     title: string;
@@ -14,13 +15,14 @@ interface BlogPostCardProps {
     tags: string[];
     publishDate: string;
     lastEditDate: string;
+    readTime: string;
 }
 
 const BlogPostCard = (( data: BlogPostCardProps) => {
-    const { title, description, imageURL, slug, publishDate, lastEditDate } = data; // tags
+    const { title, description, imageURL, slug, publishDate, readTime } = data; // tags, lastEditDate
 
     return (
-        <Link href={`/blog/${slug}`}>
+        <Link href={{ pathname: `/blog/${slug}`}}>
             <Card
                 hoverable
                 className="w-[380px] max-w-[400px] sm:max-w-[400px] md:max-w-md lg:max-w-lg xl:max-w-xl 
@@ -56,15 +58,18 @@ const BlogPostCard = (( data: BlogPostCardProps) => {
                             <h4 className="text-lg md:text-xl lg:text-2xl font-bold mr-8">{title}</h4>
                             <div className="flex items-center gap-2 ml-4">
                                 <FaCalendarDay className="h-4 w-4 md:w-{4.5} md:h-{4.5} lg:w-5 lg:h-5"/>
-                                <span className="text-sm md:text-md lg:text-lg font">{publishDate}</span>
+                                <span className="text-md md:text-lg lg:text-xl font">{publishDate}</span>
                             </div>
                         </div>
                         <div className="flex items-center justify-between w-full">
                             <p className="text-sm md:text-md lg:text-lg font mt-1">{description}</p>
-                            {differenceInDays(new Date(lastEditDate), new Date(publishDate)) > 1 ? <div className="flex items-center gap-2 ml-4">
+                            {/* {differenceInDays(new Date(lastEditDate), new Date(publishDate)) > 1 ? <div className="flex items-center gap-2 ml-4">
                                 <RxUpdate className="h-4 w-4 md:w-{4.5} md:h-{4.5} lg:w-5 lg:h-5"/>
                                 <span className="text-sm md:text-sm lg:text-md font">Updated: {lastEditDate}</span>
-                            </div> : <></>}
+                            </div> : <></>} */}
+                            { readTime !== "0" ? <div className="flex items-center gap-2 ml-4">
+                                <RxTimer className="h-4 w-4 md:w-{4.5} md:h-{4.5} lg:w-5 lg:h-5"/>
+                                <span className="text-sm md:text-md lg:text-lg font ">{readTime} min read</span></div> : <></>}
                         </div>
                     </div>
                 </div>

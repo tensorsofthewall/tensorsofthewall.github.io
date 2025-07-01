@@ -102,7 +102,7 @@ const PaperCard = ((paperProps: PaperCardProps) => {
 
                 {/* Abstract */}
                 <div className="mt-4 px-4">
-                    <h4 className="font-semibold mb-2 text-center" style={{color: '#f5f5f5', fontSize:'16px'}}>Abstract<br/></h4>
+                    <h4 className="font-semibold mb-2 text-center" style={{color: '#f5f5f5', fontSize:'16px'}}>Overview<br/></h4>
                     <p className="text-left text-sm" style={{color: '#f5f5f5'}}>
                         {abstract.map((abs, index)=>(
                     <React.Fragment key={index}>
