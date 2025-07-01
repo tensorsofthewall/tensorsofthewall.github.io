@@ -90,7 +90,7 @@ const Hero = () => {
             </h1>
             <div className="blur-sm hover:blur-none transition-all duration-300"
                 style={{ transform: 'translateY(-55px)', textAlign: 'center', alignItems: 'center' }}>
-                <h1 style={{ fontSize: '16px', width: '350px', whiteSpace: 'pre-line' }}>{captionSubText}</h1>
+                <h2 style={{ fontSize: '16px', width: '350px', whiteSpace: 'pre-line' }}>{captionSubText}</h2>
             </div>
             <div className="absolute" style={{ left: position.x, top: position.y, width: '250px', height: '100px' }}>
                 <motion.div
