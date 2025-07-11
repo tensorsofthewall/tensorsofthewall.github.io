@@ -55,14 +55,14 @@ const BlogPostCard = (( data: BlogPostCardProps) => {
                     {/* Left side: title and description */}
                     <div className="flex flex-col text-left justify-center flex-1">
                         <div className="flex items-center justify-between w-full">
-                            <h4 className="text-lg md:text-xl lg:text-2xl font-bold mr-8">{title}</h4>
+                            <h4 className="text-lg md:text-xl lg:text-2xl font-bold w-[60%]">{title}</h4>
                             <div className="flex items-center gap-2 ml-4">
                                 <FaCalendarDay className="h-4 w-4 md:w-{4.5} md:h-{4.5} lg:w-5 lg:h-5"/>
                                 <span className="text-md md:text-lg lg:text-xl font">{publishDate}</span>
                             </div>
                         </div>
                         <div className="flex items-center justify-between w-full">
-                            <p className="text-sm md:text-md lg:text-lg font mt-1">{description}</p>
+                            <p className="text-sm md:text-md lg:text-lg font mt-1 w-[60%]">{description}</p>
                             {/* {differenceInDays(new Date(lastEditDate), new Date(publishDate)) > 1 ? <div className="flex items-center gap-2 ml-4">
                                 <RxUpdate className="h-4 w-4 md:w-{4.5} md:h-{4.5} lg:w-5 lg:h-5"/>
                                 <span className="text-sm md:text-sm lg:text-md font">Updated: {lastEditDate}</span>

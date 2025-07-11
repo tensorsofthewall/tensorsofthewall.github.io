@@ -38,7 +38,13 @@ export const getPublishedPosts = cache(async (): Promise<PageObjectResponse[]> =
             equals: "Published"
           }
         },
-      }
+      },
+      sorts: [
+        {
+          property: "PublishDate",
+          direction: "descending",
+        },
+      ],
     });
     // Filter results to only include PageObjectResponse
     return response.results.filter(
