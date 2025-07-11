@@ -20,7 +20,7 @@ module.exports = {
       {
         protocol: 'https',
         hostname: 'img.shields.io',
-        port:'',
+        port: '',
         pathname: '/**',
       },
       {
@@ -41,6 +41,19 @@ module.exports = {
         port: '',
         pathname: '/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'upload.wikimedia.org',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'pyimagesearch.com',
+        port: '',
+        pathname: '/**',
+      },
+
     ]
   },
 }

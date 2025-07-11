@@ -8,8 +8,8 @@ export default function Text(rtext: any) {
         return null;
     }
 
-    return rtext.title.map((value: any) => {
-        if (value.type === 'text'){
+    return rtext.title.map((value: any, idx: number) => {
+        if (value.type === 'text') {
             const {
                 annotations: {
                     bold, code, color, italic, strikethrough, underline,
@@ -25,10 +25,10 @@ export default function Text(rtext: any) {
                     strikethrough ? styles.strikethrough : '',
                     underline ? 'underline' : '',
                 ].join(' ').trim()}
-                style={color !== 'default' ? { color } : {}}
-                key={text.content}
+                    style={color !== 'default' ? { color } : {}}
+                    key={`${value.type}-${text.content}-${idx}`}
                 >
-                    {text.link ? <Link href={text.link.url}>{text.content}</Link> : text.content}
+                    {text.link ? <Link href={text.link.url} className="underline" style={{ color: '#9c9c9c' }}>{text.content}</Link> : text.content}
                 </span>
             )
         } else if (value.type === 'equation') {
@@ -49,14 +49,15 @@ export default function Text(rtext: any) {
                         underline ? 'underline' : '',
                     ].join(' ').trim()}
                     style={color !== 'default' ? { color } : {}}
+                    key={`${value.type}-${value.equation.expression}-${idx}`}
                     // Use dangerouslySetInnerHTML to render KaTeX HTML
-                    dangerouslySetInnerHTML={{ __html: katex.renderToString(expression, {
-                        throwOnError: false,
-                        displayMode: false,
-                        output: 'html',
-                        }) 
+                    dangerouslySetInnerHTML={{
+                        __html: katex.renderToString(expression, {
+                            throwOnError: false,
+                            displayMode: false,
+                            output: 'html',
+                        })
                     }}
-                    key={expression}
                 />
             )
         }

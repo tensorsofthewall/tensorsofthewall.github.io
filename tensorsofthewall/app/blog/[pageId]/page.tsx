@@ -10,16 +10,16 @@ import { RxTimer } from "react-icons/rx";
 export const dynamic = 'auto'
 export const revalidate = 600;
 
-type Params = Promise<{pageId: string}>;
+type Params = Promise<{ pageId: string }>;
 
 export async function generateStaticParams() {
     const posts = await getPublishedPosts();
-    
+
     return posts.map((post) => ({
-            pageId:
-                post.properties.Slug?.type === "rich_text"
-                    ? post.properties.Slug.rich_text[0]?.plain_text
-                    : ""
+        pageId:
+            post.properties.Slug?.type === "rich_text"
+                ? post.properties.Slug.rich_text[0]?.plain_text
+                : ""
     }));
 }
 
@@ -84,7 +84,7 @@ export default async function Page({ params }: {
     const page = await getPageFromSlug(awaitedParams.pageId)
     if (!page) {
         return (
-            <div/>
+            <div />
         );
     }
 
@@ -105,7 +105,7 @@ export default async function Page({ params }: {
                         ← Back
                     </Link>
                     {/* Title in the center */}
-                    <h1 className="font-bold text-center flex-1 text-lg sm:text-xl md:text-2xl lg:text-3xl">
+                    <h1 className="font-bold text-center flex-1 text-lg sm:text-xl md:text-2xl lg:text-3xl px-8">
                         {page.properties.Title.title[0].plain_text}
                     </h1>
                     {/* Read time on the right */}
@@ -114,13 +114,13 @@ export default async function Page({ params }: {
                     </span>
                 </div>
             </div>
-            <section className="w-[85vw] max-w-screen-lg mt-8 justify-center items-center">
+            <section className="w-[80vw] max-w-screen-lg mt-8 justify-center items-center">
                 {blocks.map((block) => (
                     <Fragment key={block.id}>{renderBlock(block)}</Fragment>
                 ))}
             </section>
             <div className="w-[75vw] max-w-screen-lg mt-8 justify-center items-center">
-                <CommentSection/>
+                <CommentSection />
             </div>
         </div>
     )
