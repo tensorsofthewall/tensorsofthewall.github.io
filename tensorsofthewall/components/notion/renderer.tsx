@@ -21,38 +21,38 @@ export function renderBlock(block: any) {
   switch (type) {
     case 'paragraph':
       return (
-        <p className="leading-[28px] text-[1.05rem]" style={{ margin: '0.3% 0', padding: '1.2% 0' }}>
+        <p className={styles.paragraph}>
           <Text title={value.rich_text} />
         </p>
       );
     case 'heading_1':
       return (
-        <h1 className="font-bold text-[1.8rem]" style={{ margin: '1.2% 0', padding: '0.8% 0' }}>
+        <h1 className={styles.heading1}>
           <Text title={value.rich_text} />
         </h1>
       );
     case 'heading_2':
       return (
-        <h2 className="font-bold text-[1.5rem]" style={{ margin: '0.8% 0', padding: '0.5% 0' }}>
+        <h2 className={styles.heading2}>
           <Text title={value.rich_text} />
         </h2>
       );
     case 'heading_3':
       return (
-        <h3 className="font-bold text-[1.25rem]" style={{ margin: '0.5% 0', padding: '0.5% 0' }}>
+        <h3 className={styles.heading3}>
           <Text title={value.rich_text} />
         </h3>
       );
     case 'bulleted_list': {
       return (
-        <ul className='items-center justify-center list-disc list-inside' key={block.id} style={{ margin: '0.5% 0', padding: '0.4% 0' }}>
+        <ul className={styles.bulletedList} key={block.id}>
           {value.children.map((child: any) => renderBlock(child))}
         </ul>
       );
     }
     case 'numbered_list': {
       return (
-        <ol className='items-center justify-center list-decimal list-inside' key={block.id} style={{ margin: '0.5% 0', padding: '1% 0' }}>
+        <ol className={styles.numberedList} key={block.id}>
           {value.children.map((child: any) => renderBlock(child))}
         </ol>
       );
@@ -60,14 +60,14 @@ export function renderBlock(block: any) {
     case 'bulleted_list_item':
     case 'numbered_list_item':
       return (
-        <li key={block.id} className='items-center justify-center' style={{ margin: '0.5% 0', padding: '0.28% 0' }}>
+        <li key={block.id} className={styles.listItem}>
           <Text title={value.rich_text} />
           {!!value.children && renderNestedList(block)}
         </li>
       );
     case 'to_do':
       return (
-        <div className='items-center justify-center'>
+        <div className={styles.todo}>
           <label htmlFor={id}>
             <input type="checkbox" id={id} defaultChecked={value.checked} />
             {' '}
@@ -78,7 +78,7 @@ export function renderBlock(block: any) {
     case 'toggle':
       return (
         <details>
-          <summary className='text-md sm:text-lg md:text-lg lg:text-xl' style={{ margin: '0.5% 0' }}>
+          <summary className={styles.toggleSummary}>
             <Text title={value.rich_text} />
           </summary>
           <div className="ml-4">
@@ -93,7 +93,7 @@ export function renderBlock(block: any) {
       );
     case 'child_page':
       return (
-        <div className={styles.childPage} key={block.id} style={{ margin: '2% 0' }}>
+        <div className={`${styles.childPage}`} key={block.id}>
           <strong>{value?.title}</strong>
           {block.children.map((child: any) => renderBlock(child))}
         </div>
@@ -105,7 +105,7 @@ export function renderBlock(block: any) {
         : (value.caption || '');
 
       return (
-        <figure style={{ margin: '1% 0', padding: '1% 0' }}>
+        <figure className={styles.figure}>
           <Image
             src={src}
             alt={altText}
@@ -136,9 +136,8 @@ export function renderBlock(block: any) {
       const lastElementInArray = splitSourceArray[splitSourceArray.length - 1];
       const captionFile = value.caption ? value.caption[0]?.plain_text : '';
       return (
-        <figure style={{ margin: '0.4% 0' }}>
+        <figure className={styles.fileFigure}>
           <div className={styles.file}>
-            📎
             {' '}
             <Link href={srcFile} passHref>
               {lastElementInArray.split('?')[0]}
@@ -188,20 +187,9 @@ export function renderBlock(block: any) {
     }
     case 'callout': {
       return (
-        <div className="flex bg-[#1f1d1e]" style={{ margin: '0.5% 0', borderRadius: '4px', padding: '2px' }} key={block.id}>
+        <div className={styles.callout} key={block.id}>
           {value.icon && value.icon.emoji ? (
-            <span
-              style={{
-                marginRight: '0.5%',
-                fontFamily: `'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji','Android Emoji',sans-serif`,
-                fontStyle: 'normal',
-                fontWeight: 'normal',
-                fontSize: '1em',
-                lineHeight: 1,
-                display: 'inline-block',
-                verticalAlign: 'middle',
-              }}
-            >
+            <span className={styles.calloutEmoji}>
               {value.icon.emoji}
             </span>
           ) : null}

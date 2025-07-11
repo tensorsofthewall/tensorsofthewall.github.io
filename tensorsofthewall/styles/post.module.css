@@ -212,3 +212,93 @@
   display: inline-block;
   text-align: left;
 }
+
+.heading1 {
+  margin: 1.2% 0;
+  padding: 0.8% 0;
+  font-weight: bold;
+  font-size: 1.8rem;
+}
+
+.heading2 {
+  margin: 0.8% 0;
+  padding: 0.5% 0;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.heading3 {
+  margin: 0.5% 0;
+  padding: 0.5% 0;
+  font-weight: bold;
+  font-size: 1.25rem;
+}
+
+.paragraph {
+  margin: 0.3% 0;
+  padding: 1.2% 0;
+  line-height: 28px;
+  font-size: 1.05rem;
+}
+
+.bulletedList {
+  margin: 0.5% 0;
+  padding: 0.4% 0;
+  list-style-type: disc;
+  list-style-position: inside;
+}
+
+.numberedList {
+  margin: 0.5% 0;
+  padding: 1% 0;
+  list-style-type: decimal;
+  list-style-position: inside;
+}
+
+.listItem {
+  margin: 0.5% 0;
+  padding: 0.28% 0;
+}
+
+.todo {
+  /* No margin/padding needed, but for consistency: */
+  display: flex;
+  align-items: center;
+  margin: 0.5% 0;
+}
+
+.toggleSummary {
+  margin: 0.5% 0;
+}
+
+.childPage {
+  margin: 2% 0;
+}
+
+.figure {
+  margin: 1% 0;
+  padding: 1% 0;
+}
+
+.fileFigure {
+  margin: 0.4% 0;
+}
+
+.callout {
+  margin: 0.5% 0;
+  border-radius: 4px;
+  padding: 2px;
+  background: #1f1d1e;
+  display: flex;
+}
+
+.calloutEmoji {
+  margin-right: 0.5%;
+  font-family: 'Apple Color Emoji','Segoe UI Emoji','Noto Color Emoji','Android Emoji',sans-serif;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 1em;
+  line-height: 1;
+  display: inline-block;
+  vertical-align: middle;
+}
