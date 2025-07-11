@@ -109,12 +109,13 @@ export function renderBlock(block: any) {
           <Image
             src={src}
             alt={altText}
-            width={640}
-            height={480}
+            width={560}
+            height={420}
             style={{ marginBottom: '1%' }}
+            className='mx-auto'
             unoptimized
           />
-          {altText && <figcaption className="text-[#9c9c9c]"><Text title={value.caption} /></figcaption>}
+          {altText && <figcaption className="text-[#9c9c9c] text-center"><Text title={value.caption} /></figcaption>}
         </figure>
       );
     }
