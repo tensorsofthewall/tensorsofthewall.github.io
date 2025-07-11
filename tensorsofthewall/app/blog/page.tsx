@@ -51,7 +51,7 @@ export const metadata = {
     },
 };
 
-export const revalidate = 3600;
+export const revalidate = 1800;
 
 async function getPostInfo() {
     const posts = await getPublishedPosts();
