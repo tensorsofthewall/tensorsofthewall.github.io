@@ -12,7 +12,7 @@ export function renderBlock(block: any) {
   const value = block[type];
   if ('rich_text' in value && value.rich_text.length === 0) {
     return (
-      <div>
+      <div key={id}>
         <br />
       </div>
     );
@@ -21,25 +21,25 @@ export function renderBlock(block: any) {
   switch (type) {
     case 'paragraph':
       return (
-        <p className={styles.paragraph}>
+        <p key={id} className={styles.paragraph}>
           <Text title={value.rich_text} />
         </p>
       );
     case 'heading_1':
       return (
-        <h1 className={styles.heading1}>
+        <h1 key={id} className={styles.heading1}>
           <Text title={value.rich_text} />
         </h1>
       );
     case 'heading_2':
       return (
-        <h2 className={styles.heading2}>
+        <h2 key={id} className={styles.heading2}>
           <Text title={value.rich_text} />
         </h2>
       );
     case 'heading_3':
       return (
-        <h3 className={styles.heading3}>
+        <h3 key={id} className={styles.heading3}>
           <Text title={value.rich_text} />
         </h3>
       );
@@ -67,7 +67,7 @@ export function renderBlock(block: any) {
       );
     case 'to_do':
       return (
-        <div className={styles.todo}>
+        <div key={id} className={styles.todo}>
           <label htmlFor={id}>
             <input type="checkbox" id={id} defaultChecked={value.checked} />
             {' '}
@@ -77,7 +77,7 @@ export function renderBlock(block: any) {
       );
     case 'toggle':
       return (
-        <details>
+        <details key={id}>
           <summary className={styles.toggleSummary}>
             <Text title={value.rich_text} />
           </summary>
@@ -105,7 +105,7 @@ export function renderBlock(block: any) {
         : (value.caption || '');
 
       return (
-        <figure className={styles.figure}>
+        <figure key={id} className={styles.figure}>
           <Image
             src={src}
             alt={altText}
@@ -125,8 +125,8 @@ export function renderBlock(block: any) {
       return <blockquote key={id}>{value.rich_text[0].plain_text}</blockquote>;
     case 'code':
       return (
-        <pre className={styles.pre}>
-          <code className={styles.code_block} key={id}>
+        <pre key={id} className={styles.pre}>
+          <code className={styles.code_block}>
             {value.rich_text[0].plain_text}
           </code>
         </pre>
@@ -137,7 +137,7 @@ export function renderBlock(block: any) {
       const lastElementInArray = splitSourceArray[splitSourceArray.length - 1];
       const captionFile = value.caption ? value.caption[0]?.plain_text : '';
       return (
-        <figure className={styles.fileFigure}>
+        <figure key={id} className={styles.fileFigure}>
           <div className={styles.file}>
             {' '}
             <Link href={srcFile} passHref>
@@ -151,7 +151,7 @@ export function renderBlock(block: any) {
     case 'bookmark': {
       const href = value.url;
       return (
-        <a href={href} target="_blank" rel="noreferrer noopener" className={styles.bookmark}>
+        <a key={id} href={href} target="_blank" rel="noreferrer noopener" className={styles.bookmark}>
           {href}
         </a>
       );
