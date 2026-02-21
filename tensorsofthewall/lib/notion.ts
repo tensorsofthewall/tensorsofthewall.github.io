@@ -7,19 +7,8 @@ import type { PageObjectResponse} from "@notionhq/client/build/src/api-endpoints
 
 export const revalidate = 3600; // 1 hour
 
-/**
- * Returns a random integer between the specified values, inclusive.
- * The value is no lower than `min`, and is less than or equal to `max`.
- *
- * @param {number} minimum - The smallest integer value that can be returned, inclusive.
- * @param {number} maximum - The largest integer value that can be returned, inclusive.
- * @returns {number} - A random integer between `min` and `max`, inclusive.
- */
-function getRandomInt(minimum: number, maximum: number) {
-  const min = Math.ceil(minimum);
-  const max = Math.floor(maximum);
-  return Math.floor(Math.random() * (max - min + 1)) + min;
-}
+// Counter for generating stable synthetic list-group IDs
+let listGroupCounter = 0;
 
 // Initialize the Notion client
 export const notion = new Client({
@@ -84,7 +73,8 @@ export const getPageFromSlug = cache(async (slug: string): Promise<any> => {
 })
 
 // Retrieve all blocks from a page
-export const getBlocks = cache(async (blockID: string): Promise<any[]> => {
+const MAX_BLOCK_DEPTH = 5;
+export const getBlocks = cache(async (blockID: string, depth = 0): Promise<any[]> => {
   const blockId = blockID.replaceAll("-", "");
 
   let blocks = await notion.blocks.children.list({
@@ -103,8 +93,8 @@ export const getBlocks = cache(async (blockID: string): Promise<any[]> => {
   }
 
   const childBlocks: Promise<any>[] = content.map(async (block) => {
-    if ('has_children' in block && block.has_children) {
-      const children = await getBlocks(block.id);
+    if ('has_children' in block && block.has_children && depth < MAX_BLOCK_DEPTH) {
+      const children = await getBlocks(block.id, depth + 1);
       return { ...block, children };
     }
     return block;
@@ -116,7 +106,7 @@ export const getBlocks = cache(async (blockID: string): Promise<any[]> => {
         acc[acc.length - 1][acc[acc.length - 1].type].children?.push(curr);
       } else {
         acc.push({
-          id: getRandomInt(10 ** 99, 10 ** 100).toString(),
+          id: (++listGroupCounter).toString(),
           type: 'bulleted_list',
           bulleted_list: { children: [curr] },
         });
@@ -126,7 +116,7 @@ export const getBlocks = cache(async (blockID: string): Promise<any[]> => {
         acc[acc.length - 1][acc[acc.length - 1].type].children?.push(curr);
       } else {
         acc.push({
-          id: getRandomInt(10 ** 99, 10 ** 100).toString(),
+          id: (++listGroupCounter).toString(),
           type: 'numbered_list',
           numbered_list: { children: [curr] },
         });

@@ -18,7 +18,7 @@ interface BlogPostCardProps {
     readTime: string;
 }
 
-const BlogPostCard = (( data: BlogPostCardProps) => {
+const BlogPostCard = React.memo(( data: BlogPostCardProps) => {
     const { title, description, imageURL, slug, publishDate, readTime } = data; // tags, lastEditDate
 
     return (
@@ -77,6 +77,8 @@ const BlogPostCard = (( data: BlogPostCardProps) => {
         </Card>
     </Link>
     );
-})
+});
+
+BlogPostCard.displayName = "BlogPostCard";
 
 export default BlogPostCard;

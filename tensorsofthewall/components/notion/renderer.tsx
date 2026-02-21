@@ -248,11 +248,10 @@ export function renderBlock(block: any) {
     }
 
     default:
-      return (
-        <div key={id} style={{ color: 'red' }}>
-          ❌ Unsupported block ({type === 'unsupported' ? 'unsupported by Notion API' : type})
-        </div>
-      );
+      if (process.env.NODE_ENV === 'development') {
+        console.warn(`Unsupported Notion block type: ${type === 'unsupported' ? 'unsupported by Notion API' : type}`);
+      }
+      return null;
   }
 }
 

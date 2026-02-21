@@ -99,7 +99,12 @@ async function getPostInfo() {
 }
 
 export default async function BlogPage() {
-    const postCards= await getPostInfo();
+    let postCards: Awaited<ReturnType<typeof getPostInfo>> = [];
+    try {
+        postCards = await getPostInfo();
+    } catch (error) {
+        console.error("Failed to load blog posts:", error);
+    }
 
     return (
         <div>

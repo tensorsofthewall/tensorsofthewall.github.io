@@ -2,6 +2,7 @@ import React from "react";
 import { getPublishedPosts, getBlocks, getPageFromSlug } from "@/lib/notion";
 import { Fragment } from "react";
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { renderBlock } from "@/components/notion/renderer";
 
 import CommentSection from "@/components/commentSection";
@@ -28,7 +29,7 @@ export async function generateMetadata({ params }: { params: Params }) {
     const page = await getPageFromSlug(awaitedParams.pageId);
 
     if (!page) {
-        return {};
+        return { title: "Post Not Found | TensorsOfTheWall" };
     }
 
     const title = page.properties.Title?.title?.[0]?.plain_text || "Some blog post";
@@ -83,9 +84,7 @@ export default async function Page({ params }: {
 
     const page = await getPageFromSlug(awaitedParams.pageId)
     if (!page) {
-        return (
-            <div />
-        );
+        notFound();
     }
 
     const readTime = `${Math.max(1, Math.ceil((page.properties.numWords?.number ?? 0) / 200))} min read`;
