@@ -9,13 +9,13 @@ import { IconType } from "react-icons/lib";
 
 const MotionDiv = dynamic(() => import("motion/react").then((mod) => mod.motion.div), { ssr: false })
 
-export const AnimatedComponent = React.memo(({component: Component, href, className, title, showNew=false}: {component: IconType, href: Url, className: string, title: string, showNew?: boolean}) => {
+export const AnimatedComponent = React.memo(({component: Component, href, className, title, showNew=false, speed=1.0}: {component: IconType, href: Url, className: string, title: string, showNew?: boolean, speed?: number}) => {
     return (
       <div className="relative inline-flex flex-col items-center">
         <Link href = {href} >
         <MotionDiv
             animate={{opacity: [1, 0]}}
-            transition={{duration: 1., repeat: Infinity, repeatType: "reverse", ease: "easeInOut"}}
+            transition={{duration: speed, repeat: Infinity, repeatType: "reverse", ease: "easeInOut"}}
         >
             <Component className={className} title={title}/>
             {showNew && (

@@ -145,11 +145,11 @@ const Skills = () => {
 
     return (
         <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingTop: '20px'}} className="font-['arial'] ">
-        <strong className="w-[400px] sm:w-[400px] md:w-[450px] lg:w-[500px]">
+        <strong className="w-[90vw] max-w-[550px]">
             {pageStartText.map((text, index) => (
                 <React.Fragment key={index}>
-                    <span style={{ fontSize: `${24-index*6}px`}}>
-                    {text}<br/>{index ===0 && <br/>}
+                    <span className={index === 0 ? 'text-sm sm:text-base md:text-xl lg:text-2xl' : 'text-xs sm:text-sm md:text-base lg:text-lg'}>
+                    {text}<br/>{index === 0 && <br/>}
                     </span>
                 </React.Fragment>
             ))}

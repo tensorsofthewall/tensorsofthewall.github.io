@@ -10,6 +10,7 @@ import { TbError404 } from "react-icons/tb";
 import { SiGithub, SiLinkedin } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaHome, FaGraduationCap, FaBriefcase, FaFileDownload } from "react-icons/fa";
+import { MdTimeline } from "react-icons/md";
 // import {FaEnvelope} from "react-icons/fa6";
 import { GiBookshelf, GiNotebook, GiOnTarget } from "react-icons/gi";
 import { HiLightBulb } from "react-icons/hi";
@@ -61,10 +62,11 @@ const Header = () => {
                         <Link href="/skills">
                             <GiOnTarget className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Skills" />
                         </Link>
-                        <AnimatedComponent component={HiLightBulb} href="/research-exp" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Research Experience" />
-                        <Link href="/industry-exp">
+                        {/* <AnimatedComponent component={HiLightBulb} href="/research-exp" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Research Experience" /> */}
+                        {/* <Link href="/industry-exp">
                             <FaBriefcase className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Industry Experience" />
-                        </Link>
+                        </Link> */}
+                        <AnimatedComponent component={MdTimeline} href="/experience"className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Experience" speed={0.5} />
                         <Link href="/education">
                             <FaGraduationCap className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Education" />
                         </Link>

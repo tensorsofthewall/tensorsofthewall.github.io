@@ -104,7 +104,7 @@ export default async function BlogPage() {
     return (
         <div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center'}} className="font-['arial]">
-                    <strong style={{marginTop: '2rem'}} className='w-[400px] sm:w-[400px] md:w-[450px] lg:w-[500px] text-medium sm:text-large md:text-xl lg:text-2xl'>{pageStartText}</strong>
+                    <strong style={{marginTop: '2rem'}} className='w-[90vw] max-w-[550px] text-sm sm:text-base md:text-xl lg:text-2xl'>{pageStartText}</strong>
                 
             <div className="w-auto h-auto " style={{paddingTop: "6vh"}}>
                 {postCards.map((postCardData, idx) => (

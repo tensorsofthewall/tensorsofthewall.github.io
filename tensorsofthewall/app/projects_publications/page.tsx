@@ -62,7 +62,7 @@ const TabCarousel = () => {
     const TabItems = useMemo(() =>[
         {
             key: '1',
-            label: <span className='text-medium sm:text-large md:text-xl lg:text-2xl'>Publications</span>,
+            label: <span className='text-sm sm:text-base md:text-xl lg:text-2xl'>Publications</span>,
             children: (
                 <div className='pt-10'>
                 <ResearchCarousel papers={data.publications} />
@@ -71,7 +71,7 @@ const TabCarousel = () => {
         },
         {
             key: '2',
-            label: <span className='text-medium sm:text-large md:text-xl lg:text-2xl'>Projects</span>,
+            label: <span className='text-sm sm:text-base md:text-xl lg:text-2xl'>Projects</span>,
             children: (
                 <div className='pt-10'>
                 <ProjectCarousel projects={data.projects} />
@@ -82,7 +82,7 @@ const TabCarousel = () => {
 
     return (
         <div style={{ alignItems: 'center', justifyContent: 'center', textAlign: 'center', paddingTop: '75px'}} className="font-['arial']">
-            <strong className='w-[400px] sm:w-[400px] md:w-[450px] lg:w-[500px] text-medium sm:text-large md:text-xl lg:text-2xl'>{pageStartText}<div className="blur-sm hover:blur-none transition-all duration-300" 
+            <strong className='w-[90vw] max-w-[550px] text-sm sm:text-base md:text-xl lg:text-2xl'>{pageStartText}<div className="blur-sm hover:blur-none transition-all duration-300" 
                 style={{ alignItems: 'center', justifyContent: 'center', textAlign: 'center'}}>
                 <h1 style={{ fontSize: '18px', whiteSpace: 'pre-line'}}>{pageSubText}</h1>
             </div></strong>

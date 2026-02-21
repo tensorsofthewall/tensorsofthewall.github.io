@@ -73,7 +73,7 @@ const EducationPage = () => {
     return (
         <div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center'}} className="font-['arial]">
-                    <strong style={{marginTop: '2rem'}} className='w-[400px] sm:w-[400px] md:w-[450px] lg:w-[500px] text-medium sm:text-large md:text-xl lg:text-2xl'>{pageStartText}<div className="blur-sm hover:blur-none transition-all duration-300" 
+                    <strong style={{marginTop: '2rem'}} className='w-[90vw] max-w-[550px] text-sm sm:text-base md:text-xl lg:text-2xl'>{pageStartText}<div className="blur-sm hover:blur-none transition-all duration-300" 
                 style={{ alignItems: 'center', justifyContent: 'center', textAlign: 'center'}}>
                 <h1 style={{ fontSize: '18px', whiteSpace: 'pre-line'}}>{pageSubText}</h1>
             </div></strong>
