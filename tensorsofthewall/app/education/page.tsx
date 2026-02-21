@@ -78,7 +78,7 @@ const EducationPage = () => {
                 <h1 style={{ fontSize: '18px', whiteSpace: 'pre-line'}}>{pageSubText}</h1>
             </div></strong>
                 </div>
-            <div className="w-full h-full max-sm:-translate-x-[5vh]" style={{paddingTop: "11vh"}}> 
+            <div className="w-full h-full" style={{paddingTop: "5vh"}}>
                 <EducationTimeline educationData={educationData} />
             </div>
         </div>

@@ -24,53 +24,54 @@ const EducationCard = React.memo(({ educationData }: { educationData: Education 
         <div
             style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
-                gap: '10px',
-                padding: '10px',
-                overflowX: 'hidden'
+                gridTemplateColumns: 'repeat(auto-fit, minmax(100px, 1fr))',
+                gridAutoRows: '1fr',
+                gap: '8px',
+                padding: '8px',
             }}
-            className='items-center justify-center'
         >
             {coursework.map((course, idx) => (
                 <div key={idx} style={{
-                    padding: '10px',
+                    padding: '8px',
                     backgroundColor: '#087099',
                     borderRadius: '5px',
                     textAlign: 'center',
-                    paddingRight: '2px',
-                    paddingLeft: '2px'
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 }}>
-                    <strong>{course}</strong>
+                    <strong className="text-xs sm:text-sm md:text-base" style={{ wordBreak: 'break-word' }}>{course}</strong>
                 </div>
             ))}
         </div>
     ), [coursework]);
 
     const positionsList = useMemo(() => (
+        <div>
+            <h4 className="mb-2"><strong className="text-sm sm:text-base md:text-lg"><u>Positions</u></strong></h4>
         <div
             style={{
                 display: 'grid',
-                gridTemplateColumns: 'repeat(1, minmax(200px, 1fr))',
-                gap: '10px',
-                padding: '10px',
-                overflowX: 'hidden'
+                gridTemplateColumns: 'repeat(1, minmax(0, 1fr))',
+                gridAutoRows: '1fr',
+                gap: '8px',
+                padding: '8px',
             }}
-            className='items-center justify-center'
         >
-            <h4><strong style={{ fontSize: '18px' }}><u>Positions</u></strong></h4>
             {positions.map((por, idx) => (
                 <div key={idx} style={{
-                    padding: '10px',
+                    padding: '8px',
                     backgroundColor: '#087099',
                     borderRadius: '5px',
                     textAlign: 'center',
-                    paddingRight: '1px',
-                    paddingLeft: '1px',
-                    overflow: 'visible'
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
                 }}>
-                    <strong>{por}</strong>
+                    <strong className="text-xs sm:text-sm md:text-base" style={{ wordBreak: 'break-word' }}>{por}</strong>
                 </div>
             ))}
+        </div>
         </div>
     ), [positions]);
 
@@ -95,11 +96,10 @@ const EducationCard = React.memo(({ educationData }: { educationData: Education 
             }
             onClick={() => setIsExpanded(!isExpanded)}
             style={{
-                width: isExpanded ? '150%' : '100%',
+                width: '100%',
                 transition: 'all 0.3s ease-in-out',
                 cursor: 'pointer',
                 backgroundColor: '#0a0a0a',
-                transform: isExpanded ? 'translateX(-10%)' : 'translateX(-1%)',
             }}
             styles={{
                 header: {
@@ -111,7 +111,7 @@ const EducationCard = React.memo(({ educationData }: { educationData: Education 
             }}
         >
             <div>
-                <p><strong style={{ fontSize: "18px" }}>{degree}</strong></p>
+                <p><strong className="text-sm sm:text-base md:text-lg lg:text-xl">{degree}</strong></p>
             </div>
             <div style={{
                 maxHeight: isExpanded ? 'fit-content' : '0',
@@ -122,11 +122,11 @@ const EducationCard = React.memo(({ educationData }: { educationData: Education 
                 {institution.includes("Boston") ? (
                     <div>
                         <div style={{ borderBottom: '1px solid white', margin: '1rem 0' }}></div>
-                        <p><strong style={{ fontSize: "17px" }}><u>Research Thesis</u></strong></p>
-                        <p style={{ fontSize: "17px" }}>Efficient Vision and Language Models for Autonomous Systems</p>
-                        <p>
-                            [<a href='/data/Efficient Vision and Language Models for Autonomous Systems - MS Thesis Defense - Sandesh Bharadwaj.pptx' target='_blank' style={{ color: '#3344dd', marginRight: '1px', fontSize: '15px' }}> <b>slides</b></a> |
-                            <a href='/data/Efficient Vision and Language Models for Autonomous Systems - MS Thesis - Sandesh Bharadwaj.pdf' target='_blank' style={{ color: '#3344dd', marginLeft: '1px', fontSize: '15px' }}> <b>pdf</b></a> ]
+                        <p><strong className="text-sm sm:text-base md:text-lg"><u>Research Thesis</u></strong></p>
+                        <p className="text-sm sm:text-base md:text-lg">Efficient Vision and Language Models for Autonomous Systems</p>
+                        <p className="text-xs sm:text-sm md:text-base">
+                            [<a href='/data/Efficient Vision and Language Models for Autonomous Systems - MS Thesis Defense - Sandesh Bharadwaj.pptx' target='_blank' style={{ color: '#3344dd', marginRight: '1px' }}> <b>slides</b></a> |
+                            <a href='/data/Efficient Vision and Language Models for Autonomous Systems - MS Thesis - Sandesh Bharadwaj.pdf' target='_blank' style={{ color: '#3344dd', marginLeft: '1px' }}> <b>pdf</b></a> ]
                         </p>
                         <hr style={{ borderColor: 'white', margin: '1rem 0' }} />
                     </div>
@@ -136,7 +136,7 @@ const EducationCard = React.memo(({ educationData }: { educationData: Education 
                     </div>
                 )}
                 <br />
-                <h4><strong style={{ fontSize: '18px' }}><u>Coursework</u></strong></h4>
+                <h4><strong className="text-sm sm:text-base md:text-lg"><u>Coursework</u></strong></h4>
                 {courseworkList}
                 <br /><hr style={{ borderColor: 'white' }} /><br />
                 {positionsList}
@@ -162,14 +162,8 @@ const EducationTimeline = React.memo(({ educationData }: { educationData: Educat
             </div>
         ),
         children: (
-            <div className="flex w-full -translate-x-[1vh] sm:-translate-x-[5.5vh] md:-translate-x-[7.5vh] lg:-translate-x-[12.5vh]" style={{
-                justifyContent: 'center',
-                maxWidth: '250px',
-                margin: '0 auto',
-                paddingLeft: '50px',
-                paddingRight: '15px',
-            }}>
-                <div className='w-[200px] sm:w-[200px] md:w-[250px] lg:w-[300px]'>
+            <div className="w-full pr-4">
+                <div className='w-full max-w-[400px]'>
                     <EducationCard educationData={edu} />
                 </div>
             </div>

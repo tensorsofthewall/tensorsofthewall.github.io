@@ -62,15 +62,15 @@ const Skills = () => {
         return skillList.map((skill, idx) => (
             <div key={idx} style={{
                 display: 'flex',
-                height: '4.5vh',
-                width: '30vh',
+                height: 'clamp(32px, 3.5vw, 48px)',
+                width: 'clamp(120px, 22vw, 240px)',
                 position: 'relative',
             }}>
                 <Image
                     src={badges[skill]}
                     alt={skill}
                     fill
-                    sizes="35vh"
+                    sizes="22vw"
                     style={{
                         objectFit: 'contain',
                     }}
@@ -82,15 +82,20 @@ const Skills = () => {
 
     const renderSkillList = (skillList: string[]) => {
         const skillImages = generateSkillImages(skillList);
-        const totalDuration = 6.2; // Total duration for one complete rotation
+        const totalDuration = 5.5; // Total duration for one complete rotation
         const staggerDelay = totalDuration / skillImages.length;
-    
+
         return (
-            <div style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '10px' }}>
+            <div style={{ paddingTop: '2rem' }}>
+            <div style={{
+                position: 'relative',
+                width: '100%',
+                height: 'clamp(180px, 34vw, 400px)',
+            }}>
                 {skillImages.map((img, idx) => (
                     <motion.div
                         key={idx}
-                        className="ferris-wheel-animation pt-10"
+                        className="ferris-wheel-animation"
                         initial={{ opacity: 0, rotate: 0 }}
                         animate={{ opacity: 1, rotate: 360 }}
                         transition={{
@@ -105,11 +110,11 @@ const Skills = () => {
                         }}
                         style={{
                             position: 'absolute',
-                            width: '45vh',
-                            height:'45vh',
-                            margin: "0 auto",
-                            left: '-13vh',
-                            top: '0vh'
+                            width: 'clamp(240px, 36vw, 480px)',
+                            height: 'clamp(240px, 36vw, 480px)',
+                            left: '50%',
+                            marginLeft: 'clamp(-120px, -11vw, -50px)',
+                            top: 0,
                         }}
                     >
                         <motion.div
@@ -128,6 +133,7 @@ const Skills = () => {
                     </motion.div>
                 ))}
             </div>
+            </div>
         );
     }
 
@@ -139,7 +145,7 @@ const Skills = () => {
 
     const items = Object.entries(skills).map(([key, value], index) => ({
         key: index.toString(),
-        label: <span className="text-[11.8px] sm:text-lg md:text-xl lg:text-2xl">{formatTabTitle(key)}</span>,
+        label: <span key={index} className="text-[11.8px] sm:text-lg md:text-xl lg:text-2xl">{formatTabTitle(key)}</span>,
         children: renderSkillList(value),
     }));
 
