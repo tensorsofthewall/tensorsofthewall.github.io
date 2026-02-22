@@ -4,7 +4,7 @@ import Image from "next/image";
 import Card from "antd/es/card/Card";
 
 export interface ExperienceEntry {
-    kind: 'research' | 'industry';
+    kind: ('research' | 'industry')[];
     name: string;
     logo: string;
     url: string;
@@ -60,18 +60,24 @@ const ExperienceCard = ({ embedded = false, ...data }: ExperienceCardProps) => {
             }}
         >
             {embedded ? (
-                <div className="text-center mb-2 space-y-1">
-                    <span className={`inline-block px-2 py-0.5 text-xs rounded-full font-bold ${kind === 'research' ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800'}`}>
-                        {kind === 'research' ? 'Research' : 'Industry'}
-                    </span>
+                <div className="text-center mb-2 space-y-1.5">
+                    <div className="flex gap-1 justify-center flex-wrap">
+                        {kind.map(k => (
+                            <span key={k} className={`inline-block px-2 py-0.5 text-xs rounded-full font-bold ${k === 'research' ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800'}`}>
+                                {k === 'research' ? 'Research' : 'Engineering'}
+                            </span>
+                        ))}
+                    </div>
                     <div className="text-xs font-semibold text-gray-800 leading-tight">{position}</div>
                     <div className="text-xs text-gray-500">{type} · {location}</div>
                 </div>
             ) : (
                 <div className="flex flex-row justify-center items-center gap-2 text-black-800 mb-3 flex-wrap">
-                    <span className={`px-2 py-0.5 text-xs rounded-full font-bold ${kind === 'research' ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800'}`}>
-                        {kind === 'research' ? 'Research' : 'Industry'}
-                    </span>
+                    {kind.map(k => (
+                        <span key={k} className={`px-2 py-0.5 text-xs rounded-full font-bold ${k === 'research' ? 'bg-yellow-100 text-yellow-800' : 'bg-blue-100 text-blue-800'}`}>
+                            {k === 'research' ? 'Research' : 'Engineering'}
+                        </span>
+                    ))}
                     <span className="font-semibold">{position}</span>
                     <span>|</span>
                     <span className="font-semibold">{type}</span>
@@ -93,7 +99,7 @@ const ExperienceCard = ({ embedded = false, ...data }: ExperienceCardProps) => {
                 )}
                 <div className={embedded ? '' : 'mt-4 px-4'}>
                     <h4 className={`font-semibold text-left ${embedded ? 'text-xs mb-1' : 'mb-2'}`}>Achievements</h4>
-                    <ul style={{ listStyleType: 'disc', paddingLeft: embedded ? 16 : 20 }} className={`text-left ${embedded ? 'space-y-0.5' : 'space-y-1'}`}>
+                    <ul style={{ listStyleType: 'disc', paddingLeft: embedded ? 16 : 20 }} className={`text-left ${embedded ? 'space-y-1.5' : 'space-y-2'}`}>
                         {achievements.map((achievement, index) => (
                             <li key={index} className={`text-gray-700 ${embedded ? 'text-xs' : ''}`}>{achievement}</li>
                         ))}

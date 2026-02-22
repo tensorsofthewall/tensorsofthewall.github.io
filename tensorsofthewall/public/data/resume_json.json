@@ -58,7 +58,7 @@
         "Soundfile",
         "NumPy",
         "Matplotlib",
-        "Huggingface Transformers",
+        "HuggingFace Transformers",
         "Lightning"
       ]
     },
@@ -101,9 +101,9 @@
         "position": "Research Intern",
         "type": "Full-Time",
         "achievements": [
-          "Led and implemented modified approach to person re-identification based on dynamic gait",
-          "Achieved best accuracy of 91.13% on CASIA-B Gait Dataset (Python, Pandas, Numpy, Scikit-learn)",
-          "Presented research paper at ETCCS 2020, indexed in Springer LNEE Series"
+          "Led gait-based person re-identification research achieving 91.13% accuracy on CASIA-B dataset",
+          "Developed novel feature extraction techniques for dynamic motion-based identity recognition",
+          "Published peer-reviewed paper at ETCCS 2020 (Springer)"
         ]
       },
       {
@@ -116,9 +116,10 @@
         "department": "Corporate Research",
         "type": "Full-Time Co-Op",
         "achievements": [
-          "Adapted open-set classification to identify rare objects in vehicular datasets by merging classification models with meta-learning and few-shot algorithms, achieving 56% accuracy on the Open Images subset",
-          "Developed novel algorithm to predict automobile part degradation and recommend preemptive actions"
+          "Adapted open-set classification for rare object detection in vehicular datasets using meta-learning and few-shot methods (56% accuracy on Open Images subset)",
+          "Developed predictive degradation algorithms for automobile parts to recommend preemptive maintenance actions"
         ],
+        "kind": ["research", "industry"],
         "note": "Received a full-time offer, which was deferred due to a hiring freeze during the COVID-19 pandemic"
       },
       {
@@ -145,11 +146,11 @@
         "supervisor": "Prof. Eshed Ohn-Bar",
         "type": "Full-Time",
         "achievements": [
-          "Enhanced vision-language model performance for autonomous driving by 80% through creation of novel dataset and application of fine-tuning, RAG, and RAFT techniques",
-          "Collaborated with Red Hat to optimize cloud-edge collaboration algorithms, developing a conditional routing module for dynamic offloading that reduced energy consumption",
-          "Achieved state-of-the-art performance in CARLA-based navigation metrics, outperforming existing solutions by 35% while enhancing energy efficiency",
-          "Designed a novel crowd navigation environment and introduced the Ecological Navigation Score metric to prioritize energy-efficient navigation in reinforcement learning tasks",
-          "Developed visual servoing for multi-robot simulations using RGB and depth sensors, integrated human feedback, and evaluated reinforcement learning algorithms for person-following, significantly improving performance"
+          "Improved vision-language model performance for autonomous driving by 80% through dataset creation and fine-tuning (RAG, RAFT)",
+          "Collaborated with Red Hat to develop conditional routing algorithms for cloud-edge collaboration, reducing energy consumption",
+          "Achieved state-of-the-art CARLA navigation performance, outperforming baselines by 35% while improving efficiency",
+          "Designed crowd navigation simulation environment and introduced Ecological Navigation Score for embodied RL evaluation",
+          "Developed visual servoing and reinforcement learning systems for multi-robot person-following using RGB-D inputs"
         ]
       },
       {
@@ -161,8 +162,26 @@
         "position": "Independent Researcher",
         "type": "Part-Time",
         "achievements": [
-          "Pursuing an original research idea in the intersection of AI and music, focusing on source separation. Compute generously sponsored by LossFunk Initialize."
+          "Awarded compute sponsorship through the Initialize program to conduct independent research on MIDAS, a modular framework for music source separation",
+          "Design novel architecture and modular training pipelines incorporating structured priors and frequency-domain representations"
         ]
+      },
+      {
+        "organization": "Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)",
+        "logo": "/images/org_logos/mbzuai_logo.png",
+        "url": "https://mbzuai.ac.ae/",
+        "location": "Abu Dhabi, UAE",
+        "duration": "Aug 2025 - Present",
+        "position": "Research Engineer 1",
+        "type": "Full-Time",
+        "achievements": [
+          "Large-scale training, post-training, and evaluation of multimodal LLMs and VLMs for domain-specific reasoning (Multimodal Energy GPT)",
+          "Train and post-train long-context (24K+ tokens) 70B-class foundation models using FSDP, DDP, and nD-parallelism across multi-node GPU clusters (up to 16 nodes)",
+          "Run distributed inference for 235B-class models across 32 nodes using vLLM, generating 25K+ QA pairs/day and processing 3B+ tokens/day",
+          "Optimize distributed inference with tensor, expert, and pipeline parallelism, enabling 192 concurrent long-context requests",
+          "Design scalable synthetic data generation, benchmarking, and evaluation pipelines across heterogeneous AMD and NVIDIA clusters"
+        ],
+        "kind": ["research", "industry"]
       }
     ],
     "industryExperience": [
@@ -175,8 +194,8 @@
         "position": "Summer Intern",
         "type": "Full-Time",
         "achievements": [
-          "Developed proof-of-concept for upgrading existing product on ARM hardware using embedded C++, delivering nearly 2x processing power while reducing manufacturing and development costs by 70%",
-          "Designed user interface with Qt5 and implemented on Linux Yocto, enabling custom Linux-based systems independent of hardware architecture for seamless user interaction"
+          "Developed ARM-based embedded C++ proof-of-concept delivering 2x processing power while reducing costs by 70%",
+          "Designed Qt5 UI on Linux Yocto for hardware-independent system deployment"
         ]
       },
       {
@@ -188,11 +207,10 @@
         "position": "Software Engineer",
         "type": "Full-Time",
         "achievements": [
-          "Optimized existing data extraction and processing pipelines with Apache Spark, improving processing time by 25%",
-          "Developed BERT-based anomaly detection tool to identify, track, and alert users to critical events requiring intervention, achieving average accuracy of 92% in runtime issue detection",
-          "Redesigned several existing applications for log analysis into a single unified system in production, improving performance by 30% while enhancing user experience, reliability, and accessibility"
-        ],
-        "note": "Chose to pursue graduate studies after successfully completing a 1-year fixed-term role at Synopsys, where a full-time offer was extended"
+          "Optimized Apache Spark data pipelines improving processing time by 25%",
+          "Developed BERT-based anomaly detection system achieving 92% accuracy in runtime issue detection",
+          "Unified production log analysis applications into a single system improving performance by 30%"
+        ]
       },
       {
         "company": "Ignitarium Technology Solutions",
@@ -203,9 +221,9 @@
         "position": "Software Engineer (AI & Machine Learning)",
         "type": "Full-Time [Contract]",
         "achievements": [
-          "Improved inference performance on Untether AI's accelerator chips by developing high-performance low-level INT8 kernels in C++",
-          "Implemented generalized padding for transformation kernels, replacing the non-generalized version, and optimized quantization, performance metrics, and execution cycles, achieving 30% performance gain",
-          "Led team to streamline workflows, create detailed documentation, and reduce codebase size by 40%"
+          "Developed optimized INT8 inference kernels in C++ for Untether AI accelerator hardware",
+          "Improved kernel performance by 30% through quantization and execution optimizations",
+          "Led workflow optimization and documentation efforts, reducing codebase size by 40%"
         ]
       },
       {
@@ -217,24 +235,40 @@
         "position": "Software Engineering Intern",
         "type": "Full-Time",
         "achievements": [
-          "Developed data summarization algorithms for the Ottoviz platform by creating a custom fork of the submodlib library and applying submodular optimization techniques.",
-          "Enabled efficient training of deep learning models by developing custom features for selecting important 1% subset of images, achieving significant dataset reduction."
+          "Developed submodular optimization algorithms for data summarization via custom fork of submodlib",
+          "Enabled efficient deep learning model training by selecting optimal 1% image subsets for dataset reduction"
         ]
       }
     ],
     "projects": [
+      {
+        "name": "Exo",
+        "duration": "Jan 2025 - Apr 2025",
+        "url": "https://github.com/exo-explore/exo",
+        "image": "/images/projects/exo-logo.png",
+        "description": [
+          "Contributed to Exo, a distributed inference framework for executing LLMs across clusters of heterogeneous devices",
+          "Improved AMD GPU support and inference throughput on Windows via backend and hardware compatibility fixes",
+          "Submitted PR enabling llama.cpp backend support for native Windows deployment"
+        ],
+        "web_description": [
+          "Exo is a distributed inference framework designed to run large language models across clusters of heterogeneous devices.",
+          "My contributions focused on improving AMD GPU support, backend stability, and enabling native Windows compatibility via llama.cpp integration, expanding cross-platform deployment support."
+        ]
+      },
       {
         "name": "BetterSearch",
         "duration": "July 2024 - Present",
         "url": "https://github.com/tensorsofthewall/BetterSearch",
         "image": "/images/projects/bettersearch.jpg",
         "description": [
-          "Developed desktop application integrating LLMs, advanced RAG techniques, and native OS functionality for efficient file search and content indexing, with customizable configurations for optimized CPU and GPU performance",
-          "Integrated osquery to enable text-to-SQL functionality, providing device management capabilities for users",
-          "Leverages custom fine-tuned LLM for text-to-SQL generation in local deployments, with support for cloud providers such as OpenAI and Google Gemini for scalability"
+          "Developed cross-platform desktop application integrating LLMs and advanced RAG for semantic file search",
+          "Implemented customizable CPU/GPU configurations and local/cloud deployment options",
+          "Integrated osquery for natural language to SQL-based system querying and endpoint monitoring"
         ],
         "web_description": [
-          "BetterSearch is a desktop application (currently in alpha) that revolutionizes file search using Large Language Models and advanced RAG techniques. It enables natural language queries for local files, offers on-the-fly indexing, and supports both file property and content-based searches.", "With customizable performance settings, text-to-SQL functionality via osquery, and options for local or cloud-based LLM processing, BetterSearch aims to provide a powerful, efficient, and secure search experience without sending data to the cloud."
+          "BetterSearch is an LLM-powered desktop search application that enables natural language querying of local files and system metadata.",
+          "It combines advanced retrieval-augmented generation (RAG), text-to-SQL via osquery, and flexible CPU/GPU configurations to provide secure, local-first semantic search with optional cloud scalability."
         ]
       },
       {

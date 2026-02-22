@@ -480,7 +480,7 @@ const badges: Record<string, string> = {
     "Apache AirFlow": "https://img.shields.io/badge/Apache%20Airflow-017CEE?style=for-the-badge&logo=Apache%20Airflow&logoColor=black",
     "OpenCV": "https://img.shields.io/badge/opencv-%23white.svg?style=for-the-badge&logo=opencv&logoColor=white",
     "NextJS": "https://img.shields.io/badge/Next-black?style=for-the-badge&logo=next.js&logoColor=white",
-    "Huggingface Transformers": "https://img.shields.io/badge/-Transformers-FFD21E?style=for-the-badge&logo=huggingface&logoColor=000&logoSize=auto",
+    "HuggingFace Transformers": "https://img.shields.io/badge/-Transformers-FFD21E?style=for-the-badge&logo=huggingface&logoColor=000&logoSize=auto",
     "Lightning": "https://img.shields.io/badge/-PyTorch%20Lightning-792ee5?style=for-the-badge&logo=pytorchlightning&logoColor=white&logoSize=auto",
     "Scikit-Learn": "https://img.shields.io/badge/scikit--learn-%23F7931E.svg?style=for-the-badge&logo=scikit-learn&logoColor=white",
     "Soundfile": "https://img.shields.io/badge/Soundfile-blue?style=for-the-badge&logo=python&logoColor=white",

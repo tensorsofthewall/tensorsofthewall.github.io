@@ -3,7 +3,7 @@ import React, {useState} from "react";
 import Image from "next/image";
 import Card from "antd/es/card/Card";
 
-interface ResearchExpProps {
+export interface ResearchExpProps {
     organization: string;
     logo: string;
     url: string;
@@ -14,6 +14,7 @@ interface ResearchExpProps {
     supervisor?: string;
     achievements: string[];
     note?: string;
+    kind?: string[];
 }
 
 const ResearchExpCard = (( data: ResearchExpProps) => {
@@ -86,4 +87,3 @@ const ResearchExpCard = (( data: ResearchExpProps) => {
 });
 
 export default ResearchExpCard;
-export type {ResearchExpProps};

@@ -7,13 +7,24 @@ import type { IndustryExpProps } from "../industry-exp/industryExpCard";
 
 const MIN_EXPANSION = 260;      // minimum slot height when any card is expanded
 
-// ── Date helper ─────────────────────────────────────────────────────────────
-function parseStartDate(duration: string): Date {
-    const part = duration.split(/\s*[-–—]\s*/)[0].trim();
+// ── Date helpers ─────────────────────────────────────────────────────────────
+function parseMonthYear(part: string): Date {
+    if (part.toLowerCase() === 'present') return new Date(9999, 11, 31);
     const spaceIdx = part.indexOf(' ');
     const month = part.slice(0, spaceIdx);
     const year = part.slice(spaceIdx + 1);
     return new Date(`${month} 1, ${year}`);
+}
+
+function parseStartDate(duration: string): Date {
+    const parts = duration.split(/\s*[-–—]\s*/);
+    return parseMonthYear(parts[0].trim());
+}
+
+function parseEndDate(duration: string): Date {
+    const parts = duration.split(/\s*[-–—]\s*/);
+    const end = parts[1]?.trim() ?? parts[0].trim();
+    return parseMonthYear(end);
 }
 
 interface Props {
@@ -92,20 +103,24 @@ const ExperienceClient: React.FC<Props> = ({
     // ── Merge + sort ───────────────────────────────────────────────────────
     const allExperiences: ExperienceEntry[] = [
         ...researchExperience.map(e => ({
-            kind: 'research' as const,
+            kind: (e.kind ?? ['research']) as ('research' | 'industry')[],
             name: e.organization,
             logo: e.logo, url: e.url, location: e.location, duration: e.duration,
             position: e.position, type: e.type, achievements: e.achievements,
             note: e.note, supervisor: e.supervisor,
         })),
         ...industryExperience.map(e => ({
-            kind: 'industry' as const,
+            kind: (e.kind ?? ['industry']) as ('research' | 'industry')[],
             name: e.company,
             logo: e.logo, url: e.url, location: e.location, duration: e.duration,
             position: e.position, type: e.type, achievements: e.achievements,
             note: e.note,
         })),
-    ].sort((a, b) => parseStartDate(b.duration).getTime() - parseStartDate(a.duration).getTime());
+    ].sort((a, b) => {
+        const endDiff = parseEndDate(b.duration).getTime() - parseEndDate(a.duration).getTime();
+        if (endDiff !== 0) return endDiff;
+        return parseStartDate(b.duration).getTime() - parseStartDate(a.duration).getTime();
+    });
 
     // ── Group into rows ────────────────────────────────────────────────────
     const rows: (ExperienceEntry | null)[][] = [];
@@ -242,32 +257,80 @@ const ExperienceClient: React.FC<Props> = ({
                             d={svgPath}
                             fill="none"
                             stroke="rgba(255,255,255,0.9)"
-                            strokeWidth="2"
+                            strokeWidth="3.5"
+                            strokeDasharray="6 16"
+                            strokeLinecap="round"
                             animate={{ d: svgPath }}
                             transition={{ duration: 0.35, ease: 'easeInOut' }}
                         />
                         {/* Directional arrows at midpoint of each horizontal segment */}
-                        {arrows.map((a, i) => (
-                            <polygon
-                                key={`arr-${i}`}
-                                points={
-                                    a.rightward
-                                        ? `${a.mx - 10},${a.my - 6} ${a.mx + 10},${a.my} ${a.mx - 10},${a.my + 6}`
-                                        : `${a.mx + 10},${a.my - 6} ${a.mx - 10},${a.my} ${a.mx + 10},${a.my + 6}`
-                                }
-                                fill="rgba(255,255,255,0.85)"
-                            />
-                        ))}
+                        {/* Arrow size constants — tune these to resize horizontal arrows */}
+                        {(() => {
+                            const AW = 10;    // half-length (tip to tail)
+                            const AH = 8;     // half-height
+                            const ABOW = 2;   // how far the outer edges bow toward the tip
+                            const ANOTCH = 3; // how deep the back notch cuts in
+                            return arrows.map((a, i) => {
+                                const { mx, my } = a;
+                                const d = a.rightward
+                                    ? `M ${mx-AW},${my-AH} Q ${mx+ABOW},${my-AH/2} ${mx+AW},${my} Q ${mx+ABOW},${my+AH/2} ${mx-AW},${my+AH} Q ${mx-ANOTCH},${my} ${mx-AW},${my-AH} Z`
+                                    : `M ${mx+AW},${my-AH} Q ${mx-ABOW},${my-AH/2} ${mx-AW},${my} Q ${mx-ABOW},${my+AH/2} ${mx+AW},${my+AH} Q ${mx+ANOTCH},${my} ${mx+AW},${my-AH} Z`;
+                                return (
+                                    <motion.path
+                                        key={`arr-${i}`}
+                                        d={d}
+                                        animate={{ d }}
+                                        transition={{ duration: 0.35, ease: 'easeInOut' }}
+                                        fill="rgba(255,255,255,0.85)"
+                                    />
+                                );
+                            });
+                        })()}
                         {/* Upward arrows at midpoint of each S-curve connector */}
-                        {connectorArrows.map((a, i) => (
-                            <motion.polygon
-                                key={`carr-${i}`}
-                                points={`${a.cx - 6},${a.cy + 10} ${a.cx + 6},${a.cy + 10} ${a.cx},${a.cy - 10}`}
-                                animate={{ points: `${a.cx - 6},${a.cy + 10} ${a.cx + 6},${a.cy + 10} ${a.cx},${a.cy - 10}` }}
-                                transition={{ duration: 0.35, ease: 'easeInOut' }}
-                                fill="rgba(255,255,255,0.85)"
-                            />
-                        ))}
+                        {/* Arrow size constants — tune these to resize connector arrows */}
+                        {(() => {
+                            const CAW = 8;    // half-width
+                            const CAH = 10;   // half-height (tip to tail)
+                            const CABOW = 2;  // how far the outer edges bow toward the tip
+                            const CANOTCH = 3; // how deep the back notch cuts in
+                            return connectorArrows.map((a, i) => {
+                                const { cx, cy } = a;
+                                const d = `M ${cx-CAW},${cy+CAH} Q ${cx-CABOW},${cy-CAH/5} ${cx},${cy-CAH} Q ${cx+CABOW},${cy-CAH/5} ${cx+CAW},${cy+CAH} Q ${cx},${cy+CANOTCH} ${cx-CAW},${cy+CAH} Z`;
+                                return (
+                                    <motion.path
+                                        key={`carr-${i}`}
+                                        d={d}
+                                        animate={{ d }}
+                                        transition={{ duration: 0.35, ease: 'easeInOut' }}
+                                        fill="rgba(255,255,255,0.85)"
+                                    />
+                                );
+                            });
+                        })()}
+                        {/* ── "Today" marker at the right endpoint of row 0 ── */}
+                        {(() => {
+                            if (!rows.length || containerWidth < 100) return null;
+                            const lineY = rowTopY[0] + LOGO_AREA_HEIGHT + DOT_HALF;
+                            const x = containerWidth - PAD;
+                            const textProps = {
+                                textAnchor: 'middle' as const,
+                                fill: 'rgba(255,255,255,0.9)',
+                                fontSize: '13',
+                                fontWeight: '700',
+                                fontFamily: 'arial',
+                            };
+                            return (
+                                <g>
+                                    {/* vertical tick at line endpoint */}
+                                    <line
+                                        x1={x} y1={lineY - 16} x2={x} y2={lineY + 16}
+                                        stroke="rgba(255,255,255,0.85)" strokeWidth="2.5"
+                                        strokeLinecap="round"
+                                    />
+                                    <text x={x} y={lineY - 22} {...textProps}>Today</text>
+                                </g>
+                            );
+                        })()}
                     </svg>
 
                     {/* ── Rows ──────────────────────────────────────────── */}
@@ -280,21 +343,19 @@ const ExperienceClient: React.FC<Props> = ({
                             expandedCard < (ri + 1) * itemsPerRow;
 
                         return (
-                            <div
+                            <motion.div
                                 key={ri}
                                 style={{
                                     position: 'absolute',
-                                    top: rowTopY[ri],
                                     left: PAD,
                                     right: PAD,
-                                    height: rowH,
                                     display: 'flex',
                                     justifyContent: 'space-between',
                                     alignItems: 'flex-start',
-                                    // Expanded row must paint above all other rows
                                     zIndex: rowHasExpanded ? 20 : 10,
-                                    transition: 'top 0.35s ease, height 0.35s ease',
                                 }}
+                                animate={{ top: rowTopY[ri], height: rowH }}
+                                transition={{ duration: 0.35, ease: 'easeInOut' }}
                             >
                                 {displayRow.map((exp, vi) => {
                                     if (!exp) return <div key={`sp-${vi}`} style={{ width: CARD_WIDTH }} />;
@@ -305,15 +366,16 @@ const ExperienceClient: React.FC<Props> = ({
                                     const isExp = expandedCard === realIdx;
 
                                     return (
-                                        <div
+                                        <motion.div
                                             key={realIdx}
                                             style={{
                                                 display: 'flex',
                                                 flexDirection: 'column',
                                                 alignItems: 'center',
                                                 position: 'relative',
-                                                height: rowH,
                                             }}
+                                            animate={{ height: rowH }}
+                                            transition={{ duration: 0.35, ease: 'easeInOut' }}
                                         >
                                             {/* ── Logo (just above timeline line) ──────────────── */}
                                             <div style={{
@@ -331,9 +393,11 @@ const ExperienceClient: React.FC<Props> = ({
                                                         padding: 5,
                                                         borderRadius: '50%',
                                                         backdropFilter: 'blur(5px)',
-                                                        border: exp.kind === 'research'
-                                                            ? '2px solid rgba(253,224,71,0.5)'
-                                                            : '2px solid rgba(147,197,253,0.5)',
+                                                        border: exp.kind.includes('research') && exp.kind.includes('industry')
+                                                            ? '2px solid rgba(167,139,250,0.6)'
+                                                            : exp.kind.includes('research')
+                                                                ? '2px solid rgba(253,224,71,0.5)'
+                                                                : '2px solid rgba(147,197,253,0.5)',
                                                     }}
                                                 >
                                                     <picture>
@@ -364,26 +428,33 @@ const ExperienceClient: React.FC<Props> = ({
                                             {/* ── Duration + kind badge (below line) ───────────── */}
                                             <div style={{ paddingTop: 8, textAlign: 'center', flexShrink: 0, height: TEXT_AREA_HEIGHT - 16 }}>
                                                 <span
-                                                    className="text-xs sm:text-sm text-white font-medium drop-shadow-lg"
+                                                    className="text-xs sm:text-sm text-white font-semibold drop-shadow-lg"
                                                     style={{ display: 'block', whiteSpace: 'nowrap' }}
                                                 >
                                                     {exp.duration}
                                                 </span>
-                                                <span className={`text-xs font-semibold mt-1 block ${exp.kind === 'research' ? 'text-yellow-300' : 'text-blue-300'}`}>
-                                                    {exp.kind === 'research' ? '⚗ Research' : '💼 Industry'}
-                                                </span>
+                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, marginTop: 4 }}>
+                                                    {exp.kind.map(k => (
+                                                        <span key={k} className={`text-xs font-semibold ${k === 'research' ? 'text-yellow-300' : 'text-blue-300'}`}>
+                                                            {k === 'research' ? '⚗ Research' : '⚙ Engineering'}
+                                                        </span>
+                                                    ))}
+                                                </div>
                                             </div>
 
                                             {/* ── Embedded card slot (below text, all rows) ────── */}
-                                            <div style={{
-                                                height: textH - TEXT_AREA_HEIGHT,
-                                                width: CARD_WIDTH,
-                                                overflow: 'visible',
-                                                flexShrink: 0,
-                                                display: 'flex',
-                                                alignItems: 'flex-start',
-                                                paddingTop: 8,
-                                            }}>
+                                            <motion.div
+                                                style={{
+                                                    width: CARD_WIDTH,
+                                                    overflow: 'visible',
+                                                    flexShrink: 0,
+                                                    display: 'flex',
+                                                    alignItems: 'flex-start',
+                                                    paddingTop: 8,
+                                                }}
+                                                animate={{ height: textH - TEXT_AREA_HEIGHT }}
+                                                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                                            >
                                                 <AnimatePresence>
                                                     {isExp && (
                                                         <motion.div
@@ -398,11 +469,11 @@ const ExperienceClient: React.FC<Props> = ({
                                                         </motion.div>
                                                     )}
                                                 </AnimatePresence>
-                                            </div>
-                                        </div>
+                                            </motion.div>
+                                        </motion.div>
                                     );
                                 })}
-                            </div>
+                            </motion.div>
                         );
                     })}
                 </div>

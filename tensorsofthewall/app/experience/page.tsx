@@ -4,7 +4,7 @@ import ExperienceClient from "./ExperienceClient";
 import type { ResearchExpProps } from "../research-exp/researchExpCard";
 import type { IndustryExpProps } from "../industry-exp/industryExpCard";
 
-const pageStartText = "Experience: Where 'what if' turns into months of debugging, and 'it works on my machine' is still not an acceptable debug strategy.";
+const pageStartText = 'Research & Engineering: Where "what if" turns into months of debugging and occasional progress.';
 
 export const metadata = {
     metadataBase: new URL("https://www.tensorsofthewall.com"),

@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Image from "next/image";
 import Card from "antd/es/card/Card";
 
-interface IndustryExpProps {
+export interface IndustryExpProps {
     company: string;
     logo: string;
     url: string;
@@ -12,6 +12,7 @@ interface IndustryExpProps {
     type: string;
     achievements: string[];
     note?: string;
+    kind?: string[];
 }
 
 const IndustryExpCard = (( data: IndustryExpProps) => {
@@ -84,4 +85,3 @@ const IndustryExpCard = (( data: IndustryExpProps) => {
 });
 
 export default IndustryExpCard;
-export type {IndustryExpProps};
