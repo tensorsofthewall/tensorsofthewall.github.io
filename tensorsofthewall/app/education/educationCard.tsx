@@ -163,7 +163,7 @@ const EducationTimeline = React.memo(({ educationData }: { educationData: Educat
         ),
         children: (
             <div className="w-full pr-4">
-                <div className='w-full max-w-[400px]'>
+                <div className='w-full max-w-[360px]'>
                     <EducationCard educationData={edu} />
                 </div>
             </div>

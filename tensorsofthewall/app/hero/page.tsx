@@ -4,15 +4,15 @@ import { AnimatedText } from "@/components/animatedComponents";
 import NeuralNetwork from "@/components/nn";
 import { motion } from "motion/react";
 
-const pageStartText = "A place where I pretend to know everything about AI and hope no one notices the sarcasm.";
+const pageStartText = "A place where I convince neural networks that pixels mean something.";
 const captionText = "Who needs all their neurons anyway? This network’s motto: ‘Do less, compute more'.";
-const captionSubText = "And yeah, I know this isn't quite dropout regularization, but it looks cool.\n [Don't bother suing, it'd be like asking Zaphod Beeblebrox for directions.]";
+const captionSubText = "This isn't quite dropout regularization, but it looks cool.\n";
 
 const animatedTextOptions = [
-    "Software Engineering 🛠️",
-    "Autonomous Systems 🧠",
     "Computer Vision 👁️",
-    "Generative AI 🤖",
+    "Multimodal Learning 🧠",
+    "Autonomous Systems 🚗",
+    "Distributed AI ⚡",
 ];
 
 const getRandomLayerSizes = () => {
@@ -79,7 +79,7 @@ const Hero = () => {
                 <strong className="w-[400px] sm:w-[400px] md:w-[450px] lg:w-[500px]">
                     {pageStartText}
                     <br /><br />
-                    I work in: <AnimatedText texts={animatedTextOptions} typingSpeed={25} deletingSpeed={25} delayBeforeDelete={4000} />
+                    I work on: <AnimatedText texts={animatedTextOptions} typingSpeed={25} deletingSpeed={25} delayBeforeDelete={4000} />
                 </strong>
             </div>
             <div style={{ transform: 'translateY(-35px)' }} className="flex justify-center items-center h-[400px] sm:h-[450px] md:h-[500px] lg:h-[550px]">
@@ -117,7 +117,7 @@ const Hero = () => {
                     }}
                     className="text-white text-lg pointer-events-none mt-2"
                 >
-                    Buddy, you need a hobby.
+                    Curiosity scales better than models.
                 </motion.div>
             </div>
         </div>

@@ -8,19 +8,19 @@ const pageStartText = 'Research & Engineering: Where "what if" turns into months
 
 export const metadata = {
     metadataBase: new URL("https://www.tensorsofthewall.com"),
-    title: "Experience | TensorsOfTheWall",
+    title: "Research and Engineering | TensorsOfTheWall",
     description: pageStartText,
     alternates: {
         canonical: "https://www.tensorsofthewall.com/experience",
     },
     openGraph: {
-        title: "Experience | TensorsOfTheWall",
+        title: "Research and Engineering | TensorsOfTheWall",
         description: pageStartText,
         url: "https://www.tensorsofthewall.com/experience",
         type: "website",
         images: [
             {
-                url: "https://www.tensorsofthewall.com/images/banners/industry_banner.png",
+                url: "https://www.tensorsofthewall.com/images/banners/experience_banner.png",
                 width: 960,
                 height: 640,
                 alt: "TensorsOfTheWall Experience Banner",
@@ -29,6 +29,8 @@ export const metadata = {
     },
     keywords: [
         "experience",
+        "research",
+        "engineering",
         "research experience",
         "industry experience",
         "professional experience",
