@@ -3,6 +3,13 @@ import Link from "next/link";
 import styles from "../../styles/post.module.css";
 import katex from "katex";
 
+function safeUrl(url: string): string {
+    try {
+        const u = new URL(url);
+        return u.protocol === 'https:' || u.protocol === 'http:' ? url : '#';
+    } catch { return '#'; }
+}
+
 export default function Text(rtext: any) {
     if (!rtext) {
         return null;
@@ -28,7 +35,7 @@ export default function Text(rtext: any) {
                     style={color !== 'default' ? { color } : {}}
                     key={`${value.type}-${text.content}-${idx}`}
                 >
-                    {text.link ? <Link href={text.link.url} className="underline" style={{ color: '#9c9c9c' }} target="_blank" rel="noopener noreferrer">{text.content}</Link> : text.content}
+                    {text.link ? <Link href={safeUrl(text.link.url)} className="underline" style={{ color: '#9c9c9c' }} target="_blank" rel="noopener noreferrer">{text.content}</Link> : text.content}
                 </span>
             )
         } else if (value.type === 'equation') {

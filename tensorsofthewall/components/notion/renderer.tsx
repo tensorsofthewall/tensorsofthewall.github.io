@@ -7,6 +7,13 @@ import styles from '../../styles/post.module.css';
 import Image from 'next/image';
 import katex from "katex";
 
+function safeUrl(url: string): string {
+  try {
+    const u = new URL(url);
+    return u.protocol === 'https:' || u.protocol === 'http:' ? url : '#';
+  } catch { return '#'; }
+}
+
 export function renderBlock(block: any) {
   const { type, id } = block;
   const value = block[type];
@@ -149,10 +156,10 @@ export function renderBlock(block: any) {
       );
     }
     case 'bookmark': {
-      const href = value.url;
+      const rawHref = value.url;
       return (
-        <a key={id} href={href} target="_blank" rel="noreferrer noopener" className={styles.bookmark}>
-          {href}
+        <a key={id} href={safeUrl(rawHref)} target="_blank" rel="noreferrer noopener" className={styles.bookmark}>
+          {rawHref}
         </a>
       );
     }

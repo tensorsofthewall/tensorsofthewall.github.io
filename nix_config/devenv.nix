@@ -12,7 +12,7 @@
     # Enable NodeJS
     languages.javascript = {
         enable = true;
-        package = pkgs.nodejs-18_x;
+        package = pkgs.nodejs_20;
     };
 
     # Project dependencies
