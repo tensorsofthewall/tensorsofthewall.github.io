@@ -80,7 +80,7 @@ const splitRole = (position: string) => {
 const EducationPage = () => {
     return (
         <PageContainer>
-            <PageHeader eyebrow="Learning" title="Education" subtitle={pageStartText} />
+            <PageHeader title="Education" subtitle={pageStartText} />
 
             <ol className="list-none">
                 {data.education.map((edu) => (

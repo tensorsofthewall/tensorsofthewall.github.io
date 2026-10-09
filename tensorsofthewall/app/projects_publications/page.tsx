@@ -64,7 +64,6 @@ const ProjectsPublicationsPage = () => {
     return (
         <PageContainer>
             <PageHeader
-                eyebrow="Work"
                 title="Projects & Publications"
                 subtitle={<>Here lies some evidence of my &lsquo;productive&rsquo; rabbit holes.</>}
             />

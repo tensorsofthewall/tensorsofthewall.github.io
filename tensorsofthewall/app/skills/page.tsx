@@ -108,7 +108,6 @@ const Skills = () => {
             <div className="mb-14 grid items-center gap-10 lg:grid-cols-[1fr_380px]">
                 <PageHeader
                     className=""
-                    eyebrow="Toolbox"
                     title="Technical Skills"
                     subtitle={pageStartText[0]}
                     helper={pageStartText[1]}

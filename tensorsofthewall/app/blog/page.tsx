@@ -69,7 +69,7 @@ export default async function BlogPage() {
 
     return (
         <PageContainer>
-            <PageHeader eyebrow="Writing" title="Overfitted Opinions" subtitle={pageSubtitle} />
+            <PageHeader title="Overfitted Opinions" subtitle={pageSubtitle} />
 
             {!latest && <p className="text-secondary">Nothing to read yet. Check back soon.</p>}
 
