@@ -35,7 +35,7 @@ export default function Text(rtext: any) {
                     style={color !== 'default' ? { color } : {}}
                     key={`${value.type}-${text.content}-${idx}`}
                 >
-                    {text.link ? <Link href={safeUrl(text.link.url)} className="underline" style={{ color: '#9c9c9c' }} target="_blank" rel="noopener noreferrer">{text.content}</Link> : text.content}
+                    {text.link ? <Link href={safeUrl(text.link.url)} className="text-[#37accd] underline decoration-[#37accd]/40 underline-offset-2 hover:decoration-[#37accd]" target="_blank" rel="noopener noreferrer">{text.content}</Link> : text.content}
                 </span>
             )
         } else if (value.type === 'equation') {

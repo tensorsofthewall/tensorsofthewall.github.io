@@ -6,6 +6,7 @@ import Text from './text';
 import styles from '../../styles/post.module.css';
 import Image from 'next/image';
 import katex from "katex";
+import { headingText, slugify } from '@/lib/headings';
 
 function safeUrl(url: string): string {
   try {
@@ -14,15 +15,36 @@ function safeUrl(url: string): string {
   } catch { return '#'; }
 }
 
+const HEADING_CLASS: Record<number, string> = {
+  2: styles.heading2,
+  3: styles.heading3,
+  4: styles.heading4,
+  5: styles.heading4,
+  6: styles.heading4,
+};
+
+function Heading({ block }: { block: any }) {
+  const text = headingText(block);
+  const naturalLevel = Number(block.type.slice(-1)) + 1; // fallback when not annotated
+  const level: number = block._tag ?? Math.min(6, naturalLevel);
+  const anchor: string = block._anchor ?? slugify(text);
+  const Tag = `h${level}` as 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
+  return (
+    <Tag id={anchor} className={`${styles.heading} ${HEADING_CLASS[level]}`}>
+      <Text title={block[block.type].rich_text} />
+      <a href={`#${anchor}`} className={styles.anchor} aria-label={`Link to section: ${text}`}>
+        <span aria-hidden="true">#</span>
+      </a>
+    </Tag>
+  );
+}
+
 export function renderBlock(block: any) {
   const { type, id } = block;
   const value = block[type];
+  // Empty Notion blocks only exist for spacing; paragraph margins handle that now.
   if ('rich_text' in value && value.rich_text.length === 0) {
-    return (
-      <div key={id}>
-        <br />
-      </div>
-    );
+    return null;
   }
 
   switch (type) {
@@ -33,23 +55,9 @@ export function renderBlock(block: any) {
         </p>
       );
     case 'heading_1':
-      return (
-        <h1 key={id} className={styles.heading1}>
-          <Text title={value.rich_text} />
-        </h1>
-      );
     case 'heading_2':
-      return (
-        <h2 key={id} className={styles.heading2}>
-          <Text title={value.rich_text} />
-        </h2>
-      );
     case 'heading_3':
-      return (
-        <h3 key={id} className={styles.heading3}>
-          <Text title={value.rich_text} />
-        </h3>
-      );
+      return <Heading key={id} block={block} />;
     case 'bulleted_list': {
       return (
         <ul className={styles.bulletedList} key={block.id}>
@@ -116,25 +124,34 @@ export function renderBlock(block: any) {
           <Image
             src={src}
             alt={altText}
-            width={560}
-            height={420}
-            style={{ marginBottom: '1%' }}
-            className='mx-auto'
+            width={900}
+            height={600}
+            sizes="(min-width: 960px) 900px, 100vw"
+            className={styles.image}
             unoptimized
           />
-          {altText && <figcaption className="text-[#9c9c9c] text-center"><Text title={value.caption} /></figcaption>}
+          {altText && <figcaption className={styles.caption}><Text title={value.caption} /></figcaption>}
         </figure>
       );
     }
     case 'divider':
-      return <hr className="h-px my-1 bg-gray-700 border-0" key={id} />;
+      return <hr className={styles.divider} key={id} />;
     case 'quote':
-      return <blockquote key={id}>{value.rich_text[0].plain_text}</blockquote>;
+      return (
+        <blockquote key={id} className={styles.quote}>
+          <Text title={value.rich_text} />
+        </blockquote>
+      );
     case 'code':
       return (
-        <pre key={id} className={styles.pre}>
+        <pre
+          key={id}
+          className={styles.pre}
+          data-lang={value.language && value.language !== 'plain text' ? value.language : undefined}
+          tabIndex={0}
+        >
           <code className={styles.code_block}>
-            {value.rich_text[0].plain_text}
+            {value.rich_text.map((t: any) => t.plain_text).join('')}
           </code>
         </pre>
       );
@@ -165,7 +182,8 @@ export function renderBlock(block: any) {
     }
     case 'table': {
       return (
-        <table className={styles.table} style={{ margin: '1% 0' }} key={block.id}>
+        <div className={styles.tableWrap} key={block.id} tabIndex={0}>
+        <table className={styles.table}>
           <tbody>
             {block.children?.map((child: any, index: number) => {
               const RowElement = value.has_column_header && index === 0 ? 'th' : 'td';
@@ -181,11 +199,12 @@ export function renderBlock(block: any) {
             })}
           </tbody>
         </table>
+        </div>
       );
     }
     case 'column_list': {
       return (
-        <div className={styles.row} key={block.id} style={{ margin: '2% 0' }}>
+        <div className={styles.row} key={block.id}>
           {block.children.map((childBlock: any) => renderBlock(childBlock))}
         </div>
       );
@@ -271,7 +290,7 @@ export function renderNestedList(blocks: { [x: string]: any; type?: any; }) {
   const isNumberedList = value.children[0].type === 'numbered_list_item';
 
   if (isNumberedList) {
-    return <ol className='items-center justify-center' key={value.id}>{value.children.map((block: any) => renderBlock(block))}</ol>;
+    return <ol className={styles.nestedList} key={value.id}>{value.children.map((block: any) => renderBlock(block))}</ol>;
   }
-  return <ul className='items-center justify-center' key={value.id}>{value.children.map((block: any) => renderBlock(block))}</ul>;
+  return <ul className={styles.nestedList} key={value.id}>{value.children.map((block: any) => renderBlock(block))}</ul>;
 }
