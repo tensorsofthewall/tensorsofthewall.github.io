@@ -68,47 +68,32 @@
         "title": "ML & Multimodal Systems",
         "context": "LLM/VLM training, inference, post-training, computer vision and multimodal systems.",
         "skills": ["PyTorch", "HuggingFace Transformers", "vLLM", "OpenCV", "TensorFlow", "Intel OpenVINO", "Lightning", "Scikit-Learn"],
-        "evidence": [
-          {"label": "MBZUAI: training and post-training multimodal LLMs and VLMs", "href": "/experience"},
-          {"label": "H2X Lab, BU: vision-language models for autonomous driving", "href": "/experience"},
-          {"label": "UniLCD (ECCV 2024)", "href": "/projects_publications#featured-unified-local-cloud-decision-making-via-residual-reinforcement-learning"},
-          {"label": "VidTune", "href": "/projects_publications#project-vidtune"}
-        ]
+          "primary": ["PyTorch", "HuggingFace Transformers", "vLLM", "OpenCV"],
+          "highlight": {"value": "+80%", "label": "vision-language model performance for autonomous driving, via dataset creation and fine-tuning (H2X Lab)"}
       },
       {
         "id": "distributed-performance",
         "title": "Distributed Systems & Performance",
         "context": "Distributed inference, multi-node training, performance optimization and deployment.",
         "skills": ["vLLM", "PyTorch", "Docker", "Apache Spark", "Apache AirFlow", "Intel OpenVINO", "AWS", "GCP"],
-        "evidence": [
-          {"label": "MBZUAI: distributed inference and multi-node training", "href": "/experience"},
-          {"label": "Exo: distributed LLM inference", "href": "/projects_publications#project-exo"},
-          {"label": "BetterSearch", "href": "/projects_publications#project-bettersearch"},
-          {"label": "Ignitarium: INT8 inference kernels in C++", "href": "/experience"},
-          {"label": "Synopsys: Spark data pipelines", "href": "/experience"}
-        ]
+          "primary": ["vLLM", "PyTorch", "Docker", "Apache Spark"],
+          "highlight": {"value": "32 nodes", "label": "serving 235B-class models with vLLM, 3B+ tokens a day (MBZUAI)"}
       },
       {
         "id": "robotics-autonomy",
         "title": "Robotics & Autonomous Systems",
         "context": "Simulation, embodied decision-making, navigation and perception for autonomous agents.",
         "skills": ["CARLA", "GazeboSim", "OpenAI Gym", "OpenCV", "C/C++", "Python"],
-        "evidence": [
-          {"label": "UniLCD: CARLA navigation (ECCV 2024)", "href": "/projects_publications#featured-unified-local-cloud-decision-making-via-residual-reinforcement-learning"},
-          {"label": "H2X Lab, BU: crowd navigation and multi-robot person-following", "href": "/experience"},
-          {"label": "Autonomous Underwater Vehicle", "href": "/projects_publications#project-autonomous-underwater-vehicle"}
-        ]
+          "primary": ["CARLA", "GazeboSim", "OpenAI Gym"],
+          "highlight": {"value": "35%", "label": "better than baselines on CARLA navigation (UniLCD, ECCV 2024)"}
       },
       {
         "id": "software-data",
         "title": "Software & Data",
         "context": "Full-stack applications, data pipelines and the retrieval layer behind them.",
         "skills": ["Python", "C/C++", "TypeScript", "MySQL", "SQLite", "FastAPI", "NextJS", "ElasticSearch", "ChromaDB"],
-        "evidence": [
-          {"label": "BetterSearch: local-first RAG desktop app", "href": "/projects_publications#project-bettersearch"},
-          {"label": "VidTune: generative AI web app", "href": "/projects_publications#project-vidtune"},
-          {"label": "This website: Next.js, TypeScript, Tailwind", "href": "/"}
-        ]
+          "primary": ["Python", "TypeScript", "NextJS", "FastAPI"],
+          "highlight": {"value": "30%", "label": "performance gain from unifying production log analysis tools into one system (Synopsys)"}
       }
     ]
     },

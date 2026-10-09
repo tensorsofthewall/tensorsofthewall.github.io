@@ -1,4 +1,3 @@
-import Link from "next/link";
 import data from "@/public/data/resume_json.json" assert { type: "json" };
 import ToolboxWheel from "./ToolboxWheel";
 
@@ -85,40 +84,41 @@ const Skills = () => {
                 <ToolboxWheel names={toolbox} />
             </div>
 
-            <div className="flex flex-col gap-6">
-                {capabilities.map((cap) => (
+            <div className="grid gap-6 md:grid-cols-2">
+                {capabilities.map((cap, i) => (
                     <section
                         key={cap.id}
                         aria-labelledby={cap.id}
-                        className="grid gap-6 rounded-xl border border-[#2a2d30] bg-[#111315] p-5 sm:p-7 md:grid-cols-[1.1fr_1fr] md:gap-10"
+                        className="relative flex flex-col gap-5 overflow-hidden rounded-xl border border-[#2a2d30] border-t-2 border-t-[#37accd]/70 bg-[#111315] p-5 sm:p-7"
                     >
-                        <div className="flex flex-col gap-4">
-                            <h2 id={cap.id} className="text-xl font-semibold text-[#ededed]">{cap.title}</h2>
-                            <p className="text-[15px] leading-relaxed text-[#9ca3af]">{cap.context}</p>
-                            <ul className="flex flex-wrap gap-2" aria-label={`${cap.title} skills`}>
-                                {cap.skills.map((skill) => (
-                                    <li key={skill} className="rounded border border-[#2a2d30] px-2.5 py-1 text-sm text-[#ededed]">
-                                        {label(skill)}
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                        <span
+                            aria-hidden="true"
+                            className="pointer-events-none absolute right-5 top-3 select-none text-6xl font-bold leading-none text-[#ededed]/[0.05]"
+                        >
+                            {String(i + 1).padStart(2, "0")}
+                        </span>
                         <div>
-                            <h3 className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9ca3af]">Where this shows up</h3>
-                            <ul className="flex flex-col gap-1">
-                                {cap.evidence.map((e) => (
-                                    <li key={e.label}>
-                                        <Link
-                                            href={e.href}
-                                            className="group flex min-h-10 items-start gap-2 py-1.5 text-sm leading-snug text-[#d1d5db] hover:text-[#37accd]"
-                                        >
-                                            <span aria-hidden="true" className="text-[#37accd] transition-transform group-hover:translate-x-0.5 motion-reduce:transition-none">→</span>
-                                            {e.label}
-                                        </Link>
-                                    </li>
-                                ))}
-                            </ul>
+                            <h2 id={cap.id} className="text-xl font-semibold text-[#ededed]">{cap.title}</h2>
+                            <p className="mt-2 text-[15px] leading-relaxed text-[#9ca3af]">{cap.context}</p>
                         </div>
+                        <p className="border-l-2 border-[#37accd] pl-3 text-sm leading-snug text-[#d1d5db]">
+                            <span className="mr-1.5 text-2xl font-bold text-[#37accd]">{cap.highlight.value}</span>
+                            {cap.highlight.label}
+                        </p>
+                        <ul className="mt-auto flex flex-wrap gap-2" aria-label={`${cap.title} skills`}>
+                            {cap.skills.map((skill) => (
+                                <li
+                                    key={skill}
+                                    className={`rounded border px-2.5 py-1 text-sm ${
+                                        cap.primary.includes(skill)
+                                            ? "border-[#37accd]/50 bg-[#37accd]/10 text-[#ededed]"
+                                            : "border-[#2a2d30] text-[#9ca3af]"
+                                    }`}
+                                >
+                                    {label(skill)}
+                                </li>
+                            ))}
+                        </ul>
                     </section>
                 ))}
             </div>
