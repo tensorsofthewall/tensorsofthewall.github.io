@@ -4,7 +4,7 @@ import Image from "next/image";
 import React from "react";
 
 /* Asset Imports */
-import ProfileImg from "@/public/images/tensorsofthewall.webp" 
+import ProfileImg from "@/public/images/tensorsofthewall-logo.webp" 
 import { TbError404 } from "react-icons/tb";
 import { SiGithub } from "react-icons/si";
 import { FaXTwitter } from "react-icons/fa6";
@@ -19,7 +19,7 @@ import type { IconType } from "react-icons";
 // Pulsing nav icon (pure CSS, no client JS)
 const PulseLink = ({ component: Icon, href, className, title, speed = 1 }: { component: IconType; href: string; className: string; title: string; speed?: number }) => (
     <div className="relative inline-flex flex-col items-center">
-        <Link href={href}>
+        <Link href={href} prefetch={false}>
             <div className="nav-pulse" style={{ "--pulse-speed": `${speed}s` } as React.CSSProperties}>
                 <Icon className={className} title={title} />
             </div>
@@ -55,7 +55,7 @@ const Header = () => {
                         <Link href="/">
                             <FaHome className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Go home" />
                         </Link>
-                        <Link href="/skills">
+                        <Link href="/skills" prefetch={false}>
                             <GiOnTarget className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Skills" />
                         </Link>
                         {/* <PulseLink component={HiLightBulb} href="/research-exp" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Research Experience" /> */}
@@ -66,7 +66,7 @@ const Header = () => {
                         <Link href="/education">
                             <FaGraduationCap className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Education" />
                         </Link>
-                        <Link href="/projects_publications">
+                        <Link href="/projects_publications" prefetch={false}>
                             <GiBookshelf className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Publications and Projects" />
                         </Link>
                     </div>
@@ -76,13 +76,13 @@ const Header = () => {
                         <Link href="/not-found">
                             <TbError404 className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Random comic"/>
                         </Link>
-                        {/* <Link href="/blog">
+                        {/* <Link href="/blog" prefetch={false}>
                             <GiNotebook className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Blog"/>
                         </Link> */}
                         <PulseLink component={GiNotebook} href="/blog" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Blog" />
-                        <Link href="/data/CV - Sandesh Bharadwaj.pdf" target="_blank">
+                        <a href="/data/CV - Sandesh Bharadwaj.pdf" target="_blank" rel="noopener noreferrer">
                             <FaFileDownload className="h-7 w-7 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Download CV" />
-                        </Link>
+                        </a>
                         <Link href="https://linkedin.com/in/sandeshbharadwaj97" target="_blank">
                             <FaLinkedin className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="LinkedIn" />
                         </Link>
