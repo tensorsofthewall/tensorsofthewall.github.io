@@ -71,7 +71,7 @@
         "tldr": "UniLCD dynamically routes inference between on-device and cloud models, using reinforcement learning to balance latency, energy and safety for real-time embodied navigation.",
         "highlight": "35% improvement over split-computing and early-exit baselines",
         "tags": ["Embodied AI", "Reinforcement Learning", "Edge/Cloud"],
-        "links": [{"label": "Project Page", "url": "https://unilcd.github.io/"}, {"label": "ECCV Proceedings", "url": "https://www.ecva.net/papers.php"}],
+        "links": [{"label": "Project Page", "url": "https://unilcd.github.io/"}, {"label": "Paper", "url": "https://arxiv.org/pdf/2409.11403"}],
         "abstract": ["Embodied vision systems like mobile robots must balance energy, latency, and safety. While offloading to the cloud allows access to powerful models, it introduces communication delays that hinder real-time, safety-critical use.", "We propose UniLCD, a hybrid inference framework enabling dynamic local-cloud collaboration via a reinforcement learning–optimized routing module and multi-task objective. Tested on a challenging navigation task, UniLCD outperforms state-of-the-art split computing and early exit baselines by over 35%, offering a robust solution for efficient and safe decision-making in dynamic environments."],
         "link": "https://unilcd.github.io/",
         "figure": "/images/papers/unilcd.png",
