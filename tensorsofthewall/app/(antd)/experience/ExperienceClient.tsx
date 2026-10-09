@@ -226,7 +226,7 @@ const ExperienceClient: React.FC<Props> = ({
                 <strong style={{ marginTop: '2rem', marginBottom: '2rem' }}
                     className="w-[90vw] max-w-[550px] text-sm sm:text-base md:text-xl lg:text-2xl">
                     {pageStartText}
-                    <div className="blur-sm hover:blur-none transition-all duration-300"
+                    <div className="text-gray-400"
                         style={{ alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
                         <h1 style={{ fontSize: '18px', whiteSpace: 'pre-line' }}>{pageSubText}</h1>
                     </div>
