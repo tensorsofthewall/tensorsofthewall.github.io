@@ -104,7 +104,7 @@ const Skills = () => {
                             </ul>
                         </div>
                         <div>
-                            <h3 className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9ca3af]">Used for</h3>
+                            <h3 className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9ca3af]">Where this shows up</h3>
                             <ul className="flex flex-col gap-1">
                                 {cap.evidence.map((e) => (
                                     <li key={e.label}>
