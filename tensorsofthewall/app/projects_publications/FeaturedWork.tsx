@@ -3,13 +3,14 @@ import type { FeaturedItem } from './featured';
 import Authors from './Authors';
 import Surface from '@/components/ui/Surface';
 import TagList from '@/components/ui/Tag';
-import { slugify } from '@/lib/headings';
+import RelatedLinks from '@/components/ui/RelatedLinks';
+import { relatedFor } from '@/lib/related';
 import ExternalAction from '@/components/ui/ExternalAction';
 
 /** Large showcase for a headline piece of work. Stack several for more than one; no carousel. */
 export default function FeaturedWork({ item }: { item: FeaturedItem }) {
     return (
-        <Surface as="article" id={`featured-${slugify(item.key)}`} className="grid scroll-mt-24 overflow-hidden lg:grid-cols-[1.1fr_1fr]">
+        <Surface as="article" id={`featured-${item.id}`} className="grid scroll-mt-24 overflow-hidden lg:grid-cols-[1.1fr_1fr]">
             <div className={`relative aspect-[16/9] ${item.imageTone === 'light' ? 'bg-white' : 'bg-background'} lg:aspect-auto lg:min-h-[320px]`}>
                 <Image
                     src={item.image}
@@ -41,6 +42,7 @@ export default function FeaturedWork({ item }: { item: FeaturedItem }) {
                         <ExternalAction key={l.url} href={l.url}>{l.label}</ExternalAction>
                     ))}
                 </div>
+                <RelatedLinks links={relatedFor('projects', item.id)} />
             </div>
         </Surface>
     );

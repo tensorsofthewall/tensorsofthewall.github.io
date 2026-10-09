@@ -3,6 +3,7 @@ import Image from "next/image";
 import Card from "antd/es/card/Card";
 
 export interface IndustryExpProps {
+    id?: string;
     company: string;
     logo: string;
     url: string;

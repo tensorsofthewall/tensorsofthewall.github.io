@@ -1,6 +1,10 @@
 import Surface from "@/components/ui/Surface";
+import RelatedLinks from "@/components/ui/RelatedLinks";
+import type { RelatedLink } from "@/lib/related";
 
 export interface ExperienceEntry {
+    /** Stable id for anchors (`/experience#h2x`) and cross-links. */
+    id: string;
     kind: ('research' | 'industry')[];
     name: string;
     logo: string;
@@ -18,7 +22,7 @@ export interface ExperienceEntry {
  * Details panel that opens under a timeline stop. Everything is visible as soon as it opens;
  * its height is measured by the timeline, which makes room for it.
  */
-const ExperienceCard = ({ name, url, location, position, type, achievements, note }: ExperienceEntry) => (
+const ExperienceCard = ({ name, url, location, position, type, achievements, note, related = [] }: ExperienceEntry & { related?: RelatedLink[] }) => (
     <Surface className="p-4 text-left">
         <p className="text-sm font-semibold leading-snug text-foreground">{position}</p>
         <p className="mt-0.5 text-xs text-secondary">{type} · {location}</p>
@@ -28,6 +32,7 @@ const ExperienceCard = ({ name, url, location, position, type, achievements, not
                 <li key={achievement}>{achievement}</li>
             ))}
         </ul>
+        <RelatedLinks links={related} className="mt-4 border-t border-line pt-3" />
         <a
             href={url}
             target="_blank"

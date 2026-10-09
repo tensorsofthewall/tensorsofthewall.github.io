@@ -4,6 +4,7 @@ import Image from "next/image";
 import Card from "antd/es/card/Card";
 
 export interface ResearchExpProps {
+    id?: string;
     organization: string;
     logo: string;
     url: string;

@@ -3,6 +3,8 @@ import type { Project } from './types';
 import Surface from '@/components/ui/Surface';
 import TagList from '@/components/ui/Tag';
 import { slugify } from '@/lib/headings';
+import RelatedLinks from '@/components/ui/RelatedLinks';
+import { relatedFor } from '@/lib/related';
 
 /**
  * Static card: the title link is stretched over the whole card (::after) so the card is one
@@ -39,6 +41,8 @@ export default function ProjectCard({ project }: { project: Project }) {
                 <div className="mt-auto flex flex-col gap-3 pt-1">
                     <TagList tags={project.tags} variant="inline" />
                     <p className="text-xs text-muted">{project.duration}</p>
+                    {/* Sits above the card-wide link so it stays clickable. */}
+                    <RelatedLinks links={relatedFor('projects', slugify(project.name))} label="Related" className="relative z-10" />
                 </div>
             </div>
         </Surface>

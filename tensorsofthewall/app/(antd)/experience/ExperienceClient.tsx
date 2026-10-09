@@ -6,6 +6,8 @@ import type { ResearchExpProps } from "../research-exp/researchExpCard";
 import type { IndustryExpProps } from "../industry-exp/industryExpCard";
 import PageContainer from "@/components/ui/PageContainer";
 import PageHeader from "@/components/ui/PageHeader";
+import { relatedFor } from "@/lib/related";
+import { slugify } from "@/lib/headings";
 
 const MIN_EXPANSION = 260;      // minimum slot height when any card is expanded
 
@@ -106,6 +108,7 @@ const ExperienceClient: React.FC<Props> = ({
     const allExperiences: ExperienceEntry[] = [
         ...researchExperience.map(e => ({
             kind: (e.kind ?? ['research']) as ('research' | 'industry')[],
+            id: e.id ?? slugify(e.organization),
             name: e.organization,
             logo: e.logo, url: e.url, location: e.location, duration: e.duration,
             position: e.position, type: e.type, achievements: e.achievements,
@@ -113,6 +116,7 @@ const ExperienceClient: React.FC<Props> = ({
         })),
         ...industryExperience.map(e => ({
             kind: (e.kind ?? ['industry']) as ('research' | 'industry')[],
+            id: e.id ?? slugify(e.company),
             name: e.company,
             logo: e.logo, url: e.url, location: e.location, duration: e.duration,
             position: e.position, type: e.type, achievements: e.achievements,
@@ -131,6 +135,26 @@ const ExperienceClient: React.FC<Props> = ({
         while (row.length < itemsPerRow) row.push(null);
         rows.push(row);
     }
+
+    // Arriving on /experience#<id> (from a cross-link) opens that stop and scrolls it into view.
+    useEffect(() => {
+        const openFromHash = () => {
+            const id = decodeURIComponent(window.location.hash.slice(1));
+            const idx = allExperiences.findIndex((e) => e.id === id);
+            if (idx < 0) return;
+            setExpandedCardHeight(MIN_EXPANSION);
+            setExpandedCard(idx);
+            const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+            window.setTimeout(() => {
+                document.getElementById(id)?.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+            }, 450);
+        };
+        openFromHash();
+        window.addEventListener("hashchange", openFromHash);
+        return () => window.removeEventListener("hashchange", openFromHash);
+        // allExperiences is derived from static props; run once on mount.
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
 
     // ── Per-row geometry (changes when a card is expanded) ─────────────────
     //
@@ -362,7 +386,9 @@ const ExperienceClient: React.FC<Props> = ({
                                     return (
                                         <motion.div
                                             key={realIdx}
+                                            id={exp.id}
                                             style={{
+                                                scrollMarginTop: 150,
                                                 display: 'flex',
                                                 flexDirection: 'column',
                                                 alignItems: 'center',
@@ -452,7 +478,7 @@ const ExperienceClient: React.FC<Props> = ({
                                                             exit={{ opacity: 0, scaleY: 0.6 }}
                                                             transition={{ duration: 0.25, ease: 'easeOut' }}
                                                         >
-                                                            <ExperienceCard {...exp} />
+                                                            <ExperienceCard {...exp} related={relatedFor('experience', exp.id)} />
                                                         </motion.div>
                                                     )}
                                                 </AnimatePresence>

@@ -3,13 +3,15 @@ import type { Publication } from './types';
 import Authors from './Authors';
 import TagList from '@/components/ui/Tag';
 import ExternalAction from '@/components/ui/ExternalAction';
+import RelatedLinks from '@/components/ui/RelatedLinks';
+import { relatedFor } from '@/lib/related';
 
 /** Academic-style list: year/venue gutter, title, authors, one-line TL;DR, actions. */
 export default function PublicationList({ papers }: { papers: Publication[] }) {
     return (
         <ol className="divide-y divide-line border-y border-line">
             {papers.map((p) => (
-                <li key={p.title} className="grid gap-4 py-7 md:grid-cols-[110px_1fr_180px] md:gap-8">
+                <li key={p.title} id={`pub-${p.id}`} className="grid scroll-mt-24 gap-4 py-7 md:grid-cols-[110px_1fr_180px] md:gap-8">
                     <p className="text-sm font-semibold text-accent md:pt-1">
                         <span className="text-foreground">{p.year}</span>
                         <span className="ml-2 md:mt-1 md:ml-0 md:block">{p.venue}</span>
@@ -24,6 +26,7 @@ export default function PublicationList({ papers }: { papers: Publication[] }) {
                                 <ExternalAction key={l.url} href={l.url}>{l.label}</ExternalAction>
                             ))}
                         </div>
+                        <RelatedLinks links={relatedFor('projects', p.id)} />
                     </div>
                     <div className="relative hidden aspect-[3/2] self-start overflow-hidden rounded-md border border-line bg-white md:block">
                         <Image

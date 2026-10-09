@@ -99,6 +99,7 @@
     },
     "publications": [
       {
+        "id": "unilcd",
         "title": "Unified Local-Cloud Decision-Making via Residual Reinforcement Learning",
         "year": 2024,
         "venue": "ECCV",
@@ -122,6 +123,7 @@
         ]
       },
       {
+        "id": "etccs-2020",
         "title": "Person Re-Identification by Analyzing Dynamic Variations in Gait Sequences",
         "year": 2020,
         "venue": "ETCCS",
@@ -140,6 +142,7 @@
     ],
     "researchExperience": [
       {
+        "id": "cdac",
         "organization": "Center for Development of Advanced Computing",
         "logo": "/images/org_logos/cdac_logo.png",
         "url": "https://cdac.in/",
@@ -154,6 +157,7 @@
         ]
       },
       {
+        "id": "bosch",
         "organization": "Robert Bosch GmbH",
         "logo": "/images/org_logos/bosch_logo.png",
         "url": "https://www.bosch.com/research/",
@@ -170,6 +174,7 @@
         "note": "Received a full-time offer, which was deferred due to a hiring freeze during the COVID-19 pandemic"
       },
       {
+        "id": "bu-ta",
         "organization": "Boston University",
         "logo": "/images/org_logos/bu_logo.png",
         "url": "https://bu.edu",
@@ -184,6 +189,7 @@
         ]
       },
       {
+        "id": "h2x",
         "organization": "Human-to-Everything (H2X) Lab, Boston University",
         "logo": "/images/org_logos/H2Xlogo.svg",
         "url": "https://eshed1.github.io/",
@@ -201,6 +207,7 @@
         ]
       },
       {
+        "id": "lossfunk",
         "organization": "LossFunk",
         "logo": "/images/org_logos/lossfunk-logo.jpg",
         "url": "https://lossfunk.com/initialize/",
@@ -214,6 +221,7 @@
         ]
       },
       {
+        "id": "mbzuai",
         "organization": "Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)",
         "logo": "/images/org_logos/mbzuai_logo.png",
         "url": "https://mbzuai.ac.ae/",
@@ -233,6 +241,7 @@
     ],
     "industryExperience": [
       {
+        "id": "thermofisher",
         "company": "Thermo Fisher Scientific India Pvt. Ltd.",
         "logo": "/images/org_logos/thermofisher_logo.svg",
         "url": "https://thermofisher.com",
@@ -246,6 +255,7 @@
         ]
       },
       {
+        "id": "synopsys",
         "company": "Synopsys India",
         "logo": "/images/org_logos/synopsys_logo.svg",
         "url": "https://www.synopsys.com/",
@@ -260,6 +270,7 @@
         ]
       },
       {
+        "id": "ignitarium",
         "company": "Ignitarium Technology Solutions",
         "logo": "/images/org_logos/ignitarium_logo.png",
         "url": "https://ignitarium.com/",
@@ -274,6 +285,7 @@
         ]
       },
       {
+        "id": "ottometric",
         "company": "Ottometric Inc.",
         "logo": "/images/org_logos/ottometric_logo.png",
         "url": "https://ottometric.com/",

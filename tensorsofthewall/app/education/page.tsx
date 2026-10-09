@@ -5,6 +5,9 @@ import SectionHeading from '@/components/ui/SectionHeading';
 import Surface from '@/components/ui/Surface';
 import TagList from '@/components/ui/Tag';
 import ExternalAction from '@/components/ui/ExternalAction';
+import RelatedLinks from '@/components/ui/RelatedLinks';
+import { relatedFor } from '@/lib/related';
+import { slugify } from '@/lib/headings';
 import data from '@/public/data/resume_json.json' assert { type: 'json' };
 
 export const revalidate = 3600;
@@ -84,7 +87,7 @@ const EducationPage = () => {
 
             <ol className="list-none">
                 {data.education.map((edu) => (
-                    <TimelineEntry key={edu.institution} start={edu.startDate} end={edu.graduation}>
+                    <TimelineEntry key={edu.institution} id={slugify(edu.institution)} start={edu.startDate} end={edu.graduation}>
                         <div className="flex items-center gap-4">
                             <InstitutionMark src={edu.logo} name={edu.institution} />
                             <h2 className="text-xl font-semibold text-foreground sm:text-2xl">{edu.institution}</h2>
@@ -92,7 +95,7 @@ const EducationPage = () => {
                         <p className="mt-3 text-lg text-body">{edu.degree}</p>
 
                         {edu.thesis && (
-                            <Surface accent="left" className="mt-6 p-5">
+                            <Surface accent="left" id="thesis" className="mt-6 scroll-mt-24 p-5">
                                 <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">Thesis</p>
                                 <p className="mt-2 text-lg font-semibold leading-snug text-foreground">{edu.thesis.title}</p>
                                 <div className="mt-4 flex flex-wrap gap-3">
@@ -123,6 +126,7 @@ const EducationPage = () => {
                                 <TagList tags={edu.coursework} label="Coursework" />
                             </div>
                         </div>
+                        <RelatedLinks links={relatedFor('education', slugify(edu.institution))} className="mt-6" />
                     </TimelineEntry>
                 ))}
             </ol>

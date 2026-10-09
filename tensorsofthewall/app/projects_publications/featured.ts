@@ -1,8 +1,11 @@
 import data from '@/public/data/resume_json.json';
 import type { Project, Publication } from './types';
+import { slugify } from '@/lib/headings';
 
 export interface FeaturedItem {
     key: string;
+    /** Stable id used for anchors and cross-links. */
+    id: string;
     title: string;
     /** Small accent line above the title, e.g. "ECCV 2024" or "Project · Jan 2025 - Apr 2025". */
     eyebrow: string;
@@ -41,6 +44,7 @@ export function getFeaturedItems(): FeaturedItem[] {
             order: order(p),
             item: {
                 key: p.title,
+                id: p.id,
                 title: p.title,
                 eyebrow: `${p.venue} ${p.year}`,
                 authors: p.authors,
@@ -60,6 +64,7 @@ export function getFeaturedItems(): FeaturedItem[] {
             order: order(p),
             item: {
                 key: p.name,
+                id: slugify(p.name),
                 title: p.name,
                 eyebrow: `Project · ${p.duration}`,
                 description: p.summary,
