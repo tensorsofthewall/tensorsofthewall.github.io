@@ -18,6 +18,14 @@ const DISPLAY_NAME: Record<string, string> = {
 };
 const label = (name: string) => DISPLAY_NAME[name] ?? name;
 
+const GROUP_TITLE: Record<string, string> = {
+    languages: "Languages",
+    databases: "Data",
+    devOpsAndSimulators: "DevOps & Simulators",
+    frameworks: "Frameworks",
+    libraries: "Libraries",
+};
+
 export const metadata = {
     metadataBase: new URL("https://www.tensorsofthewall.com"),
     title: "Technical Skills | TensorsOfTheWall",
@@ -70,7 +78,18 @@ const Skills = () => {
     // Everything in the resume data that is not called out in a capability is shown as plain
     // supporting text rather than a badge, so distinctive skills keep the visual weight.
     const featured = new Set(capabilities.flatMap((c) => c.skills));
-    const supporting = [...new Set(Object.values(groups).flat())].filter((s) => !featured.has(s));
+    const seen = new Set<string>();
+    const supporting = Object.entries(groups)
+        .map(([key, skills]) => ({
+            key,
+            title: GROUP_TITLE[key] ?? key,
+            skills: skills.filter((s) => {
+                if (featured.has(s) || seen.has(s)) return false;
+                seen.add(s);
+                return true;
+            }),
+        }))
+        .filter((g) => g.skills.length > 0);
 
     return (
         <div className="mx-auto w-full max-w-[1100px] px-4 pb-24 pt-20 sm:px-8 md:px-10">
@@ -123,13 +142,28 @@ const Skills = () => {
                 ))}
             </div>
 
-            <section aria-labelledby="also" className="mt-12">
-                <h2 id="also" className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-[#9ca3af]">
+            <section aria-labelledby="also" className="mt-14">
+                <h2 id="also" className="mb-1 text-sm font-semibold uppercase tracking-[0.18em] text-[#9ca3af]">
                     Also in the toolbox
                 </h2>
-                <p className="text-sm leading-loose text-[#6b7280]">
-                    {supporting.map(label).join(" · ")}
-                </p>
+                <p className="mb-5 text-sm text-[#6b7280]">The supporting cast: used often, just not the headline.</p>
+                <div className="grid gap-x-8 gap-y-6 rounded-xl border border-[#2a2d30] bg-[#0f1113] p-5 sm:grid-cols-2 sm:p-7 lg:grid-cols-3">
+                    {supporting.map((group) => (
+                        <div key={group.key}>
+                            <h3 className="mb-2.5 flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#9ca3af]">
+                                <span aria-hidden="true" className="h-px w-4 bg-[#37accd]/60" />
+                                {group.title}
+                            </h3>
+                            <ul className="flex flex-wrap gap-1.5">
+                                {group.skills.map((skill) => (
+                                    <li key={skill} className="rounded bg-[#15181b] px-2 py-0.5 text-xs text-[#9ca3af]">
+                                        {label(skill)}
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    ))}
+                </div>
             </section>
         </div>
     );
