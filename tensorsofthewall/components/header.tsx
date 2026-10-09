@@ -35,7 +35,7 @@ const Header = () => {
             <div id="wrapper" className="flex flex-col items-center w-full">
                 <div className="absolute inset-0 backdrop-blur-md "></div> 
                 <Link href="/" className="no-underline z-20 max-sm:translate-x-[13.5vh]">
-                    <div className="text-small sm:text-medium md:text-xl lg:text-3xl font-bold text-white-400 tracking-tighter mb-2 font-['Orbitron'] drop-shadow-md pb-10 sm:pb-9 md:pb-8 lg:pb-5 flex items-center gap-2 sm:gap-1 "> 
+                    <div className="text-small sm:text-medium md:text-xl lg:text-3xl font-bold text-white-400 tracking-tighter mb-2 font-orbitron drop-shadow-md pb-10 sm:pb-9 md:pb-8 lg:pb-5 flex items-center gap-2 sm:gap-1 "> 
                         <Image
                             src={ProfileImg}
                             alt="Logo"

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Orbitron } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
@@ -12,9 +12,10 @@ const geistSans = Geist({
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const orbitron = Orbitron({
   subsets: ["latin"],
+  weight: ["400", "700"],
+  variable: "--font-orbitron",
 });
 
 export const metadata: Metadata = {
@@ -74,7 +75,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="TensorsOfTheWall" />
       </head>
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`} style={{minHeight: '100vh', display: 'flex', flexDirection: 'column'}}
+        className={`${geistSans.variable} ${orbitron.variable} antialiased`} style={{minHeight: '100vh', display: 'flex', flexDirection: 'column'}}
       >
         {/* <AnimatedCursor /> */}
         <Header />
