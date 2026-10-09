@@ -2,6 +2,7 @@ import data from '@/public/data/resume_json.json';
 import FeaturedWork from './FeaturedWork';
 import ProjectCard from './ProjectCard';
 import PublicationList from './PublicationList';
+import { getFeaturedItems } from './featured';
 
 export const revalidate = 3600; // Revalidate every hour
 
@@ -60,7 +61,7 @@ const SectionHeading = ({ id, children }: { id: string; children: React.ReactNod
 );
 
 const ProjectsPublicationsPage = () => {
-    const featured = data.publications.filter((p) => p.featured);
+    const featured = getFeaturedItems();
     const papers = [...data.publications].sort((a, b) => b.year - a.year);
 
     return (
@@ -77,7 +78,7 @@ const ProjectsPublicationsPage = () => {
                 <SectionHeading id="featured">Featured Work</SectionHeading>
                 <div className="flex flex-col gap-6">
                     {featured.map((item) => (
-                        <FeaturedWork key={item.title} item={item} />
+                        <FeaturedWork key={item.key} item={item} />
                     ))}
                 </div>
             </section>
