@@ -4,8 +4,6 @@ import { motion, AnimatePresence } from "motion/react";
 import ExperienceCard, { ExperienceEntry } from "./ExperienceCard";
 import type { ResearchExpProps } from "../research-exp/researchExpCard";
 import type { IndustryExpProps } from "../industry-exp/industryExpCard";
-import PageContainer from "@/components/ui/PageContainer";
-import PageHeader from "@/components/ui/PageHeader";
 import { relatedFor } from "@/lib/related";
 import { slugify } from "@/lib/headings";
 
@@ -34,12 +32,10 @@ function parseEndDate(duration: string): Date {
 interface Props {
     researchExperience: ResearchExpProps[];
     industryExperience: IndustryExpProps[];
-    pageStartText: string;
-    pageSubText: string;
 }
 
 const ExperienceClient: React.FC<Props> = ({
-    researchExperience, industryExperience, pageStartText, pageSubText
+    researchExperience, industryExperience
 }) => {
     const [expandedCard, setExpandedCard] = useState<number | null>(null);
     // Tracks the actual rendered height of the currently expanded card.
@@ -48,6 +44,11 @@ const ExperienceClient: React.FC<Props> = ({
     const [expandedCardHeight, setExpandedCardHeight] = useState(0);
     const containerRef = useRef<HTMLDivElement>(null);
     const [containerWidth, setContainerWidth] = useState(1000);
+    // The server cannot know the container width, so the first render uses a guess. Until the real
+    // width has been measured the timeline is hidden and snaps (no animation) to its real geometry;
+    // only then is it revealed and the 0.35s transitions switched on. This avoids visible layout shift.
+    const [ready, setReady] = useState(false);
+    const moveDuration = ready ? 0.35 : 0;
     const cardObserverRef = useRef<ResizeObserver | null>(null);
 
     useEffect(() => {
@@ -55,9 +56,12 @@ const ExperienceClient: React.FC<Props> = ({
             if (containerRef.current) setContainerWidth(containerRef.current.offsetWidth);
         };
         update();
+        // Two frames: one to commit the measured geometry, one to paint it, then reveal.
+        let raf2 = 0;
+        const raf1 = requestAnimationFrame(() => { raf2 = requestAnimationFrame(() => setReady(true)); });
         const obs = new ResizeObserver(update);
         if (containerRef.current) obs.observe(containerRef.current);
-        return () => obs.disconnect();
+        return () => { obs.disconnect(); cancelAnimationFrame(raf1); cancelAnimationFrame(raf2); };
     }, []);
 
     // Reset measured height when no card is expanded
@@ -246,11 +250,6 @@ const ExperienceClient: React.FC<Props> = ({
 
     return (
         <div>
-            {/* ── Header text ─────────────────────────────────────────── */}
-            <PageContainer className="pb-6">
-                <PageHeader title="Experience" subtitle={pageStartText} helper={pageSubText} />
-            </PageContainer>
-
             {/* ── S-Timeline ──────────────────────────────────────────── */}
             <div className="w-full pb-20" style={{ overflowX: 'visible' }}>
                 <div
@@ -258,7 +257,8 @@ const ExperienceClient: React.FC<Props> = ({
                     className="relative w-full max-w-6xl mx-auto"
                     style={{
                         height: totalHeight,
-                        transition: 'height 0.35s ease',
+                        transition: ready ? 'height 0.35s ease' : 'none',
+                        visibility: ready ? 'visible' : 'hidden',
                     }}
                 >
                     {/* Animated SVG S-path + directional arrows */}
@@ -280,7 +280,7 @@ const ExperienceClient: React.FC<Props> = ({
                             strokeLinecap="round"
                             initial={false}
                             animate={{ d: svgPath }}
-                            transition={{ duration: 0.35, ease: 'easeInOut' }}
+                            transition={{ duration: moveDuration, ease: 'easeInOut' }}
                         />
                         {/* Directional arrows at midpoint of each horizontal segment */}
                         {/* Arrow size constants — tune these to resize horizontal arrows */}
@@ -300,7 +300,7 @@ const ExperienceClient: React.FC<Props> = ({
                                         d={d}
                                         initial={false}
                                         animate={{ d }}
-                                        transition={{ duration: 0.35, ease: 'easeInOut' }}
+                                        transition={{ duration: moveDuration, ease: 'easeInOut' }}
                                         fill="rgba(255,255,255,0.85)"
                                     />
                                 );
@@ -322,7 +322,7 @@ const ExperienceClient: React.FC<Props> = ({
                                         d={d}
                                         initial={false}
                                         animate={{ d }}
-                                        transition={{ duration: 0.35, ease: 'easeInOut' }}
+                                        transition={{ duration: moveDuration, ease: 'easeInOut' }}
                                         fill="rgba(255,255,255,0.85)"
                                     />
                                 );
@@ -375,8 +375,9 @@ const ExperienceClient: React.FC<Props> = ({
                                     alignItems: 'flex-start',
                                     zIndex: rowHasExpanded ? 20 : 10,
                                 }}
+                                initial={false}
                                 animate={{ top: rowTopY[ri], height: rowH }}
-                                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                                transition={{ duration: moveDuration, ease: 'easeInOut' }}
                             >
                                 {displayRow.map((exp, vi) => {
                                     if (!exp) return <div key={`sp-${vi}`} style={{ width: CARD_WIDTH }} />;
@@ -397,8 +398,9 @@ const ExperienceClient: React.FC<Props> = ({
                                                 alignItems: 'center',
                                                 position: 'relative',
                                             }}
+                                            initial={false}
                                             animate={{ height: rowH }}
-                                            transition={{ duration: 0.35, ease: 'easeInOut' }}
+                                            transition={{ duration: moveDuration, ease: 'easeInOut' }}
                                         >
                                             {/* ── Logo (just above timeline line) ──────────────── */}
                                             <div style={{
@@ -468,8 +470,9 @@ const ExperienceClient: React.FC<Props> = ({
                                                     alignItems: 'flex-start',
                                                     paddingTop: 8,
                                                 }}
+                                                initial={false}
                                                 animate={{ height: textH - TEXT_AREA_HEIGHT }}
-                                                transition={{ duration: 0.35, ease: 'easeInOut' }}
+                                                transition={{ duration: moveDuration, ease: 'easeInOut' }}
                                             >
                                                 <AnimatePresence>
                                                     {isExp && (

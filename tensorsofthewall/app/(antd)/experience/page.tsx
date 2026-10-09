@@ -1,6 +1,8 @@
 import React from "react";
 import data from "@/public/data/resume_json.json";
 import ExperienceClient from "./ExperienceClient";
+import PageContainer from "@/components/ui/PageContainer";
+import PageHeader from "@/components/ui/PageHeader";
 import type { ResearchExpProps } from "../research-exp/researchExpCard";
 import type { IndustryExpProps } from "../industry-exp/industryExpCard";
 
@@ -65,11 +67,12 @@ export default function ExperiencePage() {
     const researchExperience: ResearchExpProps[] = data.researchExperience;
     const industryExperience: IndustryExpProps[] = data.industryExperience;
     return (
-        <ExperienceClient
-            researchExperience={researchExperience}
-            industryExperience={industryExperience}
-            pageStartText={pageStartText}
-            pageSubText={pageSubText}
-        />
+        <>
+            {/* Server-rendered: the heading paints without waiting for the timeline to hydrate. */}
+            <PageContainer className="pb-6">
+                <PageHeader title="Experience" subtitle={pageStartText} helper={pageSubText} />
+            </PageContainer>
+            <ExperienceClient researchExperience={researchExperience} industryExperience={industryExperience} />
+        </>
     );
 }
