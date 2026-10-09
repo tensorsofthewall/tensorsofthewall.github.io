@@ -18,11 +18,13 @@ const DISPLAY_NAME: Record<string, string> = {
 };
 const label = (name: string) => DISPLAY_NAME[name] ?? name;
 
+/** Groups with too few leftovers to stand alone are folded into another. */
+const MERGE_INTO: Record<string, string> = { databases: "frameworks" };
+
 const GROUP_TITLE: Record<string, string> = {
     languages: "Languages",
-    databases: "Data",
     devOpsAndSimulators: "DevOps & Simulators",
-    frameworks: "Frameworks",
+    frameworks: "Frameworks & Data",
     libraries: "Libraries",
 };
 
@@ -79,7 +81,12 @@ const Skills = () => {
     // supporting text rather than a badge, so distinctive skills keep the visual weight.
     const featured = new Set(capabilities.flatMap((c) => c.skills));
     const seen = new Set<string>();
-    const supporting = Object.entries(groups)
+    const merged: Record<string, string[]> = {};
+    for (const [key, skills] of Object.entries(groups)) {
+        const target = MERGE_INTO[key] ?? key;
+        merged[target] = [...(merged[target] ?? []), ...skills];
+    }
+    const supporting = Object.entries(merged)
         .map(([key, skills]) => ({
             key,
             title: GROUP_TITLE[key] ?? key,
