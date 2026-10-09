@@ -2,7 +2,7 @@ import { SCHOLAR_URL } from './types';
 
 export default function Authors({ authors }: { authors: string[] }) {
     return (
-        <p className="text-sm leading-relaxed text-[#9ca3af]">
+        <p className="text-sm leading-relaxed text-secondary">
             {authors.map((author, i) => (
                 <span key={author}>
                     {i > 0 && ' · '}
@@ -12,7 +12,7 @@ export default function Authors({ authors }: { authors: string[] }) {
                             href={SCHOLAR_URL}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="font-semibold text-[#eab676] hover:underline"
+                            className="font-semibold text-highlight hover:underline"
                         >
                             {author}
                         </a>

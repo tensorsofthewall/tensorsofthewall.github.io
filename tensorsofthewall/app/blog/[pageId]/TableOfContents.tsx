@@ -35,8 +35,8 @@ export default function TableOfContents({ entries }: { entries: TocEntry[] }) {
 
     return (
         <nav aria-label="On this page" className="sticky top-24 max-h-[calc(100vh-8rem)] overflow-y-auto pr-2">
-            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-[#9ca3af]">On this page</p>
-            <ul className="flex flex-col gap-0.5 border-l border-[#2a2d30] text-sm">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-[0.18em] text-secondary">On this page</p>
+            <ul className="flex flex-col gap-0.5 border-l border-line text-sm">
                 {entries.map((e) => (
                     <li key={e.id}>
                         <a
@@ -46,8 +46,8 @@ export default function TableOfContents({ entries }: { entries: TocEntry[] }) {
                                 e.level === 3 ? "pl-7" : "pl-4"
                             } ${
                                 active === e.id
-                                    ? "border-[#37accd] text-[#37accd]"
-                                    : "border-transparent text-[#9ca3af] hover:text-[#ededed]"
+                                    ? "border-accent text-accent"
+                                    : "border-transparent text-secondary hover:text-foreground"
                             }`}
                         >
                             {e.text}

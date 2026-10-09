@@ -2,6 +2,9 @@ import data from '@/public/data/resume_json.json';
 import FeaturedWork from './FeaturedWork';
 import ProjectCard from './ProjectCard';
 import PublicationList from './PublicationList';
+import PageContainer from '@/components/ui/PageContainer';
+import PageHeader from '@/components/ui/PageHeader';
+import SectionHeading from '@/components/ui/SectionHeading';
 import { getFeaturedItems } from './featured';
 
 export const revalidate = 3600; // Revalidate every hour
@@ -54,25 +57,17 @@ export const metadata = {
     },
 };
 
-const SectionHeading = ({ id, children }: { id: string; children: React.ReactNode }) => (
-    <h2 id={id} className="mb-6 text-sm font-semibold uppercase tracking-[0.18em] text-[#9ca3af]">
-        {children}
-    </h2>
-);
-
 const ProjectsPublicationsPage = () => {
     const featured = getFeaturedItems();
     const papers = [...data.publications].sort((a, b) => b.year - a.year);
 
     return (
-        <div className="mx-auto w-full max-w-[1100px] px-4 pb-24 pt-20 sm:px-8 md:px-10">
-            <div className="mb-14">
-                <p className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#37accd]">Work</p>
-                <h1 className="text-3xl font-bold text-[#ededed] sm:text-4xl">Projects &amp; Publications</h1>
-                <p className="mt-3 max-w-xl text-lg text-[#9ca3af]">
-                    Here lies some evidence of my &lsquo;productive&rsquo; rabbit holes.
-                </p>
-            </div>
+        <PageContainer>
+            <PageHeader
+                eyebrow="Work"
+                title="Projects & Publications"
+                subtitle={<>Here lies some evidence of my &lsquo;productive&rsquo; rabbit holes.</>}
+            />
 
             <section aria-labelledby="featured" className="mb-16">
                 <SectionHeading id="featured">Featured Work</SectionHeading>
@@ -96,7 +91,7 @@ const ProjectsPublicationsPage = () => {
                 <SectionHeading id="publications">Publications</SectionHeading>
                 <PublicationList papers={papers} />
             </section>
-        </div>
+        </PageContainer>
     );
 };
 

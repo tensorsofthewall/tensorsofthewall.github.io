@@ -1,6 +1,9 @@
 import { getPostSummaries, type BlogPostSummary } from "@/lib/blogPosts";
 import FeaturedPost from "./FeaturedPost";
 import PostCard from "./PostCard";
+import PageContainer from "@/components/ui/PageContainer";
+import PageHeader from "@/components/ui/PageHeader";
+import SectionHeading from "@/components/ui/SectionHeading";
 
 const pageStartText = "Overfitted Opinions: I write things down here instead of explaining them at 2 a.m. to someone trying to sleep"
 const pageSubtitle = "I write things down here instead of explaining them at 2 a.m. to someone trying to sleep."
@@ -65,14 +68,10 @@ export default async function BlogPage() {
     const [latest, ...archive] = posts;
 
     return (
-        <div className="mx-auto w-full max-w-[1100px] px-4 pb-24 pt-20 sm:px-8 md:px-10">
-            <div className="mb-14">
-                <p className="mb-2 text-sm font-semibold uppercase tracking-[0.18em] text-[#37accd]">Writing</p>
-                <h1 className="text-3xl font-bold text-[#ededed] sm:text-4xl">Overfitted Opinions</h1>
-                <p className="mt-3 max-w-xl text-lg text-[#9ca3af]">{pageSubtitle}</p>
-            </div>
+        <PageContainer>
+            <PageHeader eyebrow="Writing" title="Overfitted Opinions" subtitle={pageSubtitle} />
 
-            {!latest && <p className="text-[#9ca3af]">Nothing to read yet. Check back soon.</p>}
+            {!latest && <p className="text-secondary">Nothing to read yet. Check back soon.</p>}
 
             {latest && (
                 <section aria-label="Latest article" className="mb-16">
@@ -82,9 +81,7 @@ export default async function BlogPage() {
 
             {archive.length > 0 && (
                 <section aria-labelledby="archive">
-                    <h2 id="archive" className="mb-6 text-sm font-semibold uppercase tracking-[0.18em] text-[#9ca3af]">
-                        Archive
-                    </h2>
+                    <SectionHeading id="archive">Archive</SectionHeading>
                     <div className="grid gap-5 sm:grid-cols-2">
                         {archive.map((post) => (
                             <PostCard key={post.slug} post={post} />
@@ -92,6 +89,6 @@ export default async function BlogPage() {
                     </div>
                 </section>
             )}
-        </div>
+        </PageContainer>
     );
 }

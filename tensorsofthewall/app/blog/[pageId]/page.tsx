@@ -11,6 +11,10 @@ import CommentSection from "@/components/commentSection";
 import ReadingProgress from "./ReadingProgress";
 import TableOfContents from "./TableOfContents";
 import PostNav from "./PostNav";
+import PostMeta from "../PostMeta";
+import PageContainer from "@/components/ui/PageContainer";
+import TagList from "@/components/ui/Tag";
+import Divider from "@/components/ui/Divider";
 
 export const dynamic = 'auto'
 export const revalidate = 600;
@@ -109,35 +113,22 @@ export default async function Page({ params }: {
     return (
         <>
             <ReadingProgress targetId="article-body" />
-            <div className="mx-auto w-full max-w-[1100px] px-4 pb-24 pt-16 sm:px-8 md:px-10">
+            <PageContainer>
                 <div className={showToc ? "lg:grid lg:grid-cols-[minmax(0,720px)_220px] lg:justify-center lg:gap-x-24" : "mx-auto max-w-[720px]"}>
                     <article className="min-w-0">
                         <div className="mb-10">
                             <Link
                                 href="/blog"
-                                className="mb-6 inline-flex min-h-10 items-center text-sm font-medium text-[#37accd] hover:underline"
+                                className="mb-6 inline-flex min-h-10 items-center text-sm font-medium text-accent hover:underline"
                             >
                                 <span aria-hidden="true" className="mr-1">←</span> Overfitted Opinions
                             </Link>
-                            <h1 className="text-3xl font-bold leading-tight text-[#ededed] sm:text-4xl" style={{ textWrap: "balance" }}>
+                            <h1 className="text-3xl font-bold leading-tight text-foreground sm:text-4xl" style={{ textWrap: "balance" }}>
                                 {post.title}
                             </h1>
-                            <p className="mt-4 text-sm text-[#9ca3af]">
-                                {post.publishDate}
-                                {post.readTime !== null && (
-                                    <>
-                                        <span aria-hidden="true" className="mx-2 text-[#6b7280]">·</span>
-                                        {post.readTime} min read
-                                    </>
-                                )}
-                            </p>
-                            {post.tags.length > 0 && (
-                                <ul className="mt-4 flex flex-wrap gap-2 text-xs text-[#9ca3af]" aria-label="Topics">
-                                    {post.tags.map((tag) => (
-                                        <li key={tag} className="rounded border border-[#2a2d30] px-2 py-0.5">{tag}</li>
-                                    ))}
-                                </ul>
-                            )}
+                            <PostMeta post={post} className="mt-4" />
+                            <TagList tags={post.tags} className="mt-4" />
+                            <Divider className="mt-8" />
                         </div>
 
                         <div id="article-body">
@@ -159,7 +150,7 @@ export default async function Page({ params }: {
                         </aside>
                     )}
                 </div>
-            </div>
+            </PageContainer>
         </>
     )
 }

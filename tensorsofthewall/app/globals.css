@@ -7,6 +7,17 @@
   --foreground: #ededed;
   --nn-active: #75cef7;
   --nn-inactive: #1a1818;
+
+  /* Portfolio design tokens (space-separated RGB channels so Tailwind opacity modifiers work) */
+  --foreground-rgb: 237 237 237;
+  --surface-rgb: 17 19 21;
+  --surface-hover-rgb: 21 24 27;
+  --line-rgb: 42 45 48;
+  --body-rgb: 209 213 219;
+  --secondary-rgb: 156 163 175;
+  --muted-rgb: 107 114 128;
+  --accent-rgb: 55 172 205;
+  --highlight-rgb: 234 182 118;
 }
 
 body {
