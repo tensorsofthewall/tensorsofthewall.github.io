@@ -4,8 +4,6 @@ import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 // import { AnimatedCursor } from "@/components/animatedComponents";
-import { AntdRegistry } from "@ant-design/nextjs-registry";
-import 'katex/dist/katex.min.css';
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -81,7 +79,7 @@ export default function RootLayout({
         <Header />
         <div id="page-container">
         <main style={{paddingBottom: '[footer-height]px', flex:1}}>
-        <AntdRegistry>{children}</AntdRegistry>
+        {children}
         </main>
         <Footer />
         </div>

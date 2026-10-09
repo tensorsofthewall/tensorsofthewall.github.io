@@ -1,3 +1,4 @@
+import "katex/dist/katex.min.css";
 import React from "react";
 import { getPublishedPosts, getBlocks, getPageFromSlug } from "@/lib/notion";
 import { Fragment } from "react";
@@ -123,4 +124,4 @@ export default async function Page({ params }: {
             </div>
         </div>
     )
-}
+}
