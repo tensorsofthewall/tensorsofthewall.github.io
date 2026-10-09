@@ -94,12 +94,17 @@ Compared against the commit before the redesign (`5d41c75`), same machine and me
 | `/blog` | 92 -> 95 | 3.22 s -> 2.97 s | 98 -> 58 ms | 0.038 -> 0.000 | 413 -> 313 KB |
 | `/skills` | 92 -> 99 | 2.80 s -> 2.12 s | 204 -> 41 ms | 0.000 -> 0.000 | 405 -> 255 KB |
 | `/education` | 97 -> 99 | 2.58 s -> 1.97 s | 58 -> 76 ms | 0.037 -> 0.000 | 335 -> 298 KB |
-| `/experience` | 63 -> 71 | 4.68 s -> 4.40 s | 112 -> 66 ms | 0.424 -> 0.277 | 628 -> 543 KB |
+| `/experience` | 63 -> 96 | 4.68 s -> 2.74 s | 112 -> 40 ms | 0.424 -> 0.000 | 628 -> 346 KB |
 
 The homepage was not changed; its run-to-run noise is about +/-2 points and +/-200 ms LCP.
-`/experience` is still the weakest page: its layout shift comes from the timeline measuring
-its container width after hydration (initial width guess of 1000px), which is part of the
-unchanged graph logic.
+
+`/experience` started as the weakest page. Three changes took it from 63 to 96: its heading is
+server-rendered; the timeline starts hidden, snaps to its measured geometry without animation
+and is then revealed (this removed the layout shift, which was the largest penalty); and the
+raster org logos have WebP copies at 2x display size (~290 KB -> ~45 KB). The original PNG/JPG/SVG
+files are kept in `public/images/org_logos/`; `resume_json.json` points at the `.webp` copies
+(Ignitarium's PNG is already tiny and is unchanged). Lighthouse's simulated LCP for this page is
+still higher than the measured LCP (~0.1 s), a known simulation artifact.
 
 ## Known limitations
 

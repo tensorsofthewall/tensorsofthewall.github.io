@@ -144,7 +144,7 @@
       {
         "id": "cdac",
         "organization": "Center for Development of Advanced Computing",
-        "logo": "/images/org_logos/cdac_logo.png",
+        "logo": "/images/org_logos/cdac_logo.webp",
         "url": "https://cdac.in/",
         "location": "Kolkata, India",
         "duration": "May 2019 - Oct 2019",
@@ -159,7 +159,7 @@
       {
         "id": "bosch",
         "organization": "Robert Bosch GmbH",
-        "logo": "/images/org_logos/bosch_logo.png",
+        "logo": "/images/org_logos/bosch_logo.webp",
         "url": "https://www.bosch.com/research/",
         "location": "Bangalore, India",
         "duration": "Jan 2020 - June 2020",
@@ -176,7 +176,7 @@
       {
         "id": "bu-ta",
         "organization": "Boston University",
-        "logo": "/images/org_logos/bu_logo.png",
+        "logo": "/images/org_logos/bu_logo.webp",
         "url": "https://bu.edu",
         "location": "Boston, MA",
         "position": "Teaching Assistant",
@@ -191,7 +191,7 @@
       {
         "id": "h2x",
         "organization": "Human-to-Everything (H2X) Lab, Boston University",
-        "logo": "/images/org_logos/H2Xlogo.svg",
+        "logo": "/images/org_logos/H2Xlogo.webp",
         "url": "https://eshed1.github.io/",
         "location": "Boston, MA",
         "duration": "Mar 2023 - Mar 2025",
@@ -209,7 +209,7 @@
       {
         "id": "lossfunk",
         "organization": "LossFunk",
-        "logo": "/images/org_logos/lossfunk-logo.jpg",
+        "logo": "/images/org_logos/lossfunk-logo.webp",
         "url": "https://lossfunk.com/initialize/",
         "location": "Bangalore, India",
         "duration": "June 2025 - Present",
@@ -223,7 +223,7 @@
       {
         "id": "mbzuai",
         "organization": "Mohamed bin Zayed University of Artificial Intelligence (MBZUAI)",
-        "logo": "/images/org_logos/mbzuai_logo.png",
+        "logo": "/images/org_logos/mbzuai_logo.webp",
         "url": "https://mbzuai.ac.ae/",
         "location": "Abu Dhabi, UAE",
         "duration": "Aug 2025 - Present",
@@ -287,7 +287,7 @@
       {
         "id": "ottometric",
         "company": "Ottometric Inc.",
-        "logo": "/images/org_logos/ottometric_logo.png",
+        "logo": "/images/org_logos/ottometric_logo.webp",
         "url": "https://ottometric.com/",
         "location": "Waltham, MA",
         "duration": "June 2023 – Aug 2023",
@@ -369,7 +369,7 @@
     "education": [
       {
         "institution": "Boston University",
-        "logo": "/images/org_logos/bu_logo.png",
+        "logo": "/images/org_logos/bu_logo.webp",
         "degree": "M.S. in Computer Science",
         "graduation": "May 2024",
         "startDate": "Sep 2022",
@@ -394,7 +394,7 @@
       },
       {
         "institution": "IIITDM Kancheepuram",
-        "logo": "/images/org_logos/iiitdm_logo.png",
+        "logo": "/images/org_logos/iiitdm_logo.webp",
         "degree": "B.Tech. + M.Tech. in Electronics and Communication Engineering",
         "graduation": "June 2020",
         "startDate":"July 2015",
