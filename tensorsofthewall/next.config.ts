@@ -1,14 +1,10 @@
 import type { NextConfig } from "next";
 
+// NOTE: `output: "export"` and `images.unoptimized` were previously declared in a
+// config object that was overwritten by `module.exports`, so they never took
+// effect. They are intentionally left out here to keep the current build/deploy
+// behavior unchanged.
 const nextConfig: NextConfig = {
-  /* config options here */
-  output: 'export',
-  images: {
-    unoptimized: true,
-  }
-};
-
-module.exports = {
   images: {
     remotePatterns: [
       {
@@ -56,8 +52,6 @@ module.exports = {
 
     ]
   },
-}
-
-
+};
 
 export default nextConfig;
