@@ -19,12 +19,25 @@ export const AnimatedText = React.memo(
     const [displayText, setDisplayText] = useState("");
     const [isDeleting, setIsDeleting] = useState(false);
     const [isWaiting, setIsWaiting] = useState(false);
+    const [started, setStarted] = useState(false);
     const timerRef = useRef<NodeJS.Timeout | null>(null);
+
+    // Hold off the high-frequency typing updates until the browser is idle
+    // (i.e. initial hydration is done); fall back to a short timeout.
+    useEffect(() => {
+      if (typeof window.requestIdleCallback === "function") {
+        const id = window.requestIdleCallback(() => setStarted(true), { timeout: 2000 });
+        return () => window.cancelIdleCallback(id);
+      }
+      const id = setTimeout(() => setStarted(true), 500);
+      return () => clearTimeout(id);
+    }, []);
 
     // Memoize texts to avoid unnecessary re-renders if parent recreates array
     const memoizedTexts = useMemo(() => texts, [texts]);
 
     useEffect(() => {
+      if (!started) return;
       const currentText = memoizedTexts[currentTextIndex];
 
       if (timerRef.current) clearTimeout(timerRef.current);
@@ -61,6 +74,7 @@ export const AnimatedText = React.memo(
       displayText,
       isDeleting,
       isWaiting,
+      started,
       memoizedTexts,
       typingSpeed,
       deletingSpeed,
