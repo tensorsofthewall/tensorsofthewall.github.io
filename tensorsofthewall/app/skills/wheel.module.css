@@ -1,0 +1,70 @@
+/*
+ * Decorative "toolbox" ferris wheel. Pure CSS: each badge rides a circle at a fixed phase
+ * offset while a counter-rotation keeps it upright. Reduced-motion users get a static list.
+ */
+
+.stage {
+  --d: clamp(230px, 70vw, 300px);
+  --bw: clamp(76px, 22vw, 104px);
+  --bh: clamp(22px, 6.5vw, 30px);
+  --period: 40s;
+  position: relative;
+  width: 100%;
+  height: var(--d);
+  /* Rotating boxes are wider than the visible wheel; never let them cause page scroll. */
+  overflow: clip;
+}
+
+.rider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--d);
+  height: var(--d);
+  margin-left: calc(var(--d) / -2);
+  /* Spread the riders evenly around the wheel by starting each at a different phase. */
+  animation: spin var(--period) linear infinite;
+  animation-delay: calc(var(--period) * var(--i) / var(--n) * -1);
+}
+
+.holder {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: var(--bw);
+  height: var(--bh);
+  margin-left: calc(var(--bw) / -2);
+}
+
+.badge {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  animation: spin var(--period) linear infinite reverse;
+  animation-delay: calc(var(--period) * var(--i) / var(--n) * -1);
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.static {
+  display: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.staticItem {
+  position: relative;
+  width: var(--bw, 104px);
+  height: var(--bh, 30px);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .stage { display: none; }
+  .static { display: flex; --bw: 104px; --bh: 30px; }
+}

@@ -2,12 +2,13 @@ import Image from 'next/image';
 import type { FeaturedItem } from './featured';
 import Authors from './Authors';
 import Tags from './Tags';
+import { slugify } from '@/lib/headings';
 import ExternalLink from './ExternalLink';
 
 /** Large showcase for a headline piece of work. Stack several for more than one; no carousel. */
 export default function FeaturedWork({ item }: { item: FeaturedItem }) {
     return (
-        <article className="grid overflow-hidden rounded-xl border border-[#2a2d30] bg-[#111315] lg:grid-cols-[1.1fr_1fr]">
+        <article id={`featured-${slugify(item.key)}`} className="scroll-mt-24 grid overflow-hidden rounded-xl border border-[#2a2d30] bg-[#111315] lg:grid-cols-[1.1fr_1fr]">
             <div className={`relative aspect-[16/9] ${item.imageTone === 'light' ? 'bg-white' : 'bg-[#0a0a0a]'} lg:aspect-auto lg:min-h-[320px]`}>
                 <Image
                     src={item.image}

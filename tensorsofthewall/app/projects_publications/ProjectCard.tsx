@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import type { Project } from './types';
 import Tags from './Tags';
+import { slugify } from '@/lib/headings';
 
 /**
  * Static card: the title link is stretched over the whole card (::after) so the card is one
@@ -8,7 +9,7 @@ import Tags from './Tags';
  */
 export default function ProjectCard({ project }: { project: Project }) {
     return (
-        <article className="group relative flex flex-col overflow-hidden rounded-xl border border-[#2a2d30] bg-[#111315] transition duration-200 hover:-translate-y-0.5 hover:border-[#37accd]/60 hover:bg-[#15181b] focus-within:border-[#37accd] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
+        <article id={`project-${slugify(project.name)}`} className="scroll-mt-24 group relative flex flex-col overflow-hidden rounded-xl border border-[#2a2d30] bg-[#111315] transition duration-200 hover:-translate-y-0.5 hover:border-[#37accd]/60 hover:bg-[#15181b] focus-within:border-[#37accd] motion-reduce:transition-none motion-reduce:hover:translate-y-0">
             <div className="relative aspect-[16/9] bg-[#0a0a0a]">
                 <Image
                     src={project.image}
