@@ -30,7 +30,8 @@ const getRandomPosition = () => {
 };
 
 const Hero = () => {
-    const [layerSizes, setLayerSizes] = useState(() => getRandomLayerSizes());
+    // Empty until mount: random sizes must not be generated during SSR (hydration mismatch)
+    const [layerSizes, setLayerSizes] = useState<number[]>([]);
     const [showRandomText, setShowRandomText] = useState(false);
     const [showSecondPart, setShowSecondPart] = useState(false);
     const [position, setPosition] = useState({ x: 0, y: 0 });
@@ -41,11 +42,8 @@ const Hero = () => {
     // Memoize the random position generator
     const generateRandomPosition = useCallback(() => getRandomPosition(), []);
 
-    // Memoize the random layer generator
-    const generateRandomLayers = useCallback(() => setLayerSizes(getRandomLayerSizes()), []);
-
     useEffect(() => {
-        generateRandomLayers();
+        setLayerSizes(getRandomLayerSizes());
 
         const cycleText = () => {
             setPosition(generateRandomPosition());
@@ -71,7 +69,7 @@ const Hero = () => {
             if (hideTimeoutRef.current) clearTimeout(hideTimeoutRef.current);
             if (secondPartTimeoutRef.current) clearTimeout(secondPartTimeoutRef.current);
         };
-    }, [generateRandomLayers, generateRandomPosition]);
+    }, [generateRandomPosition]);
 
     return (
         <div className="flex flex-col items-center justify-center text-center w-full text-medium sm:text-large md:text-xl lg:text-2xl text-white-500">

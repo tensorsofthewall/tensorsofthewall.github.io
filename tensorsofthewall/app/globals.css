@@ -224,3 +224,70 @@ header {
     animation: none;
   }
 }
+
+
+/* Neural network (hero) */
+.nn-node {
+  fill: var(--nn-inactive);
+  opacity: 0.3;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+.nn-node-active,
+.nn-node-output {
+  animation: nn-node-pulse 5s ease-in-out infinite;
+}
+
+.nn-connection {
+  fill: none;
+  stroke: var(--nn-inactive);
+  stroke-width: 2;
+  opacity: 0.1;
+}
+
+.nn-connection-active {
+  animation: nn-connection-pulse 5s ease-in-out infinite;
+}
+
+/* 3s pulse followed by a 2s rest, like the previous repeatDelay */
+@keyframes nn-node-pulse {
+  0%, 60%, 100% {
+    opacity: 0.5;
+    fill: var(--nn-inactive);
+    transform: scale(1);
+  }
+  30% {
+    opacity: 1;
+    fill: var(--nn-active);
+    transform: scale(1.2);
+  }
+}
+
+@keyframes nn-connection-pulse {
+  0%, 60%, 100% {
+    opacity: 0.1;
+    stroke: var(--nn-inactive);
+  }
+  30% {
+    opacity: 0.8;
+    stroke: var(--nn-active);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nn-node-active,
+  .nn-node-output,
+  .nn-connection-active {
+    animation: none;
+  }
+  .nn-connection-active {
+    opacity: 0.4;
+    stroke: var(--nn-active);
+  }
+  .nn-node-active,
+  .nn-node-output {
+    opacity: 0.8;
+    fill: var(--nn-active);
+  }
+}
