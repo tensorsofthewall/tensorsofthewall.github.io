@@ -1,4 +1,3 @@
-"use client";
 /* General Package Imports */
 import Link from "next/link";
 import Image from "next/image";
@@ -15,15 +14,18 @@ import { MdTimeline } from "react-icons/md";
 import { GiBookshelf, GiNotebook, GiOnTarget } from "react-icons/gi";
 import { HiLightBulb } from "react-icons/hi";
 
-import dynamic from "next/dynamic";
+import type { IconType } from "react-icons";
 
-// To prevent hydration issues
-const MotionDiv = dynamic(() => import("motion/react-client").then((mod) => mod.div), { ssr: false })
-
-const SHOW_NEW_UNTIL = new Date("2025-08-15T23:59:59Z");
-const showNew = new Date() < SHOW_NEW_UNTIL;
-
-import { AnimatedComponent } from "./animatedComponents";
+// Pulsing nav icon (pure CSS, no client JS)
+const PulseLink = ({ component: Icon, href, className, title, speed = 1 }: { component: IconType; href: string; className: string; title: string; speed?: number }) => (
+    <div className="relative inline-flex flex-col items-center">
+        <Link href={href}>
+            <div className="nav-pulse" style={{ "--pulse-speed": `${speed}s` } as React.CSSProperties}>
+                <Icon className={className} title={title} />
+            </div>
+        </Link>
+    </div>
+);
 
 const Header = () => {
     return (
@@ -49,47 +51,35 @@ const Header = () => {
                 </Link>
                 <div className="flex flex-col sm:flex-row justify-between w-full relative z-10 gap-1 sm:gap-0">
                     {/* Left Icon Links */}
-                    <MotionDiv 
-                        initial={{ opacity: 0, x: -500, y: -75}} 
-                        animate={{ opacity: 1, x: 0, y: -75 }} 
-                        transition={{ type:"spring", bounce: 0.45, duration: 1.0 }} 
-                        layout
-                        className="flex items-center gap-1 sm:gap-2"
-                    >
+                    <div className="header-slide-left flex items-center gap-1 sm:gap-2">
                         <Link href="/">
                             <FaHome className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Go home" />
                         </Link>
                         <Link href="/skills">
                             <GiOnTarget className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Skills" />
                         </Link>
-                        {/* <AnimatedComponent component={HiLightBulb} href="/research-exp" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Research Experience" /> */}
+                        {/* <PulseLink component={HiLightBulb} href="/research-exp" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Research Experience" /> */}
                         {/* <Link href="/industry-exp">
                             <FaBriefcase className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Industry Experience" />
                         </Link> */}
-                        <AnimatedComponent component={MdTimeline} href="/experience"className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Experience" speed={0.5} />
+                        <PulseLink component={MdTimeline} href="/experience" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Experience" speed={0.5} />
                         <Link href="/education">
                             <FaGraduationCap className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Education" />
                         </Link>
                         <Link href="/projects_publications">
                             <GiBookshelf className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Publications and Projects" />
                         </Link>
-                    </MotionDiv>
+                    </div>
 
                     {/* Right Icon Links */}
-                    <MotionDiv 
-                        initial={{ opacity: 0, x: 500, y: -75 }} 
-                        animate={{ opacity: 1, x: 0, y: -75 }} 
-                        transition={{ type:"spring", bounce: 0.45, duration: 1.0 }}
-                        layout 
-                        className="flex items-center gap-1 sm:gap-2"
-                    >
+                    <div className="header-slide-right flex items-center gap-1 sm:gap-2">
                         <Link href="/not-found">
                             <TbError404 className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Random comic"/>
                         </Link>
                         {/* <Link href="/blog">
                             <GiNotebook className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Blog"/>
                         </Link> */}
-                        <AnimatedComponent component={GiNotebook} href="/blog" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Blog" showNew={showNew} />
+                        <PulseLink component={GiNotebook} href="/blog" className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Blog" />
                         <Link href="/data/CV - Sandesh Bharadwaj.pdf" target="_blank">
                             <FaFileDownload className="h-7 w-7 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Download CV" />
                         </Link>
@@ -105,11 +95,11 @@ const Header = () => {
                         {/* <Link href="/#contact" className="group flex cursor-pointer items-center">
                             <FaEnvelope className="h-7 w-7 sm:h-8 sm:w-8 md:h-9 md:w-9 lg:h-10 lg:w-10 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Contact Me"/>
                         </Link> */}
-                    </MotionDiv>
+                    </div>
                 </div>
             </div>
         </header>
     );
 }
 
-export default React.memo(Header);
+export default Header;

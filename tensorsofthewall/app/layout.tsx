@@ -3,7 +3,7 @@ import { Geist, Orbitron } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-// import { AnimatedCursor } from "@/components/animatedComponents";
+// import AnimatedCursor from "@/components/AnimatedCursor";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

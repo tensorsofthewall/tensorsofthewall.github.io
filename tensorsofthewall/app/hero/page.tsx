@@ -1,6 +1,6 @@
 "use client";
 import React, { useState, useEffect, useCallback, useRef } from "react";
-import { AnimatedText } from "@/components/animatedComponents";
+import { AnimatedText } from "@/components/AnimatedText";
 import NeuralNetwork from "@/components/nn";
 import { motion } from "motion/react";
 
