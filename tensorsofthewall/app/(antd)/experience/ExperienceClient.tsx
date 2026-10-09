@@ -4,6 +4,8 @@ import { motion, AnimatePresence } from "motion/react";
 import ExperienceCard, { ExperienceEntry } from "./ExperienceCard";
 import type { ResearchExpProps } from "../research-exp/researchExpCard";
 import type { IndustryExpProps } from "../industry-exp/industryExpCard";
+import PageContainer from "@/components/ui/PageContainer";
+import PageHeader from "@/components/ui/PageHeader";
 
 const MIN_EXPANSION = 260;      // minimum slot height when any card is expanded
 
@@ -221,17 +223,9 @@ const ExperienceClient: React.FC<Props> = ({
     return (
         <div>
             {/* ── Header text ─────────────────────────────────────────── */}
-            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}
-                className="font-['arial']">
-                <strong style={{ marginTop: '2rem', marginBottom: '2rem' }}
-                    className="w-[90vw] max-w-[550px] text-sm sm:text-base md:text-xl lg:text-2xl">
-                    {pageStartText}
-                    <div className="text-gray-400"
-                        style={{ alignItems: 'center', justifyContent: 'center', textAlign: 'center' }}>
-                        <h1 style={{ fontSize: '18px', whiteSpace: 'pre-line' }}>{pageSubText}</h1>
-                    </div>
-                </strong>
-            </div>
+            <PageContainer className="pb-6">
+                <PageHeader title="Experience" subtitle={pageStartText} helper={pageSubText} />
+            </PageContainer>
 
             {/* ── S-Timeline ──────────────────────────────────────────── */}
             <div className="w-full pb-20" style={{ overflowX: 'visible' }}>
@@ -385,20 +379,12 @@ const ExperienceClient: React.FC<Props> = ({
                                                 paddingBottom: 8,
                                                 flexShrink: 0,
                                             }}>
-                                                <div
+                                                <button
+                                                    type="button"
                                                     onClick={() => handleCardClick(realIdx, isExp)}
-                                                    className="hover:scale-110 transition-transform duration-200 cursor-pointer"
-                                                    style={{
-                                                        background: 'rgba(255,255,255,0.1)',
-                                                        padding: 5,
-                                                        borderRadius: '50%',
-                                                        backdropFilter: 'blur(5px)',
-                                                        border: exp.kind.includes('research') && exp.kind.includes('industry')
-                                                            ? '2px solid rgba(167,139,250,0.6)'
-                                                            : exp.kind.includes('research')
-                                                                ? '2px solid rgba(253,224,71,0.5)'
-                                                                : '2px solid rgba(147,197,253,0.5)',
-                                                    }}
+                                                    aria-expanded={isExp}
+                                                    aria-label={`${exp.name}: ${isExp ? 'hide' : 'show'} details`}
+                                                    className={`block cursor-pointer rounded-full border-2 bg-white/10 p-[5px] backdrop-blur-[5px] transition duration-200 hover:-translate-y-0.5 hover:border-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent motion-reduce:transition-none motion-reduce:hover:translate-y-0 ${isExp ? 'border-accent' : exp.kind.includes('research') ? 'border-accent/50' : 'border-secondary/50'}`}
                                                 >
                                                     <picture>
                                                         <img
@@ -408,7 +394,7 @@ const ExperienceClient: React.FC<Props> = ({
                                                             style={{ width: logoSize, height: logoSize }}
                                                         />
                                                     </picture>
-                                                </div>
+                                                </button>
                                             </div>
 
                                             {/* ── Timeline dot (on the SVG line) ───────────────── */}
@@ -428,15 +414,16 @@ const ExperienceClient: React.FC<Props> = ({
                                             {/* ── Duration + kind badge (below line) ───────────── */}
                                             <div style={{ paddingTop: 8, textAlign: 'center', flexShrink: 0, height: TEXT_AREA_HEIGHT - 16 }}>
                                                 <span
-                                                    className="text-xs sm:text-sm text-white font-semibold drop-shadow-lg"
+                                                    className="text-xs sm:text-sm text-foreground font-semibold"
                                                     style={{ display: 'block', whiteSpace: 'nowrap' }}
                                                 >
                                                     {exp.duration}
                                                 </span>
-                                                <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 2, marginTop: 4 }}>
-                                                    {exp.kind.map(k => (
-                                                        <span key={k} className={`text-xs font-semibold ${k === 'research' ? 'text-yellow-300' : 'text-blue-300'}`}>
-                                                            {k === 'research' ? '⚗ Research' : '⚙ Engineering'}
+                                                <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', justifyContent: 'center', alignItems: 'center', columnGap: 6, marginTop: 4 }}>
+                                                    {exp.kind.map((k, ki) => (
+                                                        <span key={k} className={`text-xs font-medium ${k === 'research' ? 'text-accent' : 'text-secondary'}`}>
+                                                            {ki > 0 && <span aria-hidden="true" className="mr-1.5 text-muted">·</span>}
+                                                            {k === 'research' ? 'Research' : 'Engineering'}
                                                         </span>
                                                     ))}
                                                 </div>
@@ -465,7 +452,7 @@ const ExperienceClient: React.FC<Props> = ({
                                                             exit={{ opacity: 0, scaleY: 0.6 }}
                                                             transition={{ duration: 0.25, ease: 'easeOut' }}
                                                         >
-                                                            <ExperienceCard {...exp} embedded />
+                                                            <ExperienceCard {...exp} />
                                                         </motion.div>
                                                     )}
                                                 </AnimatePresence>
