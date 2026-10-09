@@ -15,8 +15,6 @@ import PostMeta from "../PostMeta";
 import PageContainer from "@/components/ui/PageContainer";
 import TagList from "@/components/ui/Tag";
 import Divider from "@/components/ui/Divider";
-import RelatedLinks from "@/components/ui/RelatedLinks";
-import { relatedFor } from "@/lib/related";
 
 export const dynamic = 'auto'
 export const revalidate = 600;
@@ -138,8 +136,6 @@ export default async function Page({ params }: {
                                 <Fragment key={block.id}>{renderBlock(block)}</Fragment>
                             ))}
                         </div>
-
-                        <RelatedLinks links={relatedFor("blog", post.slug)} label="Related" className="mt-12" />
 
                         <PostNav newer={newer} older={older} />
 

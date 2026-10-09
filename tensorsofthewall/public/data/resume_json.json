@@ -407,7 +407,10 @@
         "positions": [
           "Music Club Secretary",
           "Autonomous Underwater Vehicle Team Lead"
-        ]
+        ],
+      "positionLinks": {
+        "Autonomous Underwater Vehicle Team Lead": "https://auviiitdm.github.io/"
+      }
       }
     ],
     "references": [

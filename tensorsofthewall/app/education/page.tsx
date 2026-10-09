@@ -112,9 +112,22 @@ const EducationPage = () => {
                                 <ul className="flex flex-col gap-2.5">
                                     {edu.positions.map((position) => {
                                         const { role, context } = splitRole(position);
+                                        const roleUrl = (edu as { positionLinks?: Record<string, string> }).positionLinks?.[position];
                                         return (
                                             <li key={position} className="text-sm leading-snug">
-                                                <span className="font-medium text-foreground">{role}</span>
+                                                {roleUrl ? (
+                                                    <a
+                                                        href={roleUrl}
+                                                        target="_blank"
+                                                        rel="noopener noreferrer"
+                                                        className="font-medium text-foreground hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                                                    >
+                                                        {role} <span aria-hidden="true">↗</span>
+                                                        <span className="sr-only">(opens in a new tab)</span>
+                                                    </a>
+                                                ) : (
+                                                    <span className="font-medium text-foreground">{role}</span>
+                                                )}
                                                 {context && <span className="block text-secondary">{context}</span>}
                                             </li>
                                         );
