@@ -1,4 +1,5 @@
 import data from '@/public/data/resume_json.json';
+import type { Project, Publication } from './types';
 
 export interface FeaturedItem {
     key: string;
@@ -31,8 +32,11 @@ const order = (e: FeaturedFlags) => e.featuredOrder ?? 0;
  * Featured Work, sorted by optional `featuredOrder` (lower first), then data order.
  */
 export function getFeaturedItems(): FeaturedItem[] {
-    const papers = data.publications
-        .filter((p: FeaturedFlags) => p.featured)
+    const pubs: (Publication & FeaturedFlags)[] = data.publications;
+    const projs: (Project & FeaturedFlags)[] = data.projects;
+
+    const papers = pubs
+        .filter((p) => p.featured)
         .map((p) => ({
             order: order(p),
             item: {
@@ -41,7 +45,7 @@ export function getFeaturedItems(): FeaturedItem[] {
                 eyebrow: `${p.venue} ${p.year}`,
                 authors: p.authors,
                 description: p.tldr,
-                highlight: (p as FeaturedFlags).highlight,
+                highlight: p.highlight,
                 tags: p.tags,
                 links: p.links,
                 image: p.figure,
@@ -50,8 +54,8 @@ export function getFeaturedItems(): FeaturedItem[] {
             } as FeaturedItem,
         }));
 
-    const projects = data.projects
-        .filter((p: FeaturedFlags) => p.featured)
+    const projects = projs
+        .filter((p) => p.featured)
         .map((p) => ({
             order: order(p),
             item: {
@@ -59,9 +63,9 @@ export function getFeaturedItems(): FeaturedItem[] {
                 title: p.name,
                 eyebrow: `Project · ${p.duration}`,
                 description: p.summary,
-                highlight: (p as FeaturedFlags).highlight,
+                highlight: p.highlight,
                 tags: p.tags,
-                links: (p as FeaturedFlags).links ?? [{ label: 'Project Page', url: p.url }],
+                links: p.links ?? [{ label: 'Project Page', url: p.url }],
                 image: p.image,
                 imageAlt: `${p.name} logo or screenshot`,
                 imageTone: 'dark',
