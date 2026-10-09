@@ -361,6 +361,13 @@
         "degree": "M.S. in Computer Science",
         "graduation": "May 2024",
         "startDate": "Sep 2022",
+        "thesis": {
+          "title": "Efficient Vision and Language Models for Autonomous Systems",
+          "links": [
+            {"label": "Read thesis", "url": "/data/Efficient Vision and Language Models for Autonomous Systems - MS Thesis - Sandesh Bharadwaj.pdf"},
+            {"label": "View defense slides", "url": "/data/Efficient Vision and Language Models for Autonomous Systems - MS Thesis Defense - Sandesh Bharadwaj.pptx"}
+          ]
+        },
         "coursework": [
           "Image & Video Computing",
           "Streaming and Event-driven Systems",
