@@ -32,7 +32,11 @@
 .heading4 { margin: 1.75rem 0 0.5rem; font-size: 1.1rem; }
 
 .anchor {
-  margin-left: 0.5rem;
+  display: inline-block;
+  min-width: 1.5rem;
+  padding: 0.25rem 0.4rem;
+  margin-left: 0.25rem;
+  text-align: center;
   color: rgb(var(--muted-rgb));
   text-decoration: none;
   opacity: 0;

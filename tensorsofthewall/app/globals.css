@@ -230,6 +230,7 @@ header {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .animated-text,
   .page-enter,
   .header-slide-left,
   .header-slide-right,

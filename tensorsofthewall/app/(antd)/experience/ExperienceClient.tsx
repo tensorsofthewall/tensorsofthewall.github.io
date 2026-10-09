@@ -278,6 +278,7 @@ const ExperienceClient: React.FC<Props> = ({
                             strokeWidth="3.5"
                             strokeDasharray="6 16"
                             strokeLinecap="round"
+                            initial={false}
                             animate={{ d: svgPath }}
                             transition={{ duration: 0.35, ease: 'easeInOut' }}
                         />
@@ -297,6 +298,7 @@ const ExperienceClient: React.FC<Props> = ({
                                     <motion.path
                                         key={`arr-${i}`}
                                         d={d}
+                                        initial={false}
                                         animate={{ d }}
                                         transition={{ duration: 0.35, ease: 'easeInOut' }}
                                         fill="rgba(255,255,255,0.85)"
@@ -318,6 +320,7 @@ const ExperienceClient: React.FC<Props> = ({
                                     <motion.path
                                         key={`carr-${i}`}
                                         d={d}
+                                        initial={false}
                                         animate={{ d }}
                                         transition={{ duration: 0.35, ease: 'easeInOut' }}
                                         fill="rgba(255,255,255,0.85)"

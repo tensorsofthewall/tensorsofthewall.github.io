@@ -120,7 +120,7 @@ const EducationPage = () => {
                                                         href={roleUrl}
                                                         target="_blank"
                                                         rel="noopener noreferrer"
-                                                        className="font-medium text-foreground hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+                                                        className="inline-flex min-h-8 items-center gap-1 font-medium text-foreground hover:text-accent focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
                                                     >
                                                         {role} <span aria-hidden="true">↗</span>
                                                         <span className="sr-only">(opens in a new tab)</span>

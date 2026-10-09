@@ -35,7 +35,7 @@ export default function Text(rtext: any) {
                     style={color !== 'default' ? { color } : {}}
                     key={`${value.type}-${text.content}-${idx}`}
                 >
-                    {text.link ? <Link href={safeUrl(text.link.url)} className="text-accent underline decoration-accent/40 underline-offset-2 hover:decoration-accent" target="_blank" rel="noopener noreferrer">{text.content}</Link> : text.content}
+                    {text.link && text.content.trim() ? <Link href={safeUrl(text.link.url)} className="text-accent underline decoration-accent/40 underline-offset-2 hover:decoration-accent" target="_blank" rel="noopener noreferrer">{text.content}</Link> : text.content}
                 </span>
             )
         } else if (value.type === 'equation') {
