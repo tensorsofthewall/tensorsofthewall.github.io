@@ -73,7 +73,7 @@ const Header = () => {
 
                     {/* Right Icon Links */}
                     <div className="header-slide-right flex items-center gap-1 sm:gap-2">
-                        <Link href="/not-found">
+                        <Link href="/not-found" prefetch={false}>
                             <TbError404 className="h-8 w-8 sm:h-9 sm:w-9 md:h-10 md:w-10 lg:h-12 lg:w-12 cursor-pointer fill-gray-400 p-1 sm:p-2 text-xl sm:text-2xl transition-colors hover:fill-gray-300" title="Random comic"/>
                         </Link>
                         {/* <Link href="/blog" prefetch={false}>
