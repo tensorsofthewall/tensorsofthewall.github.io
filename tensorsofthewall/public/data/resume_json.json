@@ -65,6 +65,13 @@
     "publications": [
       {
         "title": "Unified Local-Cloud Decision-Making via Residual Reinforcement Learning",
+        "year": 2024,
+        "venue": "ECCV",
+        "featured": true,
+        "tldr": "UniLCD dynamically routes inference between on-device and cloud models, using reinforcement learning to balance latency, energy and safety for real-time embodied navigation.",
+        "highlight": "35% improvement over split-computing and early-exit baselines",
+        "tags": ["Embodied AI", "Reinforcement Learning", "Edge/Cloud"],
+        "links": [{"label": "Project Page", "url": "https://unilcd.github.io/"}, {"label": "ECCV Proceedings", "url": "https://www.ecva.net/papers.php"}],
         "abstract": ["Embodied vision systems like mobile robots must balance energy, latency, and safety. While offloading to the cloud allows access to powerful models, it introduces communication delays that hinder real-time, safety-critical use.", "We propose UniLCD, a hybrid inference framework enabling dynamic local-cloud collaboration via a reinforcement learning–optimized routing module and multi-task objective. Tested on a challenging navigation task, UniLCD outperforms state-of-the-art split computing and early exit baselines by over 35%, offering a robust solution for efficient and safe decision-making in dynamic environments."],
         "link": "https://unilcd.github.io/",
         "figure": "/images/papers/unilcd.png",
@@ -81,6 +88,11 @@
       },
       {
         "title": "Person Re-Identification by Analyzing Dynamic Variations in Gait Sequences",
+        "year": 2020,
+        "venue": "ETCCS",
+        "tldr": "Gait-based re-identification using Active Energy Images and affine moment invariants, reaching 91.13% accuracy on CASIA-B.",
+        "tags": ["Computer Vision", "Gait Recognition", "Biometrics"],
+        "links": [{"label": "Paper", "url": "https://link.springer.com/chapter/10.1007/978-981-15-7804-5_30"}],
         "abstract": ["Gait recognition identifies individuals by analyzing their walking patterns but often struggles with appearance changes. Traditional methods like Gait Energy Image (GEI) lose dynamic motion details.", "We propose a novel approach using Active Energy Image (AEI), which better captures motion variations. AEIs are divided into segments, and affine moment invariants are extracted as features. Matching is performed using a weighted similarity scheme across all segments.", "Evaluated on the CASIA-B dataset, our method achieves 91.13% accuracy with 23 segments and 5 moment invariants, showing strong performance in appearance-variant or low-resolution settings."],
         "link": "https://link.springer.com/chapter/10.1007/978-981-15-7804-5_30",
         "figure": "/images/papers/GaitSequence.jpg",
@@ -243,6 +255,8 @@
     "projects": [
       {
         "name": "Exo",
+        "summary": "Contributor to a distributed inference framework that runs LLMs across clusters of heterogeneous devices. Improved AMD GPU support and added a llama.cpp backend for native Windows.",
+        "tags": ["Distributed Inference", "LLMs", "AMD", "llama.cpp", "Systems"],
         "duration": "Jan 2025 - Apr 2025",
         "url": "https://github.com/exo-explore/exo",
         "image": "/images/projects/exo-logo.png",
@@ -258,6 +272,8 @@
       },
       {
         "name": "BetterSearch",
+        "summary": "Local-first desktop search that answers natural-language questions over your files using RAG and text-to-SQL (osquery), with configurable CPU/GPU and optional cloud.",
+        "tags": ["RAG", "Local LLMs", "OpenVINO", "ChromaDB", "Desktop"],
         "duration": "July 2024 - Present",
         "url": "https://github.com/tensorsofthewall/BetterSearch",
         "image": "/images/projects/bettersearch.jpg",
@@ -273,6 +289,8 @@
       },
       {
         "name": "VidTune",
+        "summary": "Generative AI web app that composes music tailored to a video, with controls for genre, tempo, keywords and mixing.",
+        "tags": ["Generative AI", "Gemini", "MusicGen", "Multimodal"],
         "duration": "May 2024 - Aug 2024",
         "url": "https://github.com/tensorsofthewall/VidTune",
         "image": "/images/projects/vidtune.png",
@@ -286,6 +304,8 @@
       },
       {
         "name": "Autonomous Underwater Vehicle",
+        "summary": "Led IIITDM's AUV team to the Singapore AUV Challenge finals in 2019 and 2020, owning navigation, vision software and electronics.",
+        "tags": ["Robotics", "Computer Vision", "Navigation", "Embedded Systems"],
         "duration": "Sep 2018 - April 2020",
         "url": "https://auviiitdm.github.io/",
         "image":"/images/projects/auvsociety.ico",
