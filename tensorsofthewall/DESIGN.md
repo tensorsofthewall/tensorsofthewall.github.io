@@ -106,10 +106,17 @@ files are kept in `public/images/org_logos/`; `resume_json.json` points at the `
 (Ignitarium's PNG is already tiny and is unchanged). Lighthouse's simulated LCP for this page is
 still higher than the measured LCP (~0.1 s), a known simulation artifact.
 
+## Site header on phones
+
+Below 640px the header stacks three centred rows (logo, main icons, contact/link icons); from
+640px it is unchanged (verified pixel-identical). The icon rows' entrance animation and resting
+lift use a `--lift` CSS variable (0 on phones, -75px from 640px). The header clips horizontally
+so the slide-in can never widen the page, icons are 36px tap targets on phones, every icon link
+has an `aria-label`, the two icon groups are labelled `nav` landmarks, and icon links have a
+visible focus ring. There is no page-level horizontal overflow on any route at 320-639px.
+
 ## Known limitations
 
-- A ~20px page-level horizontal overflow at 390px comes from the global site header's entrance
-  animation (not from page content).
 - Legacy `/research-exp` and `/industry-exp` routes still use the old AntD cards (they are
   proxied, not linked from the navigation).
 - The homepage hero caption still uses blur-to-reveal (left untouched on purpose).

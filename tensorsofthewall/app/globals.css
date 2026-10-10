@@ -180,13 +180,22 @@ header {
   }
 }
 
-/* Header: icon groups slide in from the sides (final offset is -75px on Y) */
+/* Header: icon groups slide in from the sides */
+/* Phones stack the header rows (no lift); from 640px the icon rows are lifted level with the logo. */
 .header-slide-left,
 .header-slide-right {
-  transform: translateY(-75px);
+  --lift: 0px;
+  transform: translateY(var(--lift));
   animation-duration: 1s;
   animation-timing-function: cubic-bezier(0.34, 1.45, 0.64, 1);
   animation-fill-mode: backwards;
+}
+
+@media (min-width: 640px) {
+  .header-slide-left,
+  .header-slide-right {
+    --lift: -75px;
+  }
 }
 
 .header-slide-left {
@@ -200,22 +209,22 @@ header {
 @keyframes header-slide-left {
   from {
     opacity: 0;
-    transform: translate(-500px, -75px);
+    transform: translate(-500px, var(--lift));
   }
   to {
     opacity: 1;
-    transform: translate(0, -75px);
+    transform: translate(0, var(--lift));
   }
 }
 
 @keyframes header-slide-right {
   from {
     opacity: 0;
-    transform: translate(500px, -75px);
+    transform: translate(500px, var(--lift));
   }
   to {
     opacity: 1;
-    transform: translate(0, -75px);
+    transform: translate(0, var(--lift));
   }
 }
 

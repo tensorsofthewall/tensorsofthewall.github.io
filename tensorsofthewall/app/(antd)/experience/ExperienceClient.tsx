@@ -251,7 +251,8 @@ const ExperienceClient: React.FC<Props> = ({
     return (
         <div>
             {/* ── S-Timeline ──────────────────────────────────────────── */}
-            <div className="w-full pb-20" style={{ overflowX: 'visible' }}>
+            {/* overflow-x: clip: before the width is measured the timeline is laid out at a 1000px guess, which must not widen the page. */}
+            <div className="w-full pb-20" style={{ overflowX: 'clip' }}>
                 <div
                     ref={containerRef}
                     className="relative w-full max-w-6xl mx-auto"
